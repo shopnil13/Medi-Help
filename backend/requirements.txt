@@ -16,3 +16,4 @@ pytest-asyncio>=0.23.0
 ruff>=0.6.0
 black>=24.0.0
 mypy>=1.11.0
+email-validator>=2.2.0
