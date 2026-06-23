@@ -1,6 +1,6 @@
 # System Overview
 
-The Health Assistant uses a local-first Android app and an async FastAPI backend.
+Medi-Help uses a local-first Android app and an async FastAPI backend.
 
 Fast local Android features:
 

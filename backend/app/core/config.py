@@ -5,13 +5,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "Health Assistant API"
+    app_name: str = "Medi-Help API"
     app_env: str = "local"
     debug: bool = True
     api_v1_prefix: str = "/api/v1"
 
     database_url: str = Field(
-        default="postgresql+asyncpg://health_user:health_password@localhost:5432/health_assistant"
+        default="postgresql+asyncpg://health_user:health_password@localhost:5432/medi_help"
     )
     redis_url: str = "redis://localhost:6379/0"
 

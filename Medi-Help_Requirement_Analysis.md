@@ -1,7 +1,7 @@
-# Software Requirement Analysis Report: Health Assistant Application
+# Software Requirement Analysis Report: Medi-Help Application
 
 ## 1. Executive Summary
-The **Health Assistant** is an intelligent, user-friendly application designed to help individuals—specifically focusing on elderly users and those without medical backgrounds—manage their daily health. The core value proposition relies on translating complex medical prescriptions and lab reports into easily understandable language (comprehensible to a 10-year-old), automating medication reminders, and tracking vital health markers through a unified dashboard.
+**Medi-Help** is an intelligent, user-friendly application designed to help individuals—specifically focusing on elderly users and those without medical backgrounds—manage their daily health. The core value proposition relies on translating complex medical prescriptions and lab reports into easily understandable language (comprehensible to a 10-year-old), automating medication reminders, and tracking vital health markers through a unified dashboard.
 
 ## 2. Target Audience & Design Philosophy
 * **Target Audience:** General public, with a strong emphasis on elderly individuals and users with limited health literacy.

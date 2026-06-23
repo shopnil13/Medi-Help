@@ -23,7 +23,7 @@ app.add_middleware(
 
 @app.get("/health")
 async def root_health_check() -> dict[str, str]:
-    return {"status": "ok", "service": "health-assistant-api"}
+    return {"status": "ok", "service": "medi-help-api"}
 
 
 app.include_router(api_router, prefix=settings.api_v1_prefix)

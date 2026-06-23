@@ -1,6 +1,6 @@
-# Health Assistant
+# Medi-Help
 
-A local-first Android Health Assistant app with a FastAPI backend.
+A local-first Android Medi-Help app with a FastAPI backend.
 
 ## Stack
 
@@ -50,5 +50,5 @@ http://localhost:8000/docs
 Expected `/health` response:
 
 ```json
-{"status":"ok","service":"health-assistant-api"}
+{"status":"ok","service":"medi-help-api"}
 ```

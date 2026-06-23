@@ -1,10 +1,10 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: health_assistant_postgres
+    container_name: medi_help_postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: health_assistant
+      POSTGRES_DB: medi_help
       POSTGRES_USER: health_user
       POSTGRES_PASSWORD: health_password
     ports:
@@ -12,14 +12,14 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U health_user -d health_assistant"]
+      test: ["CMD-SHELL", "pg_isready -U health_user -d medi_help"]
       interval: 10s
       timeout: 5s
       retries: 5
 
   redis:
     image: redis:7-alpine
-    container_name: health_assistant_redis
+    container_name: medi_help_redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -33,7 +33,7 @@ services:
 
   minio:
     image: minio/minio:latest
-    container_name: health_assistant_minio
+    container_name: medi_help_minio
     restart: unless-stopped
     command: server /data --console-address ":9001"
     environment:

@@ -1,7 +1,7 @@
-# Health Assistant Android App — Implementation Plan
+# Medi-Help Android App — Implementation Plan
 
 **File name:** `Implementation_Plan.md`  
-**Target app:** Health Assistant Application  
+**Target app:** Medi-Help Application  
 **Frontend:** Android — Kotlin + Jetpack Compose  
 **Backend:** Python — FastAPI  
 **Architecture style:** Local-first Android app + async AI-processing backend  
@@ -11,7 +11,7 @@
 
 ## 1. Product Goal
 
-Build a simple, accessible Health Assistant Android app that helps users:
+Build a simple, accessible Medi-Help Android app that helps users:
 
 1. Upload prescriptions and lab reports.
 2. Extract medicines, dosage schedules, and biomarker values automatically.
@@ -250,7 +250,7 @@ Backend receives latest vitals + medicines + lab history
 Recommended repository style: **monorepo**.
 
 ```text
-health-assistant/
+medi-help/
 │
 ├── README.md
 ├── Implementation_Plan.md
@@ -261,7 +261,7 @@ health-assistant/
 │
 ├── docs/
 │   ├── requirements/
-│   │   └── Health_Assistant_Requirement_Analysis.md
+│   │   └── Medi-Help_Requirement_Analysis.md
 │   ├── api/
 │   │   └── openapi-notes.md
 │   ├── architecture/
@@ -282,8 +282,8 @@ health-assistant/
 │   │   └── src/
 │   │       ├── main/
 │   │       │   ├── AndroidManifest.xml
-│   │       │   ├── java/com/example/healthassistant/
-│   │       │   │   ├── HealthAssistantApp.kt
+│   │       │   ├── java/com/example/medihelp/
+│   │       │   │   ├── MediHelpApp.kt
 │   │       │   │   ├── MainActivity.kt
 │   │       │   │   │
 │   │       │   │   ├── core/
@@ -983,7 +983,7 @@ Create a clean foundation before feature coding starts.
 
 #### Repository
 
-1. Create `health-assistant/` monorepo.
+1. Create `medi-help/` monorepo.
 2. Add `android/`, `backend/`, `docs/`, `infra/`, and `contracts/` folders.
 3. Add root `.gitignore`.
 4. Add root `README.md`.
@@ -1078,7 +1078,7 @@ Build the Android app shell with Compose, navigation, auth screens, local DB, an
 
 #### App Foundation
 
-1. Create `HealthAssistantApp.kt`.
+1. Create `MediHelpApp.kt`.
 2. Create `MainActivity.kt`.
 3. Add app theme.
 4. Add navigation graph.
