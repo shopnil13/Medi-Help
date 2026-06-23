@@ -1,0 +1,36 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Backend uploads/local storage
+backend/storage/
+backend/.env
+
+# Android/Gradle
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+*.jks
+
+# IDE
+.idea/
+.vscode/
