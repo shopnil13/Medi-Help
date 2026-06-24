@@ -106,13 +106,13 @@ async def login_user(
         )
     
 
-    acces_token = create_access_token(str(user.id))
+    access_token = create_access_token(str(user.id))
     refresh_token = await create_refresh_token_record(db, user.id)
 
     await db.commit()
 
     return AuthTokenResponse(
-        access_token=create_access_token,
+        access_token=access_token,
         refresh_token=refresh_token,
     )
 

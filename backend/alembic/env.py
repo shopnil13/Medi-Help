@@ -8,9 +8,8 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from app.core.config import get_settings
 from app.db.base import Base
 
-#import models so Alembic can detect tables.
-from app.models.user import User
-from app.models.refresh_token import Refreshtoken
+# Import models so Alembic can detect tables.
+from app.models import RefreshToken, User  # noqa: F401
 
 config = context.config
 
@@ -24,7 +23,7 @@ target_metadata = Base.metadata
 
 def run_migrations_offline() -> None:
     context.configure(
-        url=settings.database_urls,
+        url=settings.database_url,
         target_metadata=target_metadata,
         literal_binds=True,
         compare_type=True,

@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
 
     database_url: str = Field(
-        default="postgresql+asyncpg://health_user:health_password@localhost:5432/medi_help"
+        default="postgresql+asyncpg://health_user:health_password@localhost:5433/medi_help"
     )
     redis_url: str = "redis://localhost:6379/0"
 
