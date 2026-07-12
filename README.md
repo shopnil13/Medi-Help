@@ -52,3 +52,19 @@ Expected `/health` response:
 ```json
 {"status":"ok","service":"medi-help-api"}
 ```
+
+### 4. Run the Android app
+
+The app talks to the backend at `http://10.0.2.2:8000/` by default, which is
+the Android emulator's alias for the host machine's `localhost` — so start
+the backend (steps 1-2) first.
+
+```bash
+cd android
+./gradlew :app:assembleDebug
+```
+
+Or open `android/` in Android Studio and run the `app` configuration on an
+emulator or device. Debug builds allow plaintext HTTP to `10.0.2.2` and
+`localhost` only (see `app/src/debug/res/xml/network_security_config_debug.xml`);
+release builds require HTTPS.

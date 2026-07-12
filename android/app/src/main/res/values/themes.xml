@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.MediHelp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/warm_50</item>
+        <item name="android:windowBackground">@color/warm_50</item>
+    </style>
+</resources>
