@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "screenshots_01_check_screen",
+      "label": "Medi-Help Prototype Overview - Onboarding & Auth Section",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/01-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "screenshots_01_check_medihelp_app",
+      "label": "Medi-Help Android App",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/01-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "screenshots_01_check_onboarding_auth_flow",
+      "label": "Onboarding & Auth Flow (Splash to Register to Permissions)",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/01-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "screenshots_01_check_screen",
+      "target": "screenshots_01_check_medihelp_app",
+      "relation": "DEPICTS",
+      "description": "Screenshot is a title/overview card for the Medi-Help high-fidelity UI/UX prototype (Material 3, Jetpack Compose-ready, warm red identity, large type and big tap targets designed for elderly users and anyone wanting plain-language health explanations).",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "screenshots_01_check_screen",
+      "target": "screenshots_01_check_onboarding_auth_flow",
+      "relation": "SHOWS_SECTION",
+      "description": "Section '1 - Onboarding & Auth' with flow sequence Splash -> Onboarding -> Login -> Register -> Permissions; two Android phone mockup frames are partially visible (first blank/splash, second with a 'Skip' link and a rounded peach-colored illustration placeholder, resembling an onboarding screen).",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "screenshots_01_check_onboarding_auth_flow",
+      "target": "screenshots_01_check_medihelp_app",
+      "relation": "PART_OF",
+      "description": "The Onboarding & Auth flow is the first documented section of the Medi-Help app prototype's UI/UX flow.",
+      "confidence_score": 0.95
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

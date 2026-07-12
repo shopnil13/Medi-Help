@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    {
+      "id": "resources_upload_page_screen",
+      "label": "Upload a Health Document Screen",
+      "file_type": "image",
+      "source_file": "Resources/upload_page.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_upload_page_document_type_selector",
+      "label": "Document Type Selector (Prescription / Lab Report / Not Sure)",
+      "file_type": "image",
+      "source_file": "Resources/upload_page.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_upload_page_upload_dropzone",
+      "label": "Upload Dropzone with Take Photo / Choose from Gallery / Upload PDF actions",
+      "file_type": "image",
+      "source_file": "Resources/upload_page.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_upload_page_ai_review_notice",
+      "label": "AI and Team Review Trust Notice",
+      "file_type": "image",
+      "source_file": "Resources/upload_page.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "resources_upload_page_screen",
+      "target": "resources_upload_page_document_type_selector",
+      "relation": "CONTAINS",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_upload_page_screen",
+      "target": "resources_upload_page_upload_dropzone",
+      "relation": "CONTAINS",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_upload_page_screen",
+      "target": "resources_upload_page_ai_review_notice",
+      "relation": "CONTAINS",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_upload_page_document_type_selector",
+      "target": "resources_upload_page_upload_dropzone",
+      "relation": "FILTERS_INPUT_FOR",
+      "confidence_score": 0.75
+    },
+    {
+      "source": "resources_upload_page_upload_dropzone",
+      "target": "resources_upload_page_ai_review_notice",
+      "relation": "PRECEDES",
+      "confidence_score": 0.65
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

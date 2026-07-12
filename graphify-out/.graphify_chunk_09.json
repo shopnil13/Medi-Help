@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "assets_logo_mark",
+      "label": "Medi-Help Logo (Heart with Medical Cross and Two Figures)",
+      "file_type": "image",
+      "source_file": "Resources/assets/logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_logo_heart_symbol",
+      "label": "Heart Shape Symbol",
+      "file_type": "image",
+      "source_file": "Resources/assets/logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_logo_medical_cross_symbol",
+      "label": "White Medical Cross on Red Circle",
+      "file_type": "image",
+      "source_file": "Resources/assets/logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "assets_logo_two_figures_symbol",
+      "label": "Two Person Figures Forming Heart Lobes",
+      "file_type": "image",
+      "source_file": "Resources/assets/logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "assets_logo_mark",
+      "target": "assets_logo_heart_symbol",
+      "relation": "composed_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "assets_logo_mark",
+      "target": "assets_logo_medical_cross_symbol",
+      "relation": "composed_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "assets_logo_mark",
+      "target": "assets_logo_two_figures_symbol",
+      "relation": "composed_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "assets_logo_two_figures_symbol",
+      "target": "assets_logo_heart_symbol",
+      "relation": "forms",
+      "confidence_score": 0.95
+    },
+    {
+      "source": "assets_logo_medical_cross_symbol",
+      "target": "assets_logo_heart_symbol",
+      "relation": "centered_within",
+      "confidence_score": 0.95
+    },
+    {
+      "source": "assets_logo_mark",
+      "target": "assets_logo_medical_cross_symbol",
+      "relation": "conveys_theme_healthcare",
+      "confidence_score": 0.85
+    },
+    {
+      "source": "assets_logo_mark",
+      "target": "assets_logo_two_figures_symbol",
+      "relation": "conveys_theme_caregiving_community",
+      "confidence_score": 0.75
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

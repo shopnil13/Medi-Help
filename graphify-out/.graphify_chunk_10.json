@@ -1,0 +1,169 @@
+{
+  "nodes": [
+    {
+      "id": "resources_home_screen_dashboard",
+      "label": "Home Screen Dashboard (Good morning, Anita)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_greeting_header",
+      "label": "Greeting Header (Good morning, Anita + notification bell + avatar)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_todays_medicines_card",
+      "label": "Today's Medicines Card (3 Due today)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_upload_document_card",
+      "label": "Upload a Document Card (Add reports or prescription)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_vitals_summary_card",
+      "label": "Vitals Summary Card (BP 120/80, Heart Rate 72, Glucose 110)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_health_tip_card",
+      "label": "Simple Health Tip Card (Drink water, take short walks, illustrated senior character)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_bottom_nav",
+      "label": "Bottom Navigation Bar (Home, Medicines, Vitals, Upload, Tips)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_home_screen_elderly_user_persona",
+      "label": "Elderly-Focused User Persona (Anita, senior-friendly UI)",
+      "file_type": "image",
+      "source_file": "Resources/home_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_greeting_header",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_todays_medicines_card",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_upload_document_card",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_vitals_summary_card",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_health_tip_card",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_bottom_nav",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_home_screen_greeting_header",
+      "target": "resources_home_screen_elderly_user_persona",
+      "relation": "personalizes_for",
+      "confidence_score": 0.85
+    },
+    {
+      "source": "resources_home_screen_dashboard",
+      "target": "resources_home_screen_elderly_user_persona",
+      "relation": "designed_for",
+      "confidence_score": 0.75
+    },
+    {
+      "source": "resources_home_screen_todays_medicines_card",
+      "target": "resources_home_screen_bottom_nav",
+      "relation": "links_to_medicines_tab",
+      "confidence_score": 0.65
+    },
+    {
+      "source": "resources_home_screen_vitals_summary_card",
+      "target": "resources_home_screen_bottom_nav",
+      "relation": "links_to_vitals_tab",
+      "confidence_score": 0.65
+    },
+    {
+      "source": "resources_home_screen_upload_document_card",
+      "target": "resources_home_screen_bottom_nav",
+      "relation": "links_to_upload_tab",
+      "confidence_score": 0.65
+    },
+    {
+      "source": "resources_home_screen_health_tip_card",
+      "target": "resources_home_screen_bottom_nav",
+      "relation": "links_to_tips_tab",
+      "confidence_score": 0.65
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

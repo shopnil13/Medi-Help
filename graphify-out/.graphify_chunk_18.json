@@ -1,0 +1,296 @@
+{
+  "nodes": [
+    {
+      "id": "uploads_7d06c753_daad_42c3_ae31_a7c6079be8d8_7240cbef",
+      "label": "Medi-Help App UI Mockup Collage",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_app",
+      "label": "Medi-Help (mobile health app)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_anita_persona",
+      "label": "Anita (sample user persona shown on home screen)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_home_screen",
+      "label": "Home screen (Good morning, Anita)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_upload_document_screen",
+      "label": "Upload a health document screen",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_review_medicines_screen",
+      "label": "Review medicines we found screen (AI extraction confirmation)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_my_medicines_screen",
+      "label": "My Medicines screen (reminders list)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_health_chart_screen",
+      "label": "Health Chart screen (Blood Pressure tracking)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_health_tips_screen",
+      "label": "Simple Health Tips carousel screen",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_metformin_500mg",
+      "label": "Metformin 500mg (sample medicine entry)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_amlodipine_5mg",
+      "label": "Amlodipine 5mg (sample medicine entry)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_vitamin_d3_60k",
+      "label": "Vitamin D3 60K (sample medicine entry)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_ai_document_extraction_feature",
+      "label": "AI-based document upload and medicine extraction feature",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "medihelp_vitals_tracking_feature",
+      "label": "Vitals tracking feature (BP, heart rate, glucose)",
+      "file_type": "image",
+      "source_file": "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "uploads_7d06c753_daad_42c3_ae31_a7c6079be8d8_7240cbef",
+      "target": "medihelp_app",
+      "relation": "depicts",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_home_screen",
+      "relation": "has_screen",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_upload_document_screen",
+      "relation": "has_screen",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_review_medicines_screen",
+      "relation": "has_screen",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_my_medicines_screen",
+      "relation": "has_screen",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_health_chart_screen",
+      "relation": "has_screen",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_health_tips_screen",
+      "relation": "has_screen",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_home_screen",
+      "target": "medihelp_anita_persona",
+      "relation": "greets",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_upload_document_screen",
+      "target": "medihelp_ai_document_extraction_feature",
+      "relation": "initiates",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_ai_document_extraction_feature",
+      "target": "medihelp_review_medicines_screen",
+      "relation": "produces",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_review_medicines_screen",
+      "target": "medihelp_metformin_500mg",
+      "relation": "lists",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_review_medicines_screen",
+      "target": "medihelp_amlodipine_5mg",
+      "relation": "lists",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_review_medicines_screen",
+      "target": "medihelp_vitamin_d3_60k",
+      "relation": "lists",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_my_medicines_screen",
+      "target": "medihelp_metformin_500mg",
+      "relation": "schedules_reminder_for",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_my_medicines_screen",
+      "target": "medihelp_amlodipine_5mg",
+      "relation": "schedules_reminder_for",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_my_medicines_screen",
+      "target": "medihelp_vitamin_d3_60k",
+      "relation": "schedules_reminder_for",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_health_chart_screen",
+      "target": "medihelp_vitals_tracking_feature",
+      "relation": "visualizes",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_home_screen",
+      "target": "medihelp_vitals_tracking_feature",
+      "relation": "summarizes",
+      "type": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "medihelp_app",
+      "target": "medihelp_anita_persona",
+      "relation": "targets_elderly_user_persona",
+      "type": "INFERRED",
+      "confidence_score": 0.75
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

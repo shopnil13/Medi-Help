@@ -1,0 +1,22 @@
+D:\PROJECTS\Medi-Help\Implementation_Plan.md
+D:\PROJECTS\Medi-Help\Medi-Help_Requirement_Analysis.md
+D:\PROJECTS\Medi-Help\README.md
+D:\PROJECTS\Medi-Help\docker-compose.yml
+D:\PROJECTS\Medi-Help\.github\workflows\android-ci.yml
+D:\PROJECTS\Medi-Help\.github\workflows\backend-ci.yml
+D:\PROJECTS\Medi-Help\Resources\support.js
+D:\PROJECTS\Medi-Help\Resources\Medi-Help App.dc.html
+D:\PROJECTS\Medi-Help\Resources\_ds\medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748\_adherence.oxlintrc.json
+D:\PROJECTS\Medi-Help\Resources\_ds\medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748\_ds_bundle.js
+D:\PROJECTS\Medi-Help\Resources\_ds\medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748\_ds_manifest.json
+D:\PROJECTS\Medi-Help\Resources\_ds\medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748\readme.md
+D:\PROJECTS\Medi-Help\Resources\assets\image-slot.js
+D:\PROJECTS\Medi-Help\android\build.gradle.kts
+D:\PROJECTS\Medi-Help\android\gradlew
+D:\PROJECTS\Medi-Help\android\settings.gradle.kts
+D:\PROJECTS\Medi-Help\android\app\build.gradle.kts
+D:\PROJECTS\Medi-Help\android\app\src\main\java\com\medihelp\app\MainActivity.kt
+D:\PROJECTS\Medi-Help\android\app\src\main\java\com\medihelp\app\MediHelpApp.kt
+D:\PROJECTS\Medi-Help\android\app\src\main\java\com\medihelp\app\core\common\ErrorMapper.kt
+D:\PROJECTS\Medi-Help\android\app\src\main\java\com\medihelp\app\core\common\Result.kt
+D:\PROJECTS\Medi-Help\android\app\src\main\java\com\medihelp\app\core\database\AppDatabase.kt

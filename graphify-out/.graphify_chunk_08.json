@@ -1,0 +1,180 @@
+{
+  "nodes": [
+    {
+      "id": "resources_design_system_overview",
+      "label": "Medi-Help Design System (Mobile App UI Mockups)",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_onboarding_screen",
+      "label": "Onboarding/Splash Screen - heart-and-cross logo, coral/red gradient wave background, tagline 'Your health, explained simply.'",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_home_screen",
+      "label": "Home Screen - greeting header, Today's Medicines card, Upload a Document card, Vitals Summary (BP, heart rate, glucose), Simple Health Tip card, bottom nav (Home/Medicines/Vitals/Upload/Tips)",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_upload_document_screen",
+      "label": "Upload a Health Document Screen - document type selector (Prescription/Lab Report/Not Sure), Take Photo/Choose from Gallery/Upload PDF actions, AI review disclaimer",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_medicine_review_screen",
+      "label": "Review Medicines We Found Screen - AI Confidence: High badge, editable extracted medicine cards (Metformin 500mg, Amlodipine 5mg, Vitamin D3 60K) with dose/when/schedule, Confirm and Add Reminders button",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_my_medicines_screen",
+      "label": "My Medicines Screen - Next Reminder card with Mark as Taken button, medicine list with schedule/time chips, Add Medicine button",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_health_chart_screen",
+      "label": "Health Chart Screen - Blood Pressure line chart (Systolic/Diastolic) with Week/Month/3 Months/Year filters, Latest Reading 120/80 mmHg Normal badge, Manual/Lab Report/Health Connect entry options, Add Vital button",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_health_tips_card",
+      "label": "Simple Health Tips Carousel Card - illustrated elderly couple walking, tip 'Walk for 20-30 minutes daily. It helps your heart, mood, and energy.'",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_design_system_brand_value_props",
+      "label": "Medi-Help Brand Footer - logo, tagline, and four value propositions: Understand Your Health, Manage Medicines, Track Vitals, Trusted & Secure; disclaimer 'Medi-Help is not a diagnostic tool. Always follow your doctor's advice.'",
+      "file_type": "image",
+      "source_file": "Resources/Design_System.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "resources_design_system_onboarding_screen",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_home_screen",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_upload_document_screen",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_medicine_review_screen",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_my_medicines_screen",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_health_chart_screen",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_health_tips_card",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_brand_value_props",
+      "target": "resources_design_system_overview",
+      "relation": "part_of",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "resources_design_system_upload_document_screen",
+      "target": "resources_design_system_medicine_review_screen",
+      "relation": "leads_to",
+      "confidence_score": 0.85
+    },
+    {
+      "source": "resources_design_system_medicine_review_screen",
+      "target": "resources_design_system_my_medicines_screen",
+      "relation": "populates",
+      "confidence_score": 0.75
+    },
+    {
+      "source": "resources_design_system_home_screen",
+      "target": "resources_design_system_upload_document_screen",
+      "relation": "navigates_to",
+      "confidence_score": 0.85
+    },
+    {
+      "source": "resources_design_system_home_screen",
+      "target": "resources_design_system_health_chart_screen",
+      "relation": "navigates_to",
+      "confidence_score": 0.75
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

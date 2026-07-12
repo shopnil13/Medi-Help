@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "resources_app_opening_screen_splash",
+      "label": "Medi-Help App Splash/Opening Screen",
+      "file_type": "image",
+      "source_file": "Resources/App_opening_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_app_opening_screen_brand_logo",
+      "label": "Medi-Help Logo (heart + two-person silhouette + medical cross)",
+      "file_type": "image",
+      "source_file": "Resources/App_opening_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_app_opening_screen_tagline",
+      "label": "Tagline: 'Your health, explained simply.'",
+      "file_type": "image",
+      "source_file": "Resources/App_opening_screen.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "resources_app_opening_screen_splash",
+      "target": "resources_app_opening_screen_brand_logo",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Resources/App_opening_screen.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "resources_app_opening_screen_splash",
+      "target": "resources_app_opening_screen_tagline",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Resources/App_opening_screen.png",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

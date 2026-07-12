@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "id": "screenshots_02_check_screen",
+      "label": "Onboarding Screen: Track Your Health Over Time",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/02-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "screenshots_02_check_get_started_button",
+      "label": "Get Started Button",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/02-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "screenshots_02_check_login_link",
+      "label": "Log In Link",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/02-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "screenshots_02_check_onboarding_carousel",
+      "label": "Onboarding Carousel Progress Dots (3rd of 3 slides)",
+      "file_type": "image",
+      "source_file": "Resources/screenshots/02-check.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "screenshots_02_check_screen",
+      "target": "screenshots_02_check_get_started_button",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "screenshots_02_check_screen",
+      "target": "screenshots_02_check_login_link",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "screenshots_02_check_screen",
+      "target": "screenshots_02_check_onboarding_carousel",
+      "relation": "contains",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "screenshots_02_check_get_started_button",
+      "target": "screenshots_02_check_login_link",
+      "relation": "alternative_action_to",
+      "confidence_score": 0.85
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

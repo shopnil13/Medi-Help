@@ -1,0 +1,707 @@
+{
+  "Resources/_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/_adherence.oxlintrc.json": {
+    "mtime": 1783833485.0,
+    "ast_hash": "204e990a575040cb5b2aad8de446eddc",
+    "semantic_hash": ""
+  },
+  "Resources/_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/_ds_bundle.js": {
+    "mtime": 1783833485.0,
+    "ast_hash": "6d41344f8226b996759bbc14c87e191c",
+    "semantic_hash": ""
+  },
+  "Resources/_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/_ds_manifest.json": {
+    "mtime": 1783833485.0,
+    "ast_hash": "9031a8bd7dc2eeda1db13eab91173c7b",
+    "semantic_hash": ""
+  },
+  "Resources/assets/image-slot.js": {
+    "mtime": 1783833485.0,
+    "ast_hash": "bebc2dd911ae4ca0de81deb5bd61068c",
+    "semantic_hash": ""
+  },
+  "Resources/support.js": {
+    "mtime": 1783833485.0,
+    "ast_hash": "3a73f000dd7ec917483141309e6b2095",
+    "semantic_hash": ""
+  },
+  "android/app/build.gradle.kts": {
+    "mtime": 1783840090.9852667,
+    "ast_hash": "77381252cc7594e478e15a1ec435f4bb",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/MainActivity.kt": {
+    "mtime": 1783861016.6397429,
+    "ast_hash": "8a0df98d1eda47bcf294f9b22470460f",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/MediHelpApp.kt": {
+    "mtime": 1783840114.3177857,
+    "ast_hash": "07ed031414b5c3e51b1cf7105e45c475",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/common/ErrorMapper.kt": {
+    "mtime": 1783837108.6067924,
+    "ast_hash": "780663401ccef8afb4a69325d823b38e",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/common/Result.kt": {
+    "mtime": 1783837100.7587497,
+    "ast_hash": "47d471f488ecc8a00097fb18688c01d6",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/database/AppDatabase.kt": {
+    "mtime": 1783839503.7818227,
+    "ast_hash": "37d86db708733e468c38c6c58c26925e",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/database/DatabaseModule.kt": {
+    "mtime": 1783839513.2510507,
+    "ast_hash": "98781fc7e363590c8961b57d9a01ae5d",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/database/dao/MedicationDao.kt": {
+    "mtime": 1783840171.0299542,
+    "ast_hash": "634fbe5315370e0aed50d83d42e34b35",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/database/dao/ReminderLogDao.kt": {
+    "mtime": 1783839997.748543,
+    "ast_hash": "6e976b427ee2cf054bcf9b9524bc3aa8",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/datastore/UserPreferencesDataStore.kt": {
+    "mtime": 1783837280.8589132,
+    "ast_hash": "91fcd7807fb09a0152d05af8b94449eb",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/components/ConfirmationDialog.kt": {
+    "mtime": 1783837246.7266698,
+    "ast_hash": "0ce47d9a143763ddac6ce5e469248731",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/components/MediHelpBottomNavBar.kt": {
+    "mtime": 1783860924.7903855,
+    "ast_hash": "16b787e62b87ca15eb2a4af6a2533ae8",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/components/MediHelpButton.kt": {
+    "mtime": 1783837199.3456082,
+    "ast_hash": "eae23587a2754e1d6b1587d7da93e3af",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/components/MediHelpTopBar.kt": {
+    "mtime": 1783837207.9124143,
+    "ast_hash": "331be54894e621c07fd85e3966597a36",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/components/StateViews.kt": {
+    "mtime": 1783837237.5991755,
+    "ast_hash": "063a492b5762c26c1cf4a64133839268",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/theme/Color.kt": {
+    "mtime": 1783837143.927122,
+    "ast_hash": "2530c5debe4871458756e54dfc2343b7",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/theme/Shape.kt": {
+    "mtime": 1783837166.168004,
+    "ast_hash": "99ef9181206be98bad34c89573ea0fd2",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/theme/Theme.kt": {
+    "mtime": 1783837188.9766824,
+    "ast_hash": "73f47fe33fa2669162da9622abf88d1c",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/designsystem/theme/Type.kt": {
+    "mtime": 1783837159.0627654,
+    "ast_hash": "ef9587d520606bc122e84bd7c2a7df91",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/navigation/AppNavGraph.kt": {
+    "mtime": 1783860990.5538948,
+    "ast_hash": "e30495110844614df29c142c9031070c",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/navigation/Routes.kt": {
+    "mtime": 1783860935.519104,
+    "ast_hash": "9ef95a96b68ad6d34a323f4d5f3322dd",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/network/AuthInterceptor.kt": {
+    "mtime": 1783837323.9419909,
+    "ast_hash": "c2f0013f577fef8f567d09c0f85fafd8",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/network/NetworkModule.kt": {
+    "mtime": 1783838045.3270996,
+    "ast_hash": "865cfdabba77ccfa65fe5bac5346ffbf",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/network/TokenAuthenticator.kt": {
+    "mtime": 1783838053.0031226,
+    "ast_hash": "03eec73f1ec43d4003a88f4d3fde36c2",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/notifications/MedicationNotificationManager.kt": {
+    "mtime": 1783839851.6004055,
+    "ast_hash": "0a531f8005a94fb592e9802a1d0ad8f5",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/notifications/NotificationChannels.kt": {
+    "mtime": 1783839738.4176078,
+    "ast_hash": "d692cb09e837ee2e1b379a3090343385",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/reminders/BootCompletedReceiver.kt": {
+    "mtime": 1783840179.4341147,
+    "ast_hash": "7f8a76d7769db1c047f4a0e3d9861e4b",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/reminders/MedicationAlarmScheduler.kt": {
+    "mtime": 1783839792.7386353,
+    "ast_hash": "1e2b9bc8d48a7875e91dce02d666d6e3",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/reminders/ReminderActionReceiver.kt": {
+    "mtime": 1783839882.9229684,
+    "ast_hash": "14cc085e7e22e6dbc4c0f1cbc8ba5d76",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/reminders/ReminderIntentExtras.kt": {
+    "mtime": 1783839772.0389688,
+    "ast_hash": "3a481e4d3686539360adf9cb49f78e7a",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/reminders/ReminderReceiver.kt": {
+    "mtime": 1783839863.3096566,
+    "ast_hash": "d327ad0e82322f56632fa9df44152873",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/security/SecurityModule.kt": {
+    "mtime": 1783837260.837735,
+    "ast_hash": "d8a8521911edbffb5e3fd3a24884440c",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/security/TokenStorage.kt": {
+    "mtime": 1783837253.7634351,
+    "ast_hash": "bab0005e169fc0ae24354f30bc29304d",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/sync/SyncScheduler.kt": {
+    "mtime": 1783840125.196456,
+    "ast_hash": "654b30d72e9e71d869ddaa0a043fe9fd",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/sync/SyncWorker.kt": {
+    "mtime": 1783840101.5950954,
+    "ast_hash": "fcc845ea92faf2b1be14365318fec81c",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/data/remote/AuthApi.kt": {
+    "mtime": 1783837315.9661286,
+    "ast_hash": "b52aedb07b50c55433186c626503887a",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/data/remote/dto/AuthDtos.kt": {
+    "mtime": 1783837308.952713,
+    "ast_hash": "3128abb4fc4da9ebe8e00e11f3a1a9e7",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/data/repository/AuthRepositoryImpl.kt": {
+    "mtime": 1783837387.0403874,
+    "ast_hash": "20eda07ee21fe54735ba1b851f5cd22b",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/di/AuthModule.kt": {
+    "mtime": 1783837394.3967834,
+    "ast_hash": "56ed2a9394f07559ed8f1381395694d7",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/domain/repository/AuthRepository.kt": {
+    "mtime": 1783837373.004915,
+    "ast_hash": "80ab463e01a3f4fc76a867b6d5bab415",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/screen/LoginScreen.kt": {
+    "mtime": 1783837497.5903473,
+    "ast_hash": "416c79a335289b7f817304bd0f716148",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/screen/OnboardingScreen.kt": {
+    "mtime": 1783838081.9274197,
+    "ast_hash": "858fb29459f808b5a745cc8650b78902",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/screen/RegisterScreen.kt": {
+    "mtime": 1783837520.0668533,
+    "ast_hash": "7568477f1201aa093ee6d62dca3caa00",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/state/LoginUiState.kt": {
+    "mtime": 1783837402.4192288,
+    "ast_hash": "e21a3e166a88afc3954125845d6e0d4e",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/state/RegisterUiState.kt": {
+    "mtime": 1783837407.6710918,
+    "ast_hash": "b6a4404a2f6159f975d2ea11238f0aae",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/viewmodel/LoginViewModel.kt": {
+    "mtime": 1783837415.92461,
+    "ast_hash": "f0ddeeff862c936e8d94d28eaf3a8dd7",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_auth/presentation/viewmodel/RegisterViewModel.kt": {
+    "mtime": 1783837425.206572,
+    "ast_hash": "2edc57c2096e96298cce549203cf712c",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_dashboard/presentation/screen/DashboardScreen.kt": {
+    "mtime": 1783860973.5703807,
+    "ast_hash": "6789752b932d03678fa613052289a546",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_dashboard/presentation/viewmodel/DashboardViewModel.kt": {
+    "mtime": 1783860957.1277337,
+    "ast_hash": "10d858a7c64f322c2fdfe427de10833d",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/local/entity/MedicationEntity.kt": {
+    "mtime": 1783839434.4448457,
+    "ast_hash": "e131fd0b1b1d08cd8ef9792beb3a5500",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/local/entity/MedicationScheduleEntity.kt": {
+    "mtime": 1783839445.344794,
+    "ast_hash": "a920d18f08cbc9ff90428809b0b5f75d",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/local/entity/MedicationWithSchedules.kt": {
+    "mtime": 1783839453.9592516,
+    "ast_hash": "927d553f3bf62970ab5be878a60eda65",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/local/entity/ReminderLogEntity.kt": {
+    "mtime": 1783839459.9211383,
+    "ast_hash": "f46cb9f8d2951286c05c9a9541d96929",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/mapper/MedicationMappers.kt": {
+    "mtime": 1783839587.220652,
+    "ast_hash": "7d2bb46a429cf1cc5eb66926303cf654",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/remote/MedicationApi.kt": {
+    "mtime": 1783839537.1703143,
+    "ast_hash": "379ce8096d0f7392c16722f5fc8b3f9b",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/remote/dto/MedicationDtos.kt": {
+    "mtime": 1783839529.6778154,
+    "ast_hash": "83e95d9b3bb0249b0928ba6c5e2622e9",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/data/repository/MedicationRepositoryImpl.kt": {
+    "mtime": 1783840039.6602068,
+    "ast_hash": "9643c4cd40f886fca7a53e930afe6b50",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/di/MedicationModule.kt": {
+    "mtime": 1783840048.830883,
+    "ast_hash": "8fcc0aa005c8d980b08672e70539d2dc",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/domain/model/Medication.kt": {
+    "mtime": 1783839547.2893496,
+    "ast_hash": "18f83972da476d9a6559f6c7518a205f",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/domain/model/NewMedicationInput.kt": {
+    "mtime": 1783839559.6881487,
+    "ast_hash": "5125c02699e15539fb0a9d7b91993605",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/domain/repository/MedicationRepository.kt": {
+    "mtime": 1783839974.2233984,
+    "ast_hash": "8c56edfdeea07c4afd971d0e6e62fe87",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/screen/AddMedicationScreen.kt": {
+    "mtime": 1783862042.4043715,
+    "ast_hash": "4ef543a9a298220e58159fe761e9c35e",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/screen/MedicationDetailScreen.kt": {
+    "mtime": 1783840327.460328,
+    "ast_hash": "21b6e56d21dd3f3644880be1009ca774",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/screen/MedicationListScreen.kt": {
+    "mtime": 1783840285.472972,
+    "ast_hash": "7e4b3c109e8c25477f0ae5694a49db8f",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/state/AddMedicationUiState.kt": {
+    "mtime": 1783840209.1382873,
+    "ast_hash": "dabf5170d56f736dbe3f17a4cff30d95",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/state/MedicationListUiState.kt": {
+    "mtime": 1783840190.0086205,
+    "ast_hash": "4bc9acd9544a3cb253818646dea40ec1",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/viewmodel/AddMedicationViewModel.kt": {
+    "mtime": 1783840220.909825,
+    "ast_hash": "99f166a485fe00ab6237a13d81048f02",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/viewmodel/MedicationDetailViewModel.kt": {
+    "mtime": 1783840247.8879144,
+    "ast_hash": "3a284fc1b29c2dbbf710d6a61885e2a2",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/viewmodel/MedicationListViewModel.kt": {
+    "mtime": 1783840197.4763439,
+    "ast_hash": "07b4c0cd5fbdc638fd4a6b1ea539da3e",
+    "semantic_hash": ""
+  },
+  "android/build.gradle.kts": {
+    "mtime": 1783836991.3507097,
+    "ast_hash": "8ca21079402cae7e4324c8da3f8f3297",
+    "semantic_hash": ""
+  },
+  "android/gradlew": {
+    "mtime": 1783837657.6059334,
+    "ast_hash": "f092910dfa8e47c5a37a452c3f6baf8a",
+    "semantic_hash": ""
+  },
+  "android/settings.gradle.kts": {
+    "mtime": 1783836984.5498676,
+    "ast_hash": "77455a365f2af2579a6637ef980e912d",
+    "semantic_hash": ""
+  },
+  "backend/alembic/env.py": {
+    "mtime": 1783839273.5635982,
+    "ast_hash": "04c3c4b61a7680434b27ec24b61c3125",
+    "semantic_hash": ""
+  },
+  "backend/alembic/versions/87e9723e56da_create_medications_medication_schedules_.py": {
+    "mtime": 1783839286.68615,
+    "ast_hash": "bcae43932f84ecb0f0b43bce207cdc8e",
+    "semantic_hash": ""
+  },
+  "backend/app/__init__.py": {
+    "mtime": 1783835046.5800939,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/api/__init__.py": {
+    "mtime": 1783835046.5800939,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/api/deps.py": {
+    "mtime": 1783836599.666394,
+    "ast_hash": "2c5a8e902741593f44239478d4e3d964",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/__init__.py": {
+    "mtime": 1783835046.581089,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/__init__.py": {
+    "mtime": 1783835046.581089,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/auth.py": {
+    "mtime": 1783836599.6891532,
+    "ast_hash": "ba340f3314522091fec246e2d51c4afa",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/health.py": {
+    "mtime": 1783835046.582094,
+    "ast_hash": "c211b2695dc8689e3816f1e1c3e0af9e",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/medications.py": {
+    "mtime": 1783839167.1878824,
+    "ast_hash": "5088ac3c692d5786dbcace2d7a38c9df",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/reminders.py": {
+    "mtime": 1783839174.5116863,
+    "ast_hash": "c4fa0f95db58d6274d981de7bba50090",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/users.py": {
+    "mtime": 1783836599.5978217,
+    "ast_hash": "5a303f9a92b7cfa2fa4b8bc0a0a76703",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/router.py": {
+    "mtime": 1783839185.2722175,
+    "ast_hash": "50c0bd5e50bc638d3956b7ec016219fe",
+    "semantic_hash": ""
+  },
+  "backend/app/core/__init__.py": {
+    "mtime": 1783835046.5841007,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/core/config.py": {
+    "mtime": 1783835046.5841007,
+    "ast_hash": "8e7578e118e69f002b37fdbe56ba485f",
+    "semantic_hash": ""
+  },
+  "backend/app/core/security.py": {
+    "mtime": 1783836599.684135,
+    "ast_hash": "cd8c837a8962b78338d5eafe3d7172a8",
+    "semantic_hash": ""
+  },
+  "backend/app/db/__init__.py": {
+    "mtime": 1783835046.5860963,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/db/base.py": {
+    "mtime": 1783835046.5860963,
+    "ast_hash": "4e311728f8d31c4b7349ed68d7b2fde4",
+    "semantic_hash": ""
+  },
+  "backend/app/db/session.py": {
+    "mtime": 1783835046.587089,
+    "ast_hash": "5ebfbc68c4c4f4397ee0656786d94c49",
+    "semantic_hash": ""
+  },
+  "backend/app/main.py": {
+    "mtime": 1783835046.587089,
+    "ast_hash": "03623bb8db105b5a8a36f8082314a99f",
+    "semantic_hash": ""
+  },
+  "backend/app/models/__init__.py": {
+    "mtime": 1783839095.4038987,
+    "ast_hash": "0c74e11be6f35bae4d26d6768e14cfc7",
+    "semantic_hash": ""
+  },
+  "backend/app/models/medication.py": {
+    "mtime": 1783839074.042888,
+    "ast_hash": "f2b28cedf505d947273e915e3e58a4b5",
+    "semantic_hash": ""
+  },
+  "backend/app/models/medication_schedule.py": {
+    "mtime": 1783839082.3639317,
+    "ast_hash": "1a5277d76e6002cf7b9bbacf5523574a",
+    "semantic_hash": ""
+  },
+  "backend/app/models/reminder_log.py": {
+    "mtime": 1783839090.3174582,
+    "ast_hash": "5d58661aadadf0abf1d99a520fc183af",
+    "semantic_hash": ""
+  },
+  "backend/app/models/user.py": {
+    "mtime": 1783836599.6901524,
+    "ast_hash": "5378dee23d5697317d025baae8d145f8",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/__init__.py": {
+    "mtime": 1783835046.5890958,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/auth.py": {
+    "mtime": 1783836599.6743932,
+    "ast_hash": "d1b0dd6626b1cabeb4e3fa3b5c341f07",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/medication.py": {
+    "mtime": 1783839114.9945061,
+    "ast_hash": "29beb2fb9152e79ec8c2abc98b68d285",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/reminder.py": {
+    "mtime": 1783839122.9178324,
+    "ast_hash": "bad526e5de9815835bef2aebdaba6596",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/user.py": {
+    "mtime": 1783836599.6703944,
+    "ast_hash": "216551a3ffd5fb4944897cb7b0daeb04",
+    "semantic_hash": ""
+  },
+  "backend/app/services/auth_service.py": {
+    "mtime": 1783836599.7858305,
+    "ast_hash": "40728a43927f54dc7ab6d2e9d6afa7f6",
+    "semantic_hash": ""
+  },
+  "backend/app/services/medication_service.py": {
+    "mtime": 1783839135.8280725,
+    "ast_hash": "3422bd105aa45b31d20f36bb1ece7eac",
+    "semantic_hash": ""
+  },
+  "backend/app/services/reminder_service.py": {
+    "mtime": 1783839273.5691822,
+    "ast_hash": "8276590a9e555b61b2e4821bcc99be4e",
+    "semantic_hash": ""
+  },
+  "backend/tests/api/test_auth.py": {
+    "mtime": 1783836476.2349758,
+    "ast_hash": "0631a294d357b5aa24d2b2a83b42564d",
+    "semantic_hash": ""
+  },
+  "backend/tests/api/test_medications.py": {
+    "mtime": 1783839286.7426188,
+    "ast_hash": "63296c86ef9f27b4a85d9d242c932dcd",
+    "semantic_hash": ""
+  },
+  "backend/tests/conftest.py": {
+    "mtime": 1783836599.7163084,
+    "ast_hash": "34862ab4537563673471814a253fac94",
+    "semantic_hash": ""
+  },
+  ".github/workflows/android-ci.yml": {
+    "mtime": 1783838921.4667456,
+    "ast_hash": "c061986c7d96c37823f1fbc8f6c2b0b0",
+    "semantic_hash": ""
+  },
+  ".github/workflows/backend-ci.yml": {
+    "mtime": 1783836551.3219435,
+    "ast_hash": "a91ed71a09c0f3495c14ada0e211e0ac",
+    "semantic_hash": ""
+  },
+  "Implementation_Plan.md": {
+    "mtime": 1783835046.5750983,
+    "ast_hash": "44c57e12cacd0f5ba50242646b4de654",
+    "semantic_hash": ""
+  },
+  "Medi-Help_Requirement_Analysis.md": {
+    "mtime": 1783835046.5750983,
+    "ast_hash": "ce95964e5b8fa8987b316a79d73cd7af",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1783838929.9454594,
+    "ast_hash": "9732b6addc2fba3919787be0c76d009d",
+    "semantic_hash": ""
+  },
+  "Resources/Medi-Help App.dc.html": {
+    "mtime": 1783833485.0,
+    "ast_hash": "6fdc64933a92e7e5d32f357f99866f98",
+    "semantic_hash": ""
+  },
+  "Resources/_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/readme.md": {
+    "mtime": 1783833485.0,
+    "ast_hash": "af05d0b389e89df8988bd02cefd891ce",
+    "semantic_hash": ""
+  },
+  "backend/requirements.txt": {
+    "mtime": 1783835046.5911076,
+    "ast_hash": "127441ed652c667b9cf89a39fe663f19",
+    "semantic_hash": ""
+  },
+  "contracts/api-contract.md": {
+    "mtime": 1783835046.59411,
+    "ast_hash": "024fd612419469ecf1fdfed3ddf0d8bd",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1783835046.595107,
+    "ast_hash": "fa142f569b85c8118f11c4ea154cd042",
+    "semantic_hash": ""
+  },
+  "docs/architecture/system-overview.md": {
+    "mtime": 1783835046.5961127,
+    "ast_hash": "411ad2458ad2f2cad31ae986fe828b61",
+    "semantic_hash": ""
+  },
+  "docs/decisions/ADR-001-tech-stack.md": {
+    "mtime": 1783835046.597103,
+    "ast_hash": "b9b8189bbd43cbba92350c144ead47af",
+    "semantic_hash": ""
+  },
+  "Resources/App_opening_screen.png": {
+    "mtime": 1783835161.534586,
+    "ast_hash": "d197cef05f4de99af4b8d866c31a10ed",
+    "semantic_hash": ""
+  },
+  "Resources/Design_System.png": {
+    "mtime": 1783685757.9697535,
+    "ast_hash": "145f69559b6335053275c2e4017097aa",
+    "semantic_hash": ""
+  },
+  "Resources/assets/logo.png": {
+    "mtime": 1783833485.0,
+    "ast_hash": "e193edc6e8370f611cc90c859f63e439",
+    "semantic_hash": ""
+  },
+  "Resources/home_screen.png": {
+    "mtime": 1783835347.2165895,
+    "ast_hash": "ddb096fe2ca9860550bddeb3dc27b843",
+    "semantic_hash": ""
+  },
+  "Resources/logo.png": {
+    "mtime": 1783707507.5325696,
+    "ast_hash": "e193edc6e8370f611cc90c859f63e439",
+    "semantic_hash": ""
+  },
+  "Resources/screenshots/01-check.png": {
+    "mtime": 1783833485.0,
+    "ast_hash": "4e7bd90b9c382fa362fcec0a2affc5c6",
+    "semantic_hash": ""
+  },
+  "Resources/screenshots/02-check.png": {
+    "mtime": 1783833485.0,
+    "ast_hash": "b8d169f31bd707fbd62f90a3eef2a018",
+    "semantic_hash": ""
+  },
+  "Resources/screenshots/03-check.png": {
+    "mtime": 1783833485.0,
+    "ast_hash": "b8d169f31bd707fbd62f90a3eef2a018",
+    "semantic_hash": ""
+  },
+  "Resources/screenshots/home.png": {
+    "mtime": 1783833485.0,
+    "ast_hash": "697a170cd70e66207162be208a2d19ce",
+    "semantic_hash": ""
+  },
+  "Resources/settings_page.png": {
+    "mtime": 1783835481.412172,
+    "ast_hash": "59568bab1e3683856992b27c428096a5",
+    "semantic_hash": ""
+  },
+  "Resources/upload_page.png": {
+    "mtime": 1783835886.8608303,
+    "ast_hash": "2846eff4fc76d5872b1ba0a67c639294",
+    "semantic_hash": ""
+  },
+  "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8-7240cbef.png": {
+    "mtime": 1783833485.0,
+    "ast_hash": "145f69559b6335053275c2e4017097aa",
+    "semantic_hash": ""
+  },
+  "Resources/uploads/7d06c753-daad-42c3-ae31-a7c6079be8d8.png": {
+    "mtime": 1783833486.0,
+    "ast_hash": "145f69559b6335053275c2e4017097aa",
+    "semantic_hash": ""
+  },
+  "Resources/uploads/logo-0b8d0264.png": {
+    "mtime": 1783833486.0,
+    "ast_hash": "e193edc6e8370f611cc90c859f63e439",
+    "semantic_hash": ""
+  },
+  "Resources/uploads/logo.png": {
+    "mtime": 1783833486.0,
+    "ast_hash": "e193edc6e8370f611cc90c859f63e439",
+    "semantic_hash": ""
+  },
+  "Resources/uploads/medi-help_brand_colour_profile.png": {
+    "mtime": 1783835784.54343,
+    "ast_hash": "5595261f061d8484f75244112804fa10",
+    "semantic_hash": ""
+  }
+}
