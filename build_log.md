@@ -6,7 +6,7 @@ Last reviewed: 2026-07-12
 
 Medi-Help is implemented through **Phase 3: Medication Management MVP**. The repository currently contains a working FastAPI backend, an Android application with authentication, and local-first medication management with device-scheduled reminders.
 
-Phases 4 and later, beginning with document upload and processing, have not been implemented yet.
+Phase 4 is in progress. Its backend document upload and processing-job foundation is complete; the Android upload workflow remains under development.
 
 ## Completed Work
 
@@ -93,17 +93,36 @@ GET    /api/v1/reminders/adherence-summary
 - Graphify has indexed the repository and generated `graphify-out/graph.json` and `graphify-out/GRAPH_TREE.html`.
 - Graphify hooks and guidance are installed for both Claude Code and Codex through `.claude/`, `.codex/`, `CLAUDE.md`, and `AGENTS.md`.
 
+### Phase 4 - Document Upload System (In Progress)
+
+#### Backend completed
+
+- Added `documents` and `processing_jobs` models and an Alembic migration.
+- Added local filesystem and S3/MinIO object-storage providers behind a shared interface.
+- Added authenticated multipart upload for PDF, JPEG, and PNG documents.
+- Added file extension, MIME type, file signature, empty-file, and maximum-size validation.
+- Added immediate queued-job creation and owner-only job status retrieval.
+- Added API tests for upload, authentication, validation, ownership, and size limits, plus local-storage tests.
+- Verified the complete Alembic chain upgrades to the Phase 4 schema and downgrades cleanly on the test database.
+
+#### Incidents
+
+- Initial verification found two misplaced model imports from a patch context mismatch; Ruff identified them and the imports were corrected.
+- The project virtual environment did not yet contain the new `boto3` dependency; reinstalling `requirements.txt` resolved it.
+- The full mypy run still reports pre-existing strict-typing issues in authentication, medication, and reminder modules. New Phase 4 endpoint return types were made explicit, while the older issues remain separate cleanup work.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-12:
 
 | Check | Result |
 |---|---|
-| Backend pytest suite | Passed: 16 tests |
+| Backend pytest suite | Passed: 23 tests |
 | Backend Ruff lint | Passed |
 | Backend Black format check | Passed: 38 files unchanged |
 | Android debug APK assembly | Passed |
 | Android unit-test Gradle task | Passed, but reported `NO-SOURCE` |
+| Alembic upgrade/downgrade chain | Passed through Phase 4 |
 
 The backend tests required `DEBUG=false` to override the current local `.env` value `DEBUG=release`. `DEBUG` is a boolean setting, so the local value should be changed to `true` or `false` before running the backend normally.
 

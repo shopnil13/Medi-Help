@@ -22,6 +22,12 @@ class Settings(BaseSettings):
 
     local_storage_path: str = "./storage/uploads"
     max_upload_size_mb: int = 10
+    storage_backend: str = "local"
+    s3_endpoint_url: str = "http://localhost:9000"
+    s3_access_key: str = "minioadmin"
+    s3_secret_key: str = "minioadmin"
+    s3_bucket: str = "medi-help-documents"
+    s3_region: str = "us-east-1"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

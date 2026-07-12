@@ -10,8 +10,10 @@ from app.db.base import Base
 
 # Import models so Alembic can detect tables.
 from app.models import (  # noqa: F401
+    Document,
     Medication,
     MedicationSchedule,
+    ProcessingJob,
     RefreshToken,
     ReminderLog,
     User,
