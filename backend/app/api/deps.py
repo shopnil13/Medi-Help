@@ -1,5 +1,4 @@
-
-#API Dependency for current user
+# API Dependency for current user
 
 from uuid import UUID
 
@@ -31,12 +30,12 @@ async def get_current_user(
 
         user_id = UUID(user_id_raw)
 
-    except (JWTError, ValueError):
+    except (JWTError, ValueError) as exc:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials.",
             headers={"WWW-Authenticate": "Bearer"},
-        )
+        ) from exc
 
     user = await get_user_by_id(db, user_id)
 

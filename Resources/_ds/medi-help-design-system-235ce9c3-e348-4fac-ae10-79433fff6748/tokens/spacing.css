@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Medi-Help — Spacing, Radius & Elevation Tokens
+   Material 3 spirit: generous rounding, soft warm-tinted shadows, 4px grid.
+   ========================================================================== */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Minimum tap target — non-negotiable for elderly users */
+  --tap-target-min: 56px;
+
+  /* ---- Corner radii — Material 3 expressive rounding ---- */
+  --radius-sm:   12px; /* chips, tags, small inputs */
+  --radius-md:   20px; /* buttons, inputs, small cards */
+  --radius-lg:   28px; /* cards, dialogs, sheets */
+  --radius-xl:   36px; /* hero cards, bottom sheets */
+  --radius-full: 999px; /* pills, FAB, avatar */
+
+  /* ---- Elevation — soft, warm-tinted, never harsh/cool gray ---- */
+  --shadow-1: 0 1px 3px rgba(98, 0, 4, 0.06), 0 1px 2px rgba(98, 0, 4, 0.08);
+  --shadow-2: 0 4px 12px rgba(98, 0, 4, 0.08), 0 2px 4px rgba(98, 0, 4, 0.06);
+  --shadow-3: 0 10px 24px rgba(98, 0, 4, 0.12), 0 4px 8px rgba(98, 0, 4, 0.06);
+  --shadow-focus: 0 0 0 4px rgba(207, 51, 36, 0.25); /* keyboard focus ring, brand-tinted */
+
+  /* ---- Motion — calm, minimal. No bounce; this is a medical/trust context. ---- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-standard: 220ms; /* @kind other */
+  --duration-slow: 360ms; /* @kind other */
+}

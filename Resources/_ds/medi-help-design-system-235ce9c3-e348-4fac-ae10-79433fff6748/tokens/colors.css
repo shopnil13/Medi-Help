@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Medi-Help — Color Tokens
+   Base brand ramp (from brand sheet) + semantic aliases for UI usage.
+   ========================================================================== */
+
+:root {
+  /* ---- Base brand ramp (red), darkest → lightest ---- */
+  --red-900: #620004; /* deep oxblood */
+  --red-800: #850001; /* dark crimson */
+  --red-700: #AF1307; /* rich red */
+  --red-600: #CF3324; /* medical coral red — primary brand color */
+  --red-500: #F75B4C; /* soft coral */
+  --red-400: #FE7364; /* light coral */
+  --red-300: #FEAB9B; /* soft peach */
+  --red-200: #FECBBA; /* pale blush */
+
+  /* ---- Neutrals (warm-tinted, derived from brand text/bg colors) ---- */
+  --warm-50:  #FFF7F4; /* background warm off-white */
+  --warm-0:   #FFFFFF; /* card surface */
+  --warm-900: #2A1715; /* text dark */
+  --warm-600: #7A5A56; /* secondary text */
+  --warm-200: #F1D2CC; /* border */
+  --warm-100: #F8E7E1; /* subtle fill / hover tint, interpolated between border and bg */
+
+  /* ---- Status colors (not in brand sheet; muted to sit quietly next to brand red) ---- */
+  --status-success:      oklch(0.62 0.11 152); /* calm green — normal / improving */
+  --status-success-bg:   oklch(0.95 0.03 152);
+  --status-warning:      oklch(0.72 0.14 75);  /* amber — needs attention, non-urgent */
+  --status-warning-bg:   oklch(0.96 0.04 80);
+  --status-info:         oklch(0.55 0.06 250); /* slate blue — informational / synced */
+  --status-info-bg:      oklch(0.95 0.02 250);
+  --status-critical:     var(--red-700);       /* high / urgent uses brand red, not a new hue */
+  --status-critical-bg:  var(--red-200);
+
+  /* ---- Semantic surface & text aliases ---- */
+  --surface-bg:            var(--warm-50);
+  --surface-card:          var(--warm-0);
+  --surface-card-sunken:   var(--warm-100);
+  --surface-overlay:       rgba(42, 23, 21, 0.48);
+
+  --text-primary:   var(--warm-900);
+  --text-secondary: var(--warm-600);
+  --text-on-primary: var(--warm-0);
+  --text-link:      var(--red-700);
+
+  --border-default: var(--warm-200);
+  --border-strong:  var(--red-300);
+
+  /* ---- Semantic brand/action aliases ---- */
+  --color-primary:          var(--red-600);
+  --color-primary-hover:    var(--red-700);
+  --color-primary-pressed:  var(--red-800);
+  --color-primary-disabled: var(--red-200);
+
+  --color-secondary:         var(--warm-0);
+  --color-secondary-border:  var(--red-600);
+  --color-secondary-hover:   var(--red-200);
+
+  --color-accent-soft:  var(--red-300);
+  --color-accent-blush: var(--red-200);
+}
+
+/* Dark red brand surface — used sparingly for hero bands / logo-on-dark contexts only. */
+:root {
+  --surface-brand-deep: var(--red-900);
+  --text-on-brand-deep: var(--warm-50);
+}
+
+/* Link colors (default + hover), so any future <a> renders on-brand rather than browser blue. */
+a { color: var(--text-link); }
+a:hover { color: var(--color-primary-pressed); }

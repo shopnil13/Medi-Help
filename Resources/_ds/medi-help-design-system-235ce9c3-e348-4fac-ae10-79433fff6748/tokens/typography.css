@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Medi-Help — Type Tokens
+   Font substitution notice: no brand type files were provided. Nearest
+   Google Fonts matches were chosen for a friendly, highly-legible,
+   humanist feel appropriate for elderly / low-literacy readers — see
+   fonts.css and README "Visual Foundations" for details. Flag to brand
+   owner: swap in real brand fonts if/when available.
+   ========================================================================== */
+
+:root {
+  --font-display: 'Manrope', 'Segoe UI', system-ui, sans-serif;   /* headings, big numbers, nav labels */
+  --font-body:    'Public Sans', 'Segoe UI', system-ui, sans-serif; /* body copy, forms, long-form explanation text */
+
+  /* Type scale — generous sizes for elderly / low-vision readers.
+     Never go below 16px (body-small) anywhere in-product. */
+  --text-display:  40px; /* onboarding / hero moments only */
+  --text-h1:       32px; /* screen titles */
+  --text-h2:       26px; /* section headers */
+  --text-h3:       22px; /* card titles, medicine names */
+  --text-body-lg:  20px; /* primary reading size — default body */
+  --text-body:     18px; /* secondary body copy */
+  --text-body-sm:  16px; /* captions, meta, minimum allowed size */
+  --text-label:    15px; /* form labels, tags (uppercase, tracked) */
+
+  --leading-tight:  1.2;
+  --leading-normal:  1.45;
+  --leading-loose:  1.65; /* long-form simplified explanations */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+  --weight-extrabold: 800;
+
+  --tracking-label: 0.06em;
+}

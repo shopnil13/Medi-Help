@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from uuid import UUID
 
 from fastapi import HTTPException, status
@@ -13,16 +13,15 @@ from app.core.security import (
     hash_refresh_token,
     verify_password,
 )
-
 from app.models.refresh_token import RefreshToken
 from app.models.user import User
 from app.schemas.auth import AuthTokenResponse, LoginRequest, RegisterRequest
 
-
 settings = get_settings()
 
+
 async def get_user_by_email(db: AsyncSession, email: str) -> User | None:
-    stmt= select(User).where(User.email == email.lower())
+    stmt = select(User).where(User.email == email.lower())
     result = await db.execute(stmt)
     return result.scalar_one_or_none()
 
@@ -32,15 +31,13 @@ async def get_user_by_id(db: AsyncSession, user_id: UUID) -> User | None:
 
 
 async def create_refresh_token_record(
-        db: AsyncSession,
-        user_id: UUID,
+    db: AsyncSession,
+    user_id: UUID,
 ) -> str:
     plain_refresh_token = create_plain_refresh_token()
     token_hash = hash_refresh_token(plain_refresh_token)
 
-    expires_at = datetime.now(timezone.utc) + timedelta(
-        days=settings.refresh_token_expire_days
-    )
+    expires_at = datetime.now(UTC) + timedelta(days=settings.refresh_token_expire_days)
 
     refresh_token = RefreshToken(
         user_id=user_id,
@@ -54,17 +51,17 @@ async def create_refresh_token_record(
 
 
 async def register_user(
-        db: AsyncSession,
-        payload: RegisterRequest,
+    db: AsyncSession,
+    payload: RegisterRequest,
 ) -> AuthTokenResponse:
     existing_user = await get_user_by_email(db, payload.email)
 
     if existing_user is not None:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="An account with this emial already exists."
+            detail="An account with this emial already exists.",
         )
-    
+
     user = User(
         full_name=payload.full_name.strip(),
         email=payload.email.lower(),
@@ -73,7 +70,6 @@ async def register_user(
 
     db.add(user)
     await db.flush()
-
 
     access_token = create_access_token(str(user.id))
     refresh_token = await create_refresh_token_record(db, user.id)
@@ -87,10 +83,10 @@ async def register_user(
 
 
 async def login_user(
-        db: AsyncSession,
-        payload: LoginRequest,
+    db: AsyncSession,
+    payload: LoginRequest,
 ) -> AuthTokenResponse:
-    
+
     user = await get_user_by_email(db, payload.email)
 
     if user is None or not verify_password(payload.password, user.password_hash):
@@ -98,13 +94,12 @@ async def login_user(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid email or password.",
         )
-    
+
     if not user.is_active:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="This account is disabled",
         )
-    
 
     access_token = create_access_token(str(user.id))
     refresh_token = await create_refresh_token_record(db, user.id)
@@ -117,13 +112,12 @@ async def login_user(
     )
 
 
-
 async def refresh_access_token(
-        db: AsyncSession,
-        plain_refresh_token: str,
+    db: AsyncSession,
+    plain_refresh_token: str,
 ) -> AuthTokenResponse:
     token_hash = hash_refresh_token(plain_refresh_token)
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
 
     stmt = select(RefreshToken).where(
         RefreshToken.token_hash == token_hash,
@@ -138,17 +132,16 @@ async def refresh_access_token(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired refresh token",
         )
-    
+
     user = await get_user_by_id(db, existing_token.user_id)
 
     if user is None or not user.is_active:
         raise HTTPException(
-            status_code= status.HTTP_401_UNAUTHORIZED,
+            status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid refresh token.",
         )
-    
-    existing_token.revoked_at = now
 
+    existing_token.revoked_at = now
 
     access_token = create_access_token(str(user.id))
     new_refresh_token = await create_refresh_token_record(db, user.id)
@@ -161,10 +154,9 @@ async def refresh_access_token(
     )
 
 
-
 async def logout_user(
-        db: AsyncSession,
-        plain_refresh_token: str,
+    db: AsyncSession,
+    plain_refresh_token: str,
 ) -> None:
     token_hash = hash_refresh_token(plain_refresh_token)
 
@@ -176,6 +168,5 @@ async def logout_user(
     existing_token = result.scalar_one_or_none()
 
     if existing_token is not None:
-        existing_token.revoked_at = datetime.now(timezone.utc)
+        existing_token.revoked_at = datetime.now(UTC)
         await db.commit()
-        

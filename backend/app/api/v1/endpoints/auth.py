@@ -1,10 +1,10 @@
-#Auth endpoint
+# Auth endpoint
 
 from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.session import get_db_session
-from app.schemas.auth import(
+from app.schemas.auth import (
     AuthTokenResponse,
     LoginRequest,
     LogoutRequest,
@@ -20,12 +20,12 @@ from app.services.auth_service import (
 
 router = APIRouter(prefix="/auth")
 
+
 @router.post(
     "/register",
     response_model=AuthTokenResponse,
     status_code=status.HTTP_201_CREATED,
 )
-
 async def register(
     payload: RegisterRequest,
     db: AsyncSession = Depends(get_db_session),
@@ -45,9 +45,8 @@ async def login(
 async def refresh(
     payload: RefreshTokenRequest,
     db: AsyncSession = Depends(get_db_session),
-) -> Response:
-    await logout_user(db, payload.refresh_token)
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+) -> AuthTokenResponse:
+    return await refresh_access_token(db, payload.refresh_token)
 
 
 @router.post("/logout", status_code=status.HTTP_204_NO_CONTENT)

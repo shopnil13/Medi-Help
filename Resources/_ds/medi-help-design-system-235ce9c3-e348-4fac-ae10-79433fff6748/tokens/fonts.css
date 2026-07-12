@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Medi-Help — Webfonts
+   No brand font files were supplied. Nearest Google Fonts matches loaded
+   via CDN: Manrope (display/headings) + Public Sans (body — designed
+   for government/accessibility contexts, excellent at large sizes).
+   Swap this @import for local @font-face + shipped .woff2 files if the
+   brand later supplies real font assets.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap');

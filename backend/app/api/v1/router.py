@@ -1,5 +1,4 @@
-
-#API Router
+# API Router
 
 from fastapi import APIRouter
 

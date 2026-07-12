@@ -1,7 +1,6 @@
 from pydantic import BaseModel, EmailStr, Field
 
 
-
 class RegisterRequest(BaseModel):
     full_name: str = Field(min_length=2, max_length=150)
     email: EmailStr
@@ -25,4 +24,3 @@ class AuthTokenResponse(BaseModel):
     access_token: str
     refresh_token: str
     token_type: str = "bearer"
-

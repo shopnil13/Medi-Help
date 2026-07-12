@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/tokens/colors.css">
+<link rel="stylesheet" href="_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/tokens/typography.css">
+<link rel="stylesheet" href="_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<script src="_ds/medi-help-design-system-235ce9c3-e348-4fac-ae10-79433fff6748/_ds_bundle.js"></script>
+<script src="assets/image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { text-decoration: none; }
+  .mh-canvas-bg { background:
+      radial-gradient(120% 90% at 100% 0%, #FEE3DA 0%, rgba(254,227,218,0) 55%),
+      radial-gradient(110% 80% at 0% 100%, #FED3C6 0%, rgba(254,211,198,0) 50%),
+      var(--warm-50); }
+  .msym { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; }
+  .fill1 { font-variation-settings: 'FILL' 1; }
+  @keyframes mhspin { to { transform: rotate(360deg); } }
+  @keyframes mhpulse { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
+</style>
+</helmet>
+<div class="mh-canvas-bg" style="width:3560px;padding:64px 72px 120px;font-family:var(--font-body);position:relative">
+
+  <!-- ============ BRAND POSTER / SHOWCASE ============ -->
+  <div style="position:relative;border-radius:44px;overflow:hidden;padding:52px 56px;margin-bottom:56px;background:linear-gradient(120deg,#FFF0EA 0%,#FEDACD 55%,#FEC9B7 100%)">
+    <svg viewBox="0 0 1400 520" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;z-index:0">
+      <path d="M0,300 C220,240 360,380 620,320 C840,270 1000,360 1400,300 L1400,520 L0,520 Z" fill="#FEBFAC" opacity="0.55"/>
+      <path d="M0,380 C240,320 420,440 700,390 C920,350 1120,420 1400,380 L1400,520 L0,520 Z" fill="#FEAB9B" opacity="0.55"/>
+      <path d="M0,150 C180,110 320,180 520,140 C700,105 820,150 1000,120 L1000,0 L0,0 Z" fill="#FFFFFF" opacity="0.35"/>
+    </svg>
+    <div style="position:relative;z-index:1">
+      <div style="display:flex;align-items:center;gap:22px">
+        <img src="assets/logo.png" alt="Medi-Help" style="width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(175,19,7,0.22))">
+        <div>
+          <div style="font-family:var(--font-display);font-size:52px;font-weight:800;color:var(--red-700);letter-spacing:-1px;line-height:1">Medi-Help</div>
+          <div style="font-family:var(--font-body);font-size:22px;color:var(--warm-600);margin-top:6px">Your health, explained simply.</div>
+        </div>
+      </div>
+      <div style="font-family:var(--font-body);font-size:17px;color:var(--text-secondary);max-width:860px;margin-top:20px">Android health assistant · Material 3 &amp; Jetpack Compose–ready. Warm red identity, large type, and big tap targets — built for elderly users and anyone who wants their health explained in plain words.</div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;margin-top:40px">
+        <!-- Simple Health Tips carousel card -->
+        <div style="flex:1 1 640px;min-width:520px;background:var(--red-200);border-radius:36px;padding:26px 28px;box-shadow:var(--shadow-2)">
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:99px;background:#fff;display:flex;align-items:center;justify-content:center"><span class="msym" style="font-size:24px;color:var(--red-600)">lightbulb</span></div><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--red-800);flex:1">Simple health tips</span><span class="msym" style="font-size:26px;color:var(--red-700)">more_vert</span></div>
+          <div style="display:flex;gap:20px;background:#fff;border-radius:28px;padding:24px;margin-top:20px;align-items:center">
+            <div style="flex:1">
+              <div style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">Small steps, big difference</div>
+              <div style="font-family:var(--font-body);font-size:19px;color:var(--warm-900);line-height:1.5;margin-top:10px">Walk for 20–30 minutes daily. It helps your heart, mood, and energy.</div>
+              <div style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary);margin-top:14px;display:flex;align-items:center;gap:5px"><span class="msym" style="font-size:16px">info</span>General suggestion · not a diagnosis</div>
+            </div>
+            <div style="position:relative;width:230px;height:170px;flex:0 0 230px"><image-slot id="tips-couple" shape="rounded" radius="22" fit="cover" placeholder="Drop an illustration" style="width:100%;height:100%"></image-slot></div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:9px;margin-top:18px"><span style="width:26px;height:9px;border-radius:99px;background:var(--red-600)"></span><span style="width:9px;height:9px;border-radius:99px;background:var(--red-300)"></span><span style="width:9px;height:9px;border-radius:99px;background:var(--red-300)"></span><span style="width:9px;height:9px;border-radius:99px;background:var(--red-300)"></span><span style="width:9px;height:9px;border-radius:99px;background:var(--red-300)"></span></div>
+        </div>
+
+        <!-- Feature footer -->
+        <div style="flex:1 1 420px;min-width:380px;background:rgba(255,255,255,0.55);border-radius:36px;padding:30px 32px;box-shadow:var(--shadow-1)">
+          <div style="display:flex;align-items:center;gap:16px"><img src="assets/logo.png" alt="" style="width:64px;height:64px;object-fit:contain"><div><div style="font-family:var(--font-display);font-size:34px;font-weight:800;color:var(--red-700);line-height:1">Medi-Help</div><div style="font-family:var(--font-body);font-size:18px;color:var(--warm-600);margin-top:4px">Your health, explained simply.</div></div></div>
+          <div style="display:flex;gap:14px;margin-top:28px">
+            <div style="flex:1;text-align:center"><div style="width:64px;height:64px;border-radius:20px;background:var(--red-200);display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="msym" style="font-size:32px;color:var(--red-700)">forum</span></div><div style="font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--warm-900);margin-top:10px;line-height:1.25">Understand<br>your health</div></div>
+            <div style="flex:1;text-align:center"><div style="width:64px;height:64px;border-radius:20px;background:var(--red-200);display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="msym" style="font-size:32px;color:var(--red-700)">medication</span></div><div style="font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--warm-900);margin-top:10px;line-height:1.25">Manage<br>medicines</div></div>
+            <div style="flex:1;text-align:center"><div style="width:64px;height:64px;border-radius:20px;background:var(--red-200);display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="msym" style="font-size:32px;color:var(--red-700)">monitor_heart</span></div><div style="font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--warm-900);margin-top:10px;line-height:1.25">Track<br>vitals</div></div>
+            <div style="flex:1;text-align:center"><div style="width:64px;height:64px;border-radius:20px;background:var(--red-200);display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="msym" style="font-size:32px;color:var(--red-700)">verified_user</span></div><div style="font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--warm-900);margin-top:10px;line-height:1.25">Trusted<br>&amp; secure</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 1 ============ -->
+  <div data-screen-label="Section: Onboarding & Auth" style="width:100%;display:flex;align-items:baseline;gap:16px;margin:8px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">1 · Onboarding &amp; Auth</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">Splash → Onboarding → Login → Register → Permissions</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- SPLASH -->
+    <div data-screen-label="Splash" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:linear-gradient(180deg,#FFF7F4 0%,#FFEDE6 55%,#FEDACD 100%);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <div style="display:flex;align-items:center;justify-content:space-between;position:absolute;top:0;left:0;right:0;padding:16px 28px 0;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)">
+        <span>9:30</span>
+        <span style="display:flex;gap:7px;align-items:center"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;z-index:2;margin-top:-40px">
+        <img src="assets/logo.png" alt="Medi-Help logo" style="width:148px;height:148px;object-fit:contain;filter:drop-shadow(0 12px 24px rgba(175,19,7,0.28))">
+        <div style="font-family:var(--font-display);font-size:52px;font-weight:800;color:var(--red-700);letter-spacing:-1px;margin-top:22px">Medi-Help</div>
+        <div style="font-family:var(--font-body);font-size:20px;color:var(--warm-600);margin-top:10px">Your health, explained simply.</div>
+      </div>
+      <svg viewBox="0 0 384 340" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:46%;z-index:1">
+        <path d="M0,120 C90,70 150,150 220,130 C300,108 340,150 384,120 L384,340 L0,340 Z" fill="#FEAB9B" opacity="0.55"/>
+        <path d="M0,180 C80,140 160,210 250,180 C320,158 360,190 384,175 L384,340 L0,340 Z" fill="#FE7364" opacity="0.65"/>
+        <path d="M0,240 C90,205 170,265 260,238 C330,218 360,248 384,235 L384,340 L0,340 Z" fill="#F75B4C" opacity="0.9"/>
+        <path d="M0,290 C100,262 180,305 280,286 C340,275 366,292 384,285 L384,340 L0,340 Z" fill="#CF3324"/>
+      </svg>
+    </div>
+
+    <!-- ONBOARDING 1 -->
+    <div data-screen-label="Onboarding 1" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="flex:1;display:flex;flex-direction:column;padding:8px 28px 28px">
+        <div style="text-align:right;padding:8px 0"><span style="font-family:var(--font-display);font-weight:600;color:var(--text-secondary);font-size:17px">Skip</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px">
+          <div style="width:220px;height:220px;border-radius:var(--radius-xl);background:linear-gradient(150deg,#FECBBA,#FEAB9B);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:var(--shadow-2)">
+            <span class="msym" style="font-size:104px;color:var(--red-700)">description</span>
+            <span class="msym fill1" style="position:absolute;top:34px;right:38px;font-size:44px;color:var(--red-500)">auto_awesome</span>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--warm-900);line-height:1.2">Understand your prescription</div>
+            <div style="font-family:var(--font-body);font-size:19px;color:var(--text-secondary);line-height:1.5;margin-top:14px">Upload a prescription and Medi-Help explains it in simple words.</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:9px;margin:24px 0">
+          <span style="width:28px;height:9px;border-radius:99px;background:var(--red-600)"></span>
+          <span style="width:9px;height:9px;border-radius:99px;background:var(--red-200)"></span>
+          <span style="width:9px;height:9px;border-radius:99px;background:var(--red-200)"></span>
+        </div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:20px;box-shadow:var(--shadow-1);cursor:pointer">Next</button>
+      </div>
+    </div>
+
+    <!-- ONBOARDING 2 -->
+    <div data-screen-label="Onboarding 2" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="flex:1;display:flex;flex-direction:column;padding:8px 28px 28px">
+        <div style="text-align:right;padding:8px 0"><span style="font-family:var(--font-display);font-weight:600;color:var(--text-secondary);font-size:17px">Skip</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px">
+          <div style="width:220px;height:220px;border-radius:var(--radius-xl);background:linear-gradient(150deg,#FECBBA,#FEAB9B);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:var(--shadow-2)">
+            <span class="msym" style="font-size:104px;color:var(--red-700)">medication</span>
+            <span class="msym fill1" style="position:absolute;bottom:34px;right:34px;font-size:56px;color:var(--red-500)">schedule</span>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--warm-900);line-height:1.2">Never miss your medicine</div>
+            <div style="font-family:var(--font-body);font-size:19px;color:var(--text-secondary);line-height:1.5;margin-top:14px">Get clear reminders for when and how to take each medicine.</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:9px;margin:24px 0">
+          <span style="width:9px;height:9px;border-radius:99px;background:var(--red-200)"></span>
+          <span style="width:28px;height:9px;border-radius:99px;background:var(--red-600)"></span>
+          <span style="width:9px;height:9px;border-radius:99px;background:var(--red-200)"></span>
+        </div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:20px;box-shadow:var(--shadow-1);cursor:pointer">Next</button>
+      </div>
+    </div>
+
+    <!-- ONBOARDING 3 -->
+    <div data-screen-label="Onboarding 3" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="flex:1;display:flex;flex-direction:column;padding:8px 28px 28px">
+        <div style="height:33px"></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px">
+          <div style="width:220px;height:220px;border-radius:var(--radius-xl);background:linear-gradient(150deg,#FECBBA,#FEAB9B);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:var(--shadow-2)">
+            <span class="msym" style="font-size:108px;color:var(--red-700)">monitoring</span>
+            <span class="msym fill1" style="position:absolute;top:40px;right:36px;font-size:44px;color:var(--red-500)">favorite</span>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--warm-900);line-height:1.2">Track your health over time</div>
+            <div style="font-family:var(--font-body);font-size:19px;color:var(--text-secondary);line-height:1.5;margin-top:14px">Log blood pressure, glucose, heart rate, and lab results in one place.</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:9px;margin:24px 0">
+          <span style="width:9px;height:9px;border-radius:99px;background:var(--red-200)"></span>
+          <span style="width:9px;height:9px;border-radius:99px;background:var(--red-200)"></span>
+          <span style="width:28px;height:9px;border-radius:99px;background:var(--red-600)"></span>
+        </div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:20px;box-shadow:var(--shadow-1);cursor:pointer;margin-bottom:14px">Get Started</button>
+        <div style="text-align:center;font-family:var(--font-body);font-size:17px;color:var(--text-secondary)">Already have an account? <span style="color:var(--text-link);font-weight:700">Log in</span></div>
+      </div>
+    </div>
+
+    <!-- LOGIN -->
+    <div data-screen-label="Login" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:linear-gradient(180deg,#FEDACD 0%,#FFF0EA 40%);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:24px 0 20px">
+        <img src="assets/logo.png" alt="" style="width:78px;height:78px;object-fit:contain">
+        <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-700);margin-top:10px">Welcome back</div>
+        <div style="font-family:var(--font-body);font-size:18px;color:var(--warm-600);margin-top:2px">Log in to Medi-Help</div>
+      </div>
+      <div style="flex:1;background:var(--surface-card);border-radius:36px 36px 0 0;margin-top:8px;padding:32px 28px;box-shadow:var(--shadow-2);display:flex;flex-direction:column;gap:20px">
+        <label style="display:block"><span style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--warm-900)">Email</span>
+          <div style="display:flex;align-items:center;gap:10px;height:60px;margin-top:8px;padding:0 18px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:var(--warm-50)"><span class="msym" style="font-size:22px;color:var(--text-secondary)">mail</span><span style="font-family:var(--font-body);font-size:18px;color:var(--warm-900)">anita@email.com</span></div>
+        </label>
+        <label style="display:block"><span style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--warm-900)">Password</span>
+          <div style="display:flex;align-items:center;gap:10px;height:60px;margin-top:8px;padding:0 18px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:var(--warm-50)"><span class="msym" style="font-size:22px;color:var(--text-secondary)">lock</span><span style="font-family:var(--font-body);font-size:20px;color:var(--warm-900);letter-spacing:3px;flex:1">••••••••</span><span class="msym" style="font-size:22px;color:var(--text-secondary)">visibility</span></div>
+        </label>
+        <div style="text-align:right;font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text-link)">Forgot password?</div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:20px;box-shadow:var(--shadow-1);cursor:pointer">Log In</button>
+        <button style="height:56px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:19px;cursor:pointer">Create Account</button>
+        <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-top:auto;padding-top:8px">
+          <span class="msym" style="font-size:20px;color:var(--status-success)">verified_user</span>
+          <span style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary);text-align:center">Your health data stays private and secure.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTER -->
+    <div data-screen-label="Register" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">Create account</span></div>
+      <div style="flex:1;overflow:hidden;padding:12px 24px 20px;display:flex;flex-direction:column;gap:16px">
+        <div><span style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900)">Full name</span><div style="height:56px;margin-top:7px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;font-family:var(--font-body);font-size:18px;color:var(--warm-900)">Anita Rahman</div></div>
+        <div><span style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900)">Email</span><div style="height:56px;margin-top:7px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;font-family:var(--font-body);font-size:18px;color:var(--warm-900)">anita@email.com</div></div>
+        <div><span style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900)">Password</span><div style="height:56px;margin-top:7px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);font-size:20px;color:var(--warm-900)"><span style="letter-spacing:3px">••••••••</span><span class="msym" style="font-size:22px;color:var(--text-secondary)">visibility</span></div></div>
+        <div style="display:flex;gap:14px">
+          <div style="flex:1"><span style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900)">Date of birth <span style="color:var(--text-secondary);font-weight:400">· optional</span></span><div style="height:56px;margin-top:7px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);font-size:17px;color:var(--warm-600)">DD / MM / YYYY<span class="msym" style="font-size:22px;color:var(--text-secondary)">calendar_month</span></div></div>
+        </div>
+        <div><span style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900)">Emergency contact <span style="color:var(--text-secondary);font-weight:400">· optional</span></span><div style="height:56px;margin-top:7px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:17px;color:var(--warm-600)"><span class="msym" style="font-size:22px;color:var(--text-secondary)">call</span>Name &amp; phone number</div></div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:20px;box-shadow:var(--shadow-1);cursor:pointer;margin-top:4px">Create Account</button>
+        <div style="text-align:center;font-family:var(--font-body);font-size:15px;color:var(--text-secondary);margin-top:auto">Medi-Help is not a replacement for a doctor.</div>
+      </div>
+    </div>
+
+    <!-- PERMISSIONS -->
+    <div data-screen-label="Permissions" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="padding:16px 26px 8px">
+        <div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--warm-900);line-height:1.2">Set up Medi-Help</div>
+        <div style="font-family:var(--font-body);font-size:18px;color:var(--text-secondary);margin-top:8px">Turn on a few things so we can help. You can change these later.</div>
+      </div>
+      <div style="flex:1;padding:12px 24px 20px;display:flex;flex-direction:column;gap:16px">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-1);display:flex;gap:16px;align-items:flex-start">
+          <div style="width:52px;height:52px;border-radius:var(--radius-md);background:var(--red-200);display:flex;align-items:center;justify-content:center;flex:0 0 52px"><span class="msym" style="font-size:28px;color:var(--red-700)">notifications_active</span></div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--warm-900)">Notifications</div><div style="font-family:var(--font-body);font-size:16px;color:var(--text-secondary);margin-top:3px">So you get medicine reminders on time.</div></div>
+          <div style="width:56px;height:32px;border-radius:99px;background:var(--color-primary);position:relative;flex:0 0 56px;margin-top:4px"><span style="position:absolute;top:3px;right:3px;width:26px;height:26px;border-radius:99px;background:#fff"></span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-1);display:flex;gap:16px;align-items:flex-start">
+          <div style="width:52px;height:52px;border-radius:var(--radius-md);background:var(--red-200);display:flex;align-items:center;justify-content:center;flex:0 0 52px"><span class="msym" style="font-size:28px;color:var(--red-700)">photo_camera</span></div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--warm-900)">Camera</div><div style="font-family:var(--font-body);font-size:16px;color:var(--text-secondary);margin-top:3px">To scan prescriptions and lab reports.</div></div>
+          <div style="width:56px;height:32px;border-radius:99px;background:var(--color-primary);position:relative;flex:0 0 56px;margin-top:4px"><span style="position:absolute;top:3px;right:3px;width:26px;height:26px;border-radius:99px;background:#fff"></span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-1);display:flex;gap:16px;align-items:flex-start">
+          <div style="width:52px;height:52px;border-radius:var(--radius-md);background:var(--warm-100);display:flex;align-items:center;justify-content:center;flex:0 0 52px"><span class="msym" style="font-size:28px;color:var(--red-700)">watch</span></div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--warm-900)">Health Connect</div><div style="font-family:var(--font-body);font-size:16px;color:var(--text-secondary);margin-top:3px">Sync heart rate and vitals automatically.</div><span style="display:inline-flex;align-items:center;height:40px;padding:0 18px;margin-top:10px;border:2px solid var(--color-secondary-border);border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--color-primary)">Connect</span></div>
+        </div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:20px;box-shadow:var(--shadow-1);cursor:pointer;margin-top:auto">Continue</button>
+        <div style="text-align:center;font-family:var(--font-body);font-size:16px;color:var(--text-secondary)">Skip for now</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 2 ============ -->
+  <div style="width:100%;display:flex;align-items:baseline;gap:16px;margin:56px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">2 · Home Dashboard</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">The main screen after login — a calm, at-a-glance health summary</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- HOME DASHBOARD -->
+    <div data-screen-label="Home Dashboard" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--warm-50);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 26px 4px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 24px 14px">
+        <div style="line-height:1.15"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--warm-900)">Good morning,</div><div style="font-family:var(--font-display);font-size:32px;font-weight:800;color:var(--red-700)">Anita</div></div>
+        <div style="display:flex;gap:12px;align-items:center"><span class="msym" style="font-size:28px;color:var(--warm-900)">notifications</span><div style="width:52px;height:52px;border-radius:99px;overflow:hidden;border:2px solid #fff;box-shadow:var(--shadow-1)"><image-slot id="home-avatar" shape="circle" fit="cover" placeholder="Photo" style="width:100%;height:100%"></image-slot></div></div>
+      </div>
+      <div style="flex:1;padding:2px 20px 14px;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:min-content;gap:14px;align-content:start;overflow:hidden">
+        <!-- Today's Medicines -->
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1);display:flex;flex-direction:column">
+          <span class="msym fill1" style="font-size:34px;color:var(--red-500)">medication</span>
+          <div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900);margin-top:12px;line-height:1.2">Today's Medicines</div>
+          <div style="font-family:var(--font-display);font-size:44px;font-weight:800;color:var(--red-700);line-height:1;margin-top:14px">3</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;border-top:1px solid var(--warm-100);padding-top:10px"><span style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Due today</span><span class="msym" style="font-size:20px;color:var(--red-500)">chevron_right</span></div>
+        </div>
+        <!-- Upload a Document -->
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1);display:flex;flex-direction:column">
+          <span class="msym fill1" style="font-size:34px;color:var(--red-500)">description</span>
+          <div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900);margin-top:12px;line-height:1.2">Upload a Document</div>
+          <div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary);margin-top:8px;line-height:1.35;flex:1">Add reports or prescription</div>
+          <div style="display:flex;justify-content:flex-end;margin-top:10px;border-top:1px solid var(--warm-100);padding-top:10px"><span class="msym" style="font-size:20px;color:var(--red-500)">chevron_right</span></div>
+        </div>
+        <!-- Vitals Summary -->
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1);display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:8px"><span class="msym fill1" style="font-size:26px;color:var(--red-500)">favorite</span><span style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--warm-900);line-height:1.15">Vitals<br>Summary</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px"><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">BP</span><span style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--warm-900)">120/80 <span style="font-size:11px;font-weight:500;color:var(--text-secondary)">mmHg</span></span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:9px"><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">Heart Rate</span><span style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--warm-900)">72 <span style="font-size:11px;font-weight:500;color:var(--text-secondary)">bpm</span></span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:9px"><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">Glucose</span><span style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--warm-900)">110 <span style="font-size:11px;font-weight:500;color:var(--text-secondary)">mg/dL</span></span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;border-top:1px solid var(--warm-100);padding-top:10px"><span style="font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--red-600)">View chart</span><span class="msym" style="font-size:20px;color:var(--red-500)">chevron_right</span></div>
+        </div>
+        <!-- Simple Health Tip -->
+        <div style="background:#FFF3EE;border:1px solid var(--red-200);border-radius:var(--radius-lg);padding:18px 18px 0;box-shadow:var(--shadow-1);display:flex;flex-direction:column;overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px"><span class="msym fill1" style="font-size:24px;color:var(--status-success)">eco</span><span style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--warm-900);line-height:1.15">Simple<br>Health Tip</span></div>
+          <div style="font-family:var(--font-body);font-size:14.5px;color:var(--warm-900);margin-top:12px;line-height:1.4">Drink enough water and take short walks every day.</div>
+          <div style="height:92px;margin-top:8px;position:relative"><image-slot id="home-tip-illo" shape="rect" fit="contain" placeholder="Illustration" style="width:100%;height:100%"></image-slot></div>
+        </div>
+      </div>
+      <div style="display:flex;height:74px;background:#fff;border-top:1px solid var(--border-default);box-shadow:0 -2px 10px rgba(98,0,4,0.06)">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--color-primary)"><span class="msym fill1" style="font-size:26px">home</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:700">Home</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">medication</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Medicines</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">favorite</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Vitals</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">upload</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Upload</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">shield</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Tips</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 3 ============ -->
+  <div style="width:100%;display:flex;align-items:baseline;gap:16px;margin:56px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">3 · Upload &amp; AI Processing</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">Upload → AI reads → you review &amp; confirm before anything is saved</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- UPLOAD -->
+    <div data-screen-label="Upload Document" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--warm-900);flex:1">Upload a health document</span><span class="msym" style="font-size:24px;color:var(--text-secondary)">info</span></div>
+      <div style="flex:1;padding:8px 24px 20px;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+        <div style="font-family:var(--font-body);font-size:17px;color:var(--text-secondary);line-height:1.45">Prescription or lab report — we'll read it and explain it simply.</div>
+        <div style="display:flex;gap:8px;background:var(--warm-100);border-radius:99px;padding:5px">
+          <div style="flex:1;text-align:center;padding:11px 0;border-radius:99px;background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:16px">Prescription</div>
+          <div style="flex:1;text-align:center;padding:11px 0;border-radius:99px;color:var(--text-secondary);font-family:var(--font-display);font-weight:600;font-size:16px">Lab report</div>
+          <div style="flex:1;text-align:center;padding:11px 0;border-radius:99px;color:var(--text-secondary);font-family:var(--font-display);font-weight:600;font-size:16px">Not sure</div>
+        </div>
+        <div style="border:2.5px dashed var(--red-300);border-radius:var(--radius-lg);background:#fff;padding:32px 20px;display:flex;flex-direction:column;align-items:center;gap:12px">
+          <div style="width:88px;height:88px;border-radius:var(--radius-lg);background:var(--red-200);display:flex;align-items:center;justify-content:center"><span class="msym" style="font-size:48px;color:var(--red-700)">note_add</span></div>
+          <div style="font-family:var(--font-body);font-size:17px;color:var(--text-secondary);text-align:center">Upload clear photos or files<br>of your document</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow-1);cursor:pointer"><span class="msym" style="font-size:24px">photo_camera</span>Take photo</button>
+          <button style="height:56px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer"><span class="msym" style="font-size:24px">photo_library</span>Choose from gallery</button>
+          <button style="height:56px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer"><span class="msym" style="font-size:24px">picture_as_pdf</span>Upload PDF</button>
+        </div>
+        <div style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary);text-align:center">Accepted formats: PDF, JPG, PNG</div>
+        <div style="display:flex;gap:10px;align-items:flex-start;background:var(--warm-100);border-radius:var(--radius-md);padding:14px 16px;margin-top:auto"><span class="msym" style="font-size:22px;color:var(--red-600)">verified_user</span><span style="font-family:var(--font-body);font-size:15px;color:var(--warm-900);line-height:1.4">Nothing is added to your medicines or health chart until you review and confirm it.</span></div>
+        <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary-disabled);color:#fff;font-family:var(--font-display);font-weight:600;font-size:19px;cursor:not-allowed">Start AI Reading</button>
+      </div>
+    </div>
+
+    <!-- AI PROCESSING -->
+    <div data-screen-label="AI Processing" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--warm-900)">Reading your document</span></div>
+      <div style="flex:1;padding:20px 26px;display:flex;flex-direction:column;align-items:center">
+        <div style="position:relative;width:170px;height:170px;margin-top:12px">
+          <svg width="170" height="170" viewBox="0 0 170 170" style="animation:none">
+            <circle cx="85" cy="85" r="72" fill="none" stroke="var(--warm-200)" stroke-width="14"/>
+            <circle cx="85" cy="85" r="72" fill="none" stroke="url(#ringg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="452" stroke-dashoffset="181" transform="rotate(-90 85 85)"/>
+            <defs><linearGradient id="ringg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F75B4C"/><stop offset="1" stop-color="#AF1307"/></linearGradient></defs>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--red-700)">60%</span><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">Please wait</span></div>
+        </div>
+        <div style="font-family:var(--font-body);font-size:17px;color:var(--text-secondary);margin-top:16px;text-align:center">This usually takes a few seconds.</div>
+        <div style="width:100%;margin-top:28px;display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;gap:16px;align-items:center"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:38px;height:38px;border-radius:99px;background:var(--status-success);display:flex;align-items:center;justify-content:center"><span class="msym fill1" style="font-size:22px;color:#fff">check</span></div><div style="width:3px;height:34px;background:var(--status-success)"></div></div><div style="padding-bottom:34px"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Uploaded</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Your document is safely uploaded</div></div></div>
+          <div style="display:flex;gap:16px;align-items:center"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:38px;height:38px;border-radius:99px;background:var(--status-success);display:flex;align-items:center;justify-content:center"><span class="msym fill1" style="font-size:22px;color:#fff">check</span></div><div style="width:3px;height:34px;background:var(--status-success)"></div></div><div style="padding-bottom:34px"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Reading the document</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Recognising the text (OCR)</div></div></div>
+          <div style="display:flex;gap:16px;align-items:center"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:38px;height:38px;border-radius:99px;background:var(--red-600);display:flex;align-items:center;justify-content:center"><span class="msym" style="font-size:22px;color:#fff;animation:mhspin 1.2s linear infinite">progress_activity</span></div><div style="width:3px;height:34px;background:var(--warm-200)"></div></div><div style="padding-bottom:34px"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--red-700)">Finding medicines &amp; values</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Working on it now…</div></div></div>
+          <div style="display:flex;gap:16px;align-items:center"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:38px;height:38px;border-radius:99px;background:var(--warm-100);border:2px solid var(--warm-200);display:flex;align-items:center;justify-content:center"><span class="msym" style="font-size:20px;color:var(--text-secondary)">more_horiz</span></div><div style="width:3px;height:34px;background:var(--warm-200)"></div></div><div style="padding-bottom:34px"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-secondary)">Creating a simple explanation</div></div></div>
+          <div style="display:flex;gap:16px;align-items:center"><div style="width:38px;height:38px;border-radius:99px;background:var(--warm-100);border:2px solid var(--warm-200);display:flex;align-items:center;justify-content:center;flex:0 0 38px"><span class="msym" style="font-size:20px;color:var(--text-secondary)">fact_check</span></div><div><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-secondary)">Ready for your review</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI FAILED -->
+    <div data-screen-label="AI — Couldn't read" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--warm-900)">Reading your document</span></div>
+      <div style="flex:1;padding:24px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px">
+        <div style="width:130px;height:130px;border-radius:99px;background:var(--warm-100);display:flex;align-items:center;justify-content:center;margin-bottom:8px"><span class="msym" style="font-size:70px;color:var(--red-600)">image_not_supported</span></div>
+        <div style="font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--warm-900);line-height:1.2">We couldn't read this clearly</div>
+        <div style="font-family:var(--font-body);font-size:18px;color:var(--text-secondary);line-height:1.5;max-width:280px">The photo may be blurry or dark. Try again in good light, laid flat.</div>
+        <div style="width:100%;margin-top:24px;display:flex;flex-direction:column;gap:12px">
+          <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:19px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow-1);cursor:pointer"><span class="msym" style="font-size:24px">photo_camera</span>Try another photo</button>
+          <button style="height:56px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:18px;cursor:pointer">Enter manually</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRESCRIPTION REVIEW -->
+    <div data-screen-label="Prescription Review" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="padding:6px 22px 4px"><div style="display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">Review medicines we found</span></div><div style="font-family:var(--font-body);font-size:16px;color:var(--text-secondary);margin-top:6px;padding-left:34px">Please check before we add reminders.</div></div>
+      <div style="flex:1;padding:12px 20px 12px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:8px;background:var(--status-success-bg);border:1px solid #CDEBD8;border-radius:99px;padding:10px 16px;align-self:flex-start"><span class="msym fill1" style="font-size:20px;color:var(--status-success)">verified</span><span style="font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--status-success)">AI confidence: High</span><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">· found 2 medicines</span></div>
+
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 18px;box-shadow:var(--shadow-1)">
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <div style="width:30px;height:30px;border-radius:9px;background:var(--color-primary);display:flex;align-items:center;justify-content:center;flex:0 0 30px;margin-top:2px"><span class="msym fill1" style="font-size:22px;color:#fff">check</span></div>
+            <div style="flex:1"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--warm-900)">Metformin 500mg</span><span class="msym" style="font-size:22px;color:var(--text-link)">edit</span></div>
+              <div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);margin-top:4px">Take 1 tablet after dinner</div>
+              <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><span style="font-family:var(--font-body);font-size:14px;background:var(--warm-100);border-radius:99px;padding:5px 12px;color:var(--warm-900)">Every day</span><span style="font-family:var(--font-body);font-size:14px;background:var(--warm-100);border-radius:99px;padding:5px 12px;color:var(--warm-900)">8:00 PM</span><span style="font-family:var(--font-body);font-size:14px;background:var(--status-success-bg);border-radius:99px;padding:5px 12px;color:var(--status-success);font-weight:600">High confidence</span></div>
+              <div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px;display:flex;align-items:center;gap:5px"><span class="msym" style="font-size:15px">auto_awesome</span>Source: Prescription · Today</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 18px;box-shadow:var(--shadow-1)">
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <div style="width:30px;height:30px;border-radius:9px;background:var(--color-primary);display:flex;align-items:center;justify-content:center;flex:0 0 30px;margin-top:2px"><span class="msym fill1" style="font-size:22px;color:#fff">check</span></div>
+            <div style="flex:1"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--warm-900)">Amlodipine 5mg</span><span class="msym" style="font-size:22px;color:var(--text-link)">edit</span></div>
+              <div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);margin-top:4px">Take 1 tablet in the morning</div>
+              <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><span style="font-family:var(--font-body);font-size:14px;background:var(--warm-100);border-radius:99px;padding:5px 12px;color:var(--warm-900)">Every day</span><span style="font-family:var(--font-body);font-size:14px;background:var(--warm-100);border-radius:99px;padding:5px 12px;color:var(--warm-900)">9:00 AM</span><span style="font-family:var(--font-body);font-size:14px;background:var(--status-warning-bg);border-radius:99px;padding:5px 12px;color:var(--status-warning);font-weight:600">Needs checking</span></div>
+              <div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px;display:flex;align-items:center;gap:5px"><span class="msym" style="font-size:15px">auto_awesome</span>Source: Prescription · Today</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;background:var(--warm-100);border-radius:var(--radius-md);padding:13px 16px;margin-top:auto"><span class="msym" style="font-size:20px;color:var(--red-600)">info</span><span style="font-family:var(--font-body);font-size:14px;color:var(--warm-900);line-height:1.4">Medi-Help can make mistakes. Please confirm with your prescription or doctor.</span></div>
+        <button style="height:58px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:19px;box-shadow:var(--shadow-1);cursor:pointer">Confirm and Add Reminders</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 4 ============ -->
+  <div style="width:100%;display:flex;align-items:baseline;gap:16px;margin:56px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">4 · Medicines &amp; Reminders</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">Dashboard → Add medicine → Detail → Reminder</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- MEDICATION DASHBOARD -->
+    <div data-screen-label="My Medicines" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:6px;padding:6px 18px"><span style="font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--warm-900);flex:1">My medicines</span><span class="msym" style="font-size:26px;color:var(--warm-900)">search</span><span class="msym" style="font-size:26px;color:var(--warm-900)">more_vert</span></div>
+      <div style="flex:1;padding:8px 20px 14px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+        <div style="background:linear-gradient(135deg,#CF3324,#AF1307);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-2)">
+          <div style="display:flex;align-items:center;gap:8px;color:#FFD9D0;font-family:var(--font-body);font-size:15px"><span class="msym" style="font-size:20px">alarm</span>Next reminder · 10:00 AM · Today</div>
+          <div style="font-family:var(--font-display);font-size:24px;font-weight:800;color:#fff;margin-top:8px">Metformin 500mg</div>
+          <div style="font-family:var(--font-body);font-size:16px;color:#FFE4DC;margin-top:2px">1 tablet · after food</div>
+          <button style="width:100%;height:54px;border:none;border-radius:var(--radius-md);background:#fff;color:var(--red-700);font-family:var(--font-display);font-weight:700;font-size:18px;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer"><span class="msym fill1" style="font-size:22px">check_circle</span>Mark as taken</button>
+        </div>
+        <div style="display:flex;gap:10px">
+          <span style="padding:9px 20px;border-radius:99px;background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:15px">Active</span>
+          <span style="padding:9px 20px;border-radius:99px;background:#fff;border:1px solid var(--border-default);color:var(--text-secondary);font-family:var(--font-display);font-weight:600;font-size:15px">Today</span>
+          <span style="padding:9px 20px;border-radius:99px;background:#fff;border:1px solid var(--border-default);color:var(--text-secondary);font-family:var(--font-display);font-weight:600;font-size:15px">Completed</span>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 18px;box-shadow:var(--shadow-1);display:flex;gap:14px;align-items:center">
+          <div style="width:50px;height:50px;border-radius:var(--radius-md);background:var(--red-200);display:flex;align-items:center;justify-content:center;flex:0 0 50px"><span class="msym fill1" style="font-size:26px;color:var(--red-700)">medication</span></div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Metformin 500mg</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Helps control blood sugar</div><div style="font-family:var(--font-body);font-size:14px;color:var(--warm-600);margin-top:4px">Twice daily · after food · 8AM, 8PM</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><span style="font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--status-success);background:var(--status-success-bg);padding:3px 10px;border-radius:99px">Active</span><span class="msym" style="font-size:20px;color:var(--text-secondary)">chevron_right</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 18px;box-shadow:var(--shadow-1);display:flex;gap:14px;align-items:center">
+          <div style="width:50px;height:50px;border-radius:var(--radius-md);background:var(--red-200);display:flex;align-items:center;justify-content:center;flex:0 0 50px"><span class="msym fill1" style="font-size:26px;color:var(--red-700)">medication</span></div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Amlodipine 5mg</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Helps lower blood pressure</div><div style="font-family:var(--font-body);font-size:14px;color:var(--warm-600);margin-top:4px">Once daily · after food · 9AM</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><span style="font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--status-success);background:var(--status-success-bg);padding:3px 10px;border-radius:99px">Active</span><span class="msym" style="font-size:20px;color:var(--text-secondary)">chevron_right</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 18px;box-shadow:var(--shadow-1);display:flex;gap:14px;align-items:center;opacity:.72">
+          <div style="width:50px;height:50px;border-radius:var(--radius-md);background:var(--warm-100);display:flex;align-items:center;justify-content:center;flex:0 0 50px"><span class="msym" style="font-size:26px;color:var(--warm-600)">medication</span></div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Vitamin D3 60K</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Supports bones</div><div style="font-family:var(--font-body);font-size:14px;color:var(--warm-600);margin-top:4px">Once weekly · Sunday</div></div>
+          <span style="font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--text-secondary);background:var(--warm-100);padding:3px 10px;border-radius:99px">Paused</span>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:90px;right:22px"><div style="height:58px;padding:0 24px;border-radius:99px;background:var(--color-primary);color:#fff;display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:18px;box-shadow:var(--shadow-3)"><span class="msym" style="font-size:26px">add</span>Add medicine</div></div>
+      <div style="display:flex;height:74px;background:#fff;border-top:1px solid var(--border-default);box-shadow:0 -2px 10px rgba(98,0,4,0.06)">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">home</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Home</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--color-primary)"><span class="msym fill1" style="font-size:26px">medication</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:700">Medicines</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">favorite</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Vitals</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">upload</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Upload</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">shield</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Tips</span></div>
+      </div>
+    </div>
+
+    <!-- ADD MEDICINE -->
+    <div data-screen-label="Add Medicine" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">Add medicine</span></div>
+      <div style="flex:1;padding:12px 22px 16px;display:flex;flex-direction:column;gap:20px;overflow:hidden">
+        <div>
+          <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">The medicine</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;font-family:var(--font-body);font-size:18px;color:var(--warm-900)">Metformin</div>
+            <div style="display:flex;gap:12px"><div style="flex:1;height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;font-family:var(--font-body);font-size:18px;color:var(--text-secondary)">500 mg</div><div style="flex:1;height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;font-family:var(--font-body);font-size:18px;color:var(--text-secondary)">1 tablet</div></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">When to take it</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:12px"><div style="flex:1;height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">8:00 PM<span class="msym" style="font-size:22px;color:var(--text-secondary)">schedule</span></div><div style="flex:1;height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Twice daily<span class="msym" style="font-size:22px;color:var(--text-secondary)">expand_more</span></div></div>
+            <div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary);margin-bottom:8px">Meal relation</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap"><span style="padding:11px 16px;border-radius:99px;background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:15px">After food</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">Before food</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">With food</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">Not sure</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">How long &amp; notes</div>
+          <div style="display:flex;gap:12px;margin-bottom:12px"><div style="flex:1;height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);font-size:16px;color:var(--warm-900)">Start today<span class="msym" style="font-size:20px;color:var(--text-secondary)">calendar_month</span></div><div style="flex:1;height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;font-family:var(--font-body);font-size:16px;color:var(--text-secondary)">End · optional</div></div>
+          <div style="min-height:56px;padding:14px 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;font-family:var(--font-body);font-size:16px;color:var(--text-secondary)">Notes (optional)</div>
+        </div>
+        <button style="height:58px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:19px;box-shadow:var(--shadow-1);cursor:pointer;margin-top:auto">Save Medicine</button>
+      </div>
+    </div>
+
+    <!-- MEDICINE DETAIL -->
+    <div data-screen-label="Medicine Detail" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="position:relative;background:linear-gradient(150deg,#CF3324,#AF1307);padding:16px 24px 26px">
+        <div style="display:flex;align-items:center;justify-content:space-between;font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px"><span class="msym" style="font-size:26px;color:#fff">arrow_back</span></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:10px"><span style="font-family:var(--font-display);font-size:28px;font-weight:800;color:#fff">Metformin 500mg</span></div>
+        <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.22);color:#fff;padding:5px 14px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:14px;margin-top:8px"><span class="msym fill1" style="font-size:16px">check_circle</span>Active</span>
+      </div>
+      <div style="flex:1;padding:16px 20px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--warm-900);display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:22px;color:var(--red-600)">help</span>What this medicine is for</div><div style="font-family:var(--font-body);font-size:17px;color:var(--warm-900);line-height:1.5;margin-top:8px">This medicine may help control your blood sugar.</div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--warm-900);display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:22px;color:var(--red-600)">medication_liquid</span>How to take it</div><div style="font-family:var(--font-body);font-size:17px;color:var(--warm-900);line-height:1.5;margin-top:8px">Take 1 tablet after dinner, every day.</div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="display:flex;align-items:center;justify-content:space-between"><div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--warm-900);display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:22px;color:var(--red-600)">alarm</span>Reminders</div><span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text-link)">Edit</span></div><div style="display:flex;gap:10px;margin-top:12px"><span style="padding:9px 18px;border-radius:99px;background:var(--warm-100);font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--warm-900)">8:00 AM</span><span style="padding:9px 18px;border-radius:99px;background:var(--warm-100);font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--warm-900)">8:00 PM</span></div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--warm-900);display:flex;align-items:center;gap:8px"><span class="msym" style="font-size:22px;color:var(--red-600)">history</span>This week</div><div style="display:flex;gap:10px;margin-top:12px"><div style="flex:1;text-align:center;background:var(--status-success-bg);border-radius:var(--radius-md);padding:12px 4px"><div style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--status-success)">12</div><div style="font-family:var(--font-body);font-size:14px;color:var(--warm-900)">Taken</div></div><div style="flex:1;text-align:center;background:var(--status-warning-bg);border-radius:var(--radius-md);padding:12px 4px"><div style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--status-warning)">1</div><div style="font-family:var(--font-body);font-size:14px;color:var(--warm-900)">Skipped</div></div><div style="flex:1;text-align:center;background:var(--red-200);border-radius:var(--radius-md);padding:12px 4px"><div style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--red-700)">1</div><div style="font-family:var(--font-body);font-size:14px;color:var(--warm-900)">Missed</div></div></div></div>
+        <div style="display:flex;gap:10px;margin-top:auto"><button style="flex:1;height:52px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:16px;cursor:pointer">Pause</button><button style="flex:1;height:52px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:16px;cursor:pointer">Edit</button><button style="width:52px;height:52px;border:2px solid var(--red-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer"><span class="msym" style="font-size:24px;color:var(--red-700)">delete</span></button></div>
+        <div style="display:flex;gap:8px;align-items:center;justify-content:center"><span class="msym" style="font-size:18px;color:var(--text-secondary)">info</span><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">Do not stop medicine without asking your doctor.</span></div>
+      </div>
+    </div>
+
+    <!-- REMINDER -->
+    <div data-screen-label="Reminder" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:linear-gradient(160deg,#CF3324 0%,#AF1307 55%,#850001 100%);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 28px;text-align:center">
+        <div style="width:120px;height:120px;border-radius:99px;background:rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center;margin-bottom:24px"><span class="msym fill1" style="font-size:66px;color:#fff;animation:mhpulse 2s var(--ease-standard) infinite">notifications_active</span></div>
+        <div style="font-family:var(--font-body);font-size:19px;color:#FFD9D0">It's 8:00 PM</div>
+        <div style="font-family:var(--font-display);font-size:34px;font-weight:800;color:#fff;line-height:1.15;margin-top:6px">Time to take<br>your medicine</div>
+        <div style="background:rgba(255,255,255,0.14);border-radius:var(--radius-lg);padding:22px;margin-top:28px;width:100%"><div style="font-family:var(--font-display);font-size:28px;font-weight:800;color:#fff">Metformin 500mg</div><div style="font-family:var(--font-body);font-size:19px;color:#FFE4DC;margin-top:6px">Take 1 tablet after dinner.</div></div>
+        <div style="width:100%;margin-top:28px;display:flex;flex-direction:column;gap:12px">
+          <button style="height:62px;border:none;border-radius:var(--radius-md);background:#fff;color:var(--red-700);font-family:var(--font-display);font-weight:700;font-size:21px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer"><span class="msym fill1" style="font-size:26px">check_circle</span>Taken</button>
+          <div style="display:flex;gap:12px"><button style="flex:1;height:58px;border:2px solid rgba(255,255,255,0.6);border-radius:var(--radius-md);background:transparent;color:#fff;font-family:var(--font-display);font-weight:600;font-size:17px;cursor:pointer">Snooze 10 min</button><button style="flex:1;height:58px;border:2px solid rgba(255,255,255,0.6);border-radius:var(--radius-md);background:transparent;color:#fff;font-family:var(--font-display);font-weight:600;font-size:17px;cursor:pointer">Skip</button></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 5 ============ -->
+  <div style="width:100%;display:flex;align-items:baseline;gap:16px;margin:56px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">5 · Vitals &amp; Health Chart</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">Every value shows its date &amp; source — Chart → Add reading → Biomarker detail</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- VITALS DASHBOARD -->
+    <div data-screen-label="Health Chart" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 18px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900);flex:1">Health chart</span><span style="display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--warm-200);border-radius:99px;padding:7px 14px;font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--warm-900)">Blood pressure<span class="msym" style="font-size:18px">expand_more</span></span></div>
+      <div style="flex:1;padding:10px 20px 12px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+        <div style="display:flex;gap:6px;background:var(--warm-100);border-radius:99px;padding:5px">
+          <div style="flex:1;text-align:center;padding:9px 0;border-radius:99px;background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px">Week</div>
+          <div style="flex:1;text-align:center;padding:9px 0;font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-secondary)">Month</div>
+          <div style="flex:1;text-align:center;padding:9px 0;font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-secondary)">3 Months</div>
+          <div style="flex:1;text-align:center;padding:9px 0;font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--text-secondary)">Year</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 14px 10px;box-shadow:var(--shadow-1)">
+          <div style="display:flex;justify-content:space-between;padding:0 6px 8px"><span style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">Jul 5 – Jul 11, 2026</span><div style="display:flex;gap:12px"><span style="font-family:var(--font-body);font-size:13px;color:var(--warm-900);display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:99px;background:var(--red-600)"></span>Systolic</span><span style="font-family:var(--font-body);font-size:13px;color:var(--warm-900);display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:99px;background:var(--red-300)"></span>Diastolic</span></div></div>
+          <svg viewBox="0 0 320 190" style="width:100%;height:auto;display:block">
+            <line x1="14" y1="40" x2="320" y2="40" stroke="var(--warm-100)" stroke-width="1.5"/>
+            <line x1="14" y1="85" x2="320" y2="85" stroke="var(--warm-100)" stroke-width="1.5"/>
+            <line x1="14" y1="130" x2="320" y2="130" stroke="var(--warm-100)" stroke-width="1.5"/>
+            <text x="0" y="44" font-family="Public Sans" font-size="11" fill="#7A5A56">160</text>
+            <text x="0" y="89" font-family="Public Sans" font-size="11" fill="#7A5A56">120</text>
+            <text x="4" y="134" font-family="Public Sans" font-size="11" fill="#7A5A56">80</text>
+            <polyline points="30,78 74,66 118,80 162,62 206,72 250,58 300,66" fill="none" stroke="#CF3324" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="30,132 74,136 118,128 162,134 206,130 250,133 300,131" fill="none" stroke="#FEAB9B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#CF3324"><circle cx="30" cy="78" r="4"/><circle cx="74" cy="66" r="4"/><circle cx="118" cy="80" r="4"/><circle cx="162" cy="62" r="4"/><circle cx="206" cy="72" r="4"/><circle cx="250" cy="58" r="4"/><circle cx="300" cy="66" r="5"/></g>
+            <g fill="#FEAB9B"><circle cx="30" cy="132" r="4"/><circle cx="74" cy="136" r="4"/><circle cx="118" cy="128" r="4"/><circle cx="162" cy="134" r="4"/><circle cx="206" cy="130" r="4"/><circle cx="250" cy="133" r="4"/><circle cx="300" cy="131" r="5"/></g>
+          </svg>
+          <div style="display:flex;justify-content:space-between;padding:2px 8px 0;font-family:var(--font-body);font-size:12px;color:var(--text-secondary)"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1);display:flex;align-items:center;justify-content:space-between">
+          <div><div style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary)">Latest reading</div><div style="display:flex;align-items:baseline;gap:6px;margin-top:2px"><span style="font-family:var(--font-display);font-size:34px;font-weight:800;color:var(--warm-900)">120/80</span><span style="font-family:var(--font-body);font-size:16px;color:var(--text-secondary)">mmHg</span></div><div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:4px;display:flex;align-items:center;gap:5px"><span class="msym" style="font-size:15px">edit</span>Manual · Today, 8:30 AM</div></div>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-success-bg);color:var(--status-success);padding:7px 14px;border-radius:99px;font-family:var(--font-display);font-weight:700;font-size:15px"><span class="msym fill1" style="font-size:18px">check_circle</span>Normal</span>
+        </div>
+        <div style="display:flex;gap:8px"><span style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-default);border-radius:99px;padding:8px 14px;font-family:var(--font-body);font-size:14px;color:var(--warm-900)"><span class="msym" style="font-size:17px;color:var(--red-600)">edit</span>Manual</span><span style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-default);border-radius:99px;padding:8px 14px;font-family:var(--font-body);font-size:14px;color:var(--warm-900)"><span class="msym" style="font-size:17px;color:var(--red-600)">description</span>Lab report</span><span style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border-default);border-radius:99px;padding:8px 14px;font-family:var(--font-body);font-size:14px;color:var(--warm-900)"><span class="msym" style="font-size:17px;color:var(--red-600)">watch</span>Health Connect</span></div>
+        <div style="display:flex;gap:12px;margin-top:auto"><button style="flex:1;height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--shadow-1);cursor:pointer"><span class="msym" style="font-size:24px">add</span>Add vital</button></div>
+      </div>
+      <div style="display:flex;height:74px;background:#fff;border-top:1px solid var(--border-default);box-shadow:0 -2px 10px rgba(98,0,4,0.06)">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">home</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Home</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">medication</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Medicines</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--color-primary)"><span class="msym fill1" style="font-size:26px">favorite</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:700">Vitals</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">upload</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Upload</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">shield</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Tips</span></div>
+      </div>
+    </div>
+
+    <!-- ADD VITAL -->
+    <div data-screen-label="Add Vital" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">Add a reading</span></div>
+      <div style="flex:1;padding:14px 22px 16px;display:flex;flex-direction:column;gap:20px;overflow:hidden">
+        <div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary);margin-bottom:10px">What are you recording?</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span style="display:flex;align-items:center;gap:6px;padding:11px 16px;border-radius:99px;background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym fill1" style="font-size:18px">favorite</span>Blood pressure</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">Heart rate</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">Glucose</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">Weight</span><span style="padding:11px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:15px">Custom</span></div>
+        </div>
+        <div style="display:flex;gap:14px">
+          <div style="flex:1;text-align:center"><div style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900);margin-bottom:8px">Systolic</div><div style="height:88px;border:2px solid var(--red-300);border-radius:var(--radius-lg);background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--red-700)">120</span><span style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary)">mmHg</span></div></div>
+          <div style="flex:1;text-align:center"><div style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900);margin-bottom:8px">Diastolic</div><div style="height:88px;border:2px solid var(--warm-200);border-radius:var(--radius-lg);background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--warm-900)">80</span><span style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary)">mmHg</span></div></div>
+        </div>
+        <div><div style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900);margin-bottom:8px">When</div><div style="height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Today, 8:30 AM<span class="msym" style="font-size:22px;color:var(--text-secondary)">calendar_month</span></div></div>
+        <div><div style="font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--warm-900);margin-bottom:8px">Notes <span style="color:var(--text-secondary);font-weight:400">· optional</span></div><div style="min-height:64px;padding:14px 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;font-family:var(--font-body);font-size:16px;color:var(--text-secondary)">e.g. measured before breakfast</div></div>
+        <button style="height:58px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:19px;box-shadow:var(--shadow-1);cursor:pointer;margin-top:auto">Save Reading</button>
+      </div>
+    </div>
+
+    <!-- BIOMARKER DETAIL -->
+    <div data-screen-label="Biomarker Detail" style="position:relative;width:384px;flex:0 0 384px;height:892px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">HbA1c</span></div>
+      <div style="flex:1;padding:12px 22px 16px;display:flex;flex-direction:column;gap:16px;overflow:hidden">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:baseline;gap:8px"><span style="font-family:var(--font-display);font-size:44px;font-weight:800;color:var(--warm-900)">6.2</span><span style="font-family:var(--font-body);font-size:20px;color:var(--text-secondary)">%</span></div><span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-warning-bg);color:var(--status-warning);padding:8px 14px;border-radius:99px;font-family:var(--font-display);font-weight:700;font-size:15px"><span class="msym fill1" style="font-size:18px">warning</span>Slightly high</span></div>
+          <div style="height:8px;border-radius:99px;background:linear-gradient(90deg,var(--status-success) 0%,var(--status-success) 55%,var(--status-warning) 70%,var(--red-600) 100%);margin-top:18px;position:relative"><span style="position:absolute;top:-4px;left:62%;width:16px;height:16px;border-radius:99px;background:#fff;border:3px solid var(--warm-900)"></span></div>
+          <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px"><span>Normal &lt; 5.7%</span><span>Reference: 4.0–5.6%</span></div>
+          <div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:12px;display:flex;align-items:center;gap:5px;border-top:1px solid var(--warm-100);padding-top:12px"><span class="msym" style="font-size:16px">description</span>Source: Lab report · 12 July 2026</div>
+        </div>
+        <div style="background:var(--warm-100);border-radius:var(--radius-lg);padding:18px;display:flex;gap:12px;align-items:flex-start"><span class="msym" style="font-size:24px;color:var(--red-600)">lightbulb</span><div><div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--warm-900)">In simple words</div><div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);line-height:1.5;margin-top:4px">HbA1c shows your average blood sugar over the last few months.</div></div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 14px 10px;box-shadow:var(--shadow-1)">
+          <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--warm-900);padding:0 6px 8px">Past results</div>
+          <svg viewBox="0 0 320 150" style="width:100%;height:auto;display:block">
+            <line x1="14" y1="35" x2="320" y2="35" stroke="var(--warm-100)" stroke-width="1.5"/>
+            <line x1="14" y1="80" x2="320" y2="80" stroke="var(--warm-100)" stroke-width="1.5"/>
+            <line x1="14" y1="120" x2="320" y2="120" stroke="var(--warm-100)" stroke-width="1.5"/>
+            <polyline points="40,100 130,88 230,70 300,55" fill="none" stroke="#CF3324" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#CF3324"><circle cx="40" cy="100" r="4.5"/><circle cx="130" cy="88" r="4.5"/><circle cx="230" cy="70" r="4.5"/><circle cx="300" cy="55" r="5.5"/></g>
+          </svg>
+          <div style="display:flex;justify-content:space-between;padding:2px 8px 0;font-family:var(--font-body);font-size:12px;color:var(--text-secondary)"><span>Jan '26</span><span>Mar '26</span><span>May '26</span><span>Jul '26</span></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;justify-content:center;margin-top:auto"><span class="msym" style="font-size:18px;color:var(--text-secondary)">info</span><span style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">Ask your doctor what this means for you.</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 6 ============ -->
+  <div style="width:100%;display:flex;align-items:baseline;gap:16px;margin:56px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">6 · Insights &amp; Tips</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">Friendly, supportive summaries — never a diagnosis</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- INSIGHTS / TIPS -->
+    <div data-screen-label="Insights & Tips" style="position:relative;width:384px;flex:0 0 384px;height:940px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 18px"><span style="font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--warm-900);flex:1">Simple health tips</span><span class="msym" style="font-size:26px;color:var(--warm-900)">more_vert</span></div>
+      <div style="flex:1;padding:8px 20px 12px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:46px;height:46px;border-radius:var(--radius-md);background:var(--status-success-bg);display:flex;align-items:center;justify-content:center;flex:0 0 46px"><span class="msym fill1" style="font-size:26px;color:var(--status-success)">trending_flat</span></div><div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Steady progress</div><div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);line-height:1.45;margin-top:4px">Your blood pressure has stayed steady this week.</div><div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px">Jul 5–11 · from your manual readings</div></div></div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:46px;height:46px;border-radius:var(--radius-md);background:var(--red-200);display:flex;align-items:center;justify-content:center;flex:0 0 46px"><span class="msym fill1" style="font-size:26px;color:var(--red-700)">event_available</span></div><div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">Medicine routine</div><div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);line-height:1.45;margin-top:4px">You took 6 of 7 scheduled doses this week. Nicely done.</div><div style="display:flex;gap:4px;margin-top:10px"><span style="flex:1;height:8px;border-radius:99px;background:var(--status-success)"></span><span style="flex:1;height:8px;border-radius:99px;background:var(--status-success)"></span><span style="flex:1;height:8px;border-radius:99px;background:var(--status-success)"></span><span style="flex:1;height:8px;border-radius:99px;background:var(--status-success)"></span><span style="flex:1;height:8px;border-radius:99px;background:var(--status-success)"></span><span style="flex:1;height:8px;border-radius:99px;background:var(--status-success)"></span><span style="flex:1;height:8px;border-radius:99px;background:var(--warm-200)"></span></div><div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px">This week · Jul 5–11</div></div></div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:46px;height:46px;border-radius:var(--radius-md);background:var(--warm-100);display:flex;align-items:center;justify-content:center;flex:0 0 46px"><span class="msym fill1" style="font-size:26px;color:var(--red-600)">directions_walk</span></div><div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">A tip for you</div><div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);line-height:1.45;margin-top:4px">Try a short walk after meals if your doctor says it is safe.</div><div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px">Generated today · general suggestion</div></div></div></div>
+        <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-1)"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:46px;height:46px;border-radius:var(--radius-md);background:var(--status-warning-bg);display:flex;align-items:center;justify-content:center;flex:0 0 46px"><span class="msym fill1" style="font-size:26px;color:var(--status-warning)">science</span></div><div style="flex:1"><div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--warm-900)">About your last lab</div><div style="font-family:var(--font-body);font-size:16px;color:var(--warm-900);line-height:1.45;margin-top:4px">Your glucose result is a little higher than the usual range. This may need attention — please contact a doctor.</div><div style="font-family:var(--font-body);font-size:13px;color:var(--text-secondary);margin-top:8px">Lab report · 12 Jul 2026</div></div></div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start;margin-top:auto;padding:0 4px"><span class="msym" style="font-size:18px;color:var(--text-secondary)">info</span><span style="font-family:var(--font-body);font-size:13.5px;color:var(--text-secondary);line-height:1.4">These tips are for general support and do not replace medical advice.</span></div>
+      </div>
+      <div style="display:flex;height:74px;background:#fff;border-top:1px solid var(--border-default);box-shadow:0 -2px 10px rgba(98,0,4,0.06)">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">home</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Home</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">medication</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Medicines</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">favorite</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Vitals</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-secondary)"><span class="msym" style="font-size:26px">upload</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:500">Upload</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--color-primary)"><span class="msym fill1" style="font-size:26px">shield</span><span style="font-family:var(--font-display);font-size:12.5px;font-weight:700">Tips</span></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div data-screen-label="Settings" style="position:relative;width:384px;flex:0 0 384px;height:1040px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 16px"><span class="msym" style="font-size:26px;color:var(--warm-900)">arrow_back</span><span style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">Settings</span></div>
+      <div style="flex:1;padding:10px 20px 18px;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+        <div style="display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px;box-shadow:var(--shadow-1)"><div style="width:56px;height:56px;border-radius:99px;background:var(--red-600);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:24px;color:#fff">A</div><div style="flex:1"><div style="font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--warm-900)">Anita Rahman</div><div style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">anita@email.com</div></div><span class="msym" style="font-size:22px;color:var(--text-secondary)">chevron_right</span></div>
+
+        <div><div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin:0 4px 8px">Accessibility</div>
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-1);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-bottom:1px solid var(--warm-100)"><span class="msym" style="font-size:24px;color:var(--red-600)">format_size</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Large text mode</span><div style="width:52px;height:30px;border-radius:99px;background:var(--color-primary);position:relative"><span style="position:absolute;top:3px;right:3px;width:24px;height:24px;border-radius:99px;background:#fff"></span></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-bottom:1px solid var(--warm-100)"><span class="msym" style="font-size:24px;color:var(--red-600)">contrast</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">High contrast mode</span><div style="width:52px;height:30px;border-radius:99px;background:var(--warm-200);position:relative"><span style="position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff"></span></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px"><span class="msym" style="font-size:24px;color:var(--red-600)">translate</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Simple language mode</span><div style="width:52px;height:30px;border-radius:99px;background:var(--color-primary);position:relative"><span style="position:absolute;top:3px;right:3px;width:24px;height:24px;border-radius:99px;background:#fff"></span></div></div>
+          </div>
+        </div>
+
+        <div><div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin:0 4px 8px">Reminders</div>
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-1);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-bottom:1px solid var(--warm-100)"><span class="msym" style="font-size:24px;color:var(--red-600)">notifications</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Notification settings</span><span class="msym" style="font-size:22px;color:var(--text-secondary)">chevron_right</span></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px"><span class="msym" style="font-size:24px;color:var(--red-600)">snooze</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Snooze duration</span><span style="font-family:var(--font-body);font-size:15px;color:var(--text-secondary)">10 min</span></div>
+          </div>
+        </div>
+
+        <div><div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin:0 4px 8px">Privacy &amp; security</div>
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-1);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-bottom:1px solid var(--warm-100)"><span class="msym" style="font-size:24px;color:var(--red-600)">lock</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">App lock</span><div style="width:52px;height:30px;border-radius:99px;background:var(--color-primary);position:relative"><span style="position:absolute;top:3px;right:3px;width:24px;height:24px;border-radius:99px;background:#fff"></span></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-bottom:1px solid var(--warm-100)"><span class="msym" style="font-size:24px;color:var(--red-600)">fingerprint</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Biometric unlock</span><div style="width:52px;height:30px;border-radius:99px;background:var(--warm-200);position:relative"><span style="position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:99px;background:#fff"></span></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px"><span class="msym" style="font-size:24px;color:var(--red-700)">delete_sweep</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--red-700)">Delete uploaded documents</span><span class="msym" style="font-size:22px;color:var(--text-secondary)">chevron_right</span></div>
+          </div>
+        </div>
+
+        <div><div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin:0 4px 8px">Health Connect</div>
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-1);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px"><span class="msym" style="font-size:24px;color:var(--red-600)">watch</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Health Connect</span><span style="display:inline-flex;align-items:center;gap:5px;font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--status-success)"><span style="width:8px;height:8px;border-radius:99px;background:var(--status-success)"></span>Connected</span></div>
+          </div>
+        </div>
+
+        <div><div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin:0 4px 8px">About</div>
+          <div style="background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-1);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-bottom:1px solid var(--warm-100)"><span class="msym" style="font-size:24px;color:var(--red-600)">health_and_safety</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Medical disclaimer</span><span class="msym" style="font-size:22px;color:var(--text-secondary)">chevron_right</span></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:15px 16px"><span class="msym" style="font-size:24px;color:var(--red-600)">policy</span><span style="flex:1;font-family:var(--font-body);font-size:17px;color:var(--warm-900)">Privacy policy</span><span class="msym" style="font-size:22px;color:var(--text-secondary)">chevron_right</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECTION 7 ============ -->
+  <div style="width:100%;display:flex;align-items:baseline;gap:16px;margin:56px 0 24px;border-top:2px solid var(--warm-200);padding-top:28px">
+    <h2 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--red-800);margin:0">7 · Components &amp; States</h2>
+    <span style="font-family:var(--font-body);color:var(--text-secondary);font-size:17px">Confirmation dialogs, empty &amp; error states, and the reusable component set</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+    <!-- CONFIRM DIALOG -->
+    <div data-screen-label="Confirmation Dialog" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="filter:blur(1.5px);opacity:.5;display:flex;flex-direction:column;height:100%">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span class="msym" style="font-size:17px">battery_full</span></div>
+        <div style="padding:8px 18px;font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">My medicines</div>
+        <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px"><div style="height:84px;background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg)"></div><div style="height:84px;background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg)"></div></div>
+      </div>
+      <div style="position:absolute;inset:0;background:var(--surface-overlay);display:flex;align-items:center;justify-content:center;padding:24px">
+        <div style="background:#fff;border-radius:var(--radius-lg);padding:26px 24px;box-shadow:var(--shadow-3);width:100%">
+          <div style="width:60px;height:60px;border-radius:99px;background:var(--red-200);display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><span class="msym" style="font-size:32px;color:var(--red-700)">delete</span></div>
+          <div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--warm-900);text-align:center">Delete this medicine?</div>
+          <div style="font-family:var(--font-body);font-size:17px;color:var(--text-secondary);text-align:center;line-height:1.5;margin-top:10px">This will remove <b style="color:var(--warm-900)">Metformin 500mg</b> and its reminders. This cannot be undone.</div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px">
+            <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--red-800);color:#fff;font-family:var(--font-display);font-weight:600;font-size:18px;cursor:pointer">Delete medicine</button>
+            <button style="height:56px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:#fff;color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:18px;cursor:pointer">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div data-screen-label="Empty State" style="position:relative;width:384px;flex:0 0 384px;height:788px;background:var(--surface-bg);border:12px solid #241413;border-radius:48px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 28px 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--warm-900)"><span>9:30</span><span style="display:flex;gap:7px"><span class="msym" style="font-size:17px">network_wifi</span><span class="msym" style="font-size:17px">battery_full</span></span></div>
+      <div style="padding:8px 18px;font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--warm-900)">My medicines</div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px">
+        <div style="width:130px;height:130px;border-radius:var(--radius-xl);background:var(--warm-100);display:flex;align-items:center;justify-content:center;margin-bottom:22px"><span class="msym" style="font-size:70px;color:var(--red-400)">medication</span></div>
+        <div style="font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--warm-900)">No medicines yet</div>
+        <div style="font-family:var(--font-body);font-size:17px;color:var(--text-secondary);line-height:1.5;margin-top:10px;max-width:280px">Add your medicines, or upload a prescription and we'll set up reminders for you.</div>
+        <div style="width:100%;margin-top:26px;display:flex;flex-direction:column;gap:12px">
+          <button style="height:56px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--shadow-1);cursor:pointer"><span class="msym" style="font-size:24px">add</span>Add medicine</button>
+          <button style="height:56px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer"><span class="msym" style="font-size:24px">upload_file</span>Upload a prescription</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPONENT SHEET -->
+    <div style="width:820px;flex:0 0 820px;background:#fff;border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-2);padding:32px 34px;display:flex;flex-direction:column;gap:26px">
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--warm-900);border-bottom:2px solid var(--warm-100);padding-bottom:14px">Reusable components</div>
+
+      <div>
+        <div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Buttons</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <button style="height:56px;padding:0 28px;border:none;border-radius:var(--radius-md);background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:18px;box-shadow:var(--shadow-1)">Primary</button>
+          <button style="height:56px;padding:0 26px;border:2px solid var(--color-secondary-border);border-radius:var(--radius-md);background:#fff;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:18px">Secondary</button>
+          <button style="height:56px;padding:0 24px;border:none;border-radius:var(--radius-md);background:transparent;color:var(--color-primary);font-family:var(--font-display);font-weight:600;font-size:18px">Ghost</button>
+          <button style="height:56px;padding:0 26px;border:none;border-radius:var(--radius-md);background:var(--red-800);color:#fff;font-family:var(--font-display);font-weight:600;font-size:18px">Danger</button>
+          <button style="height:56px;width:56px;border:none;border-radius:99px;background:var(--color-primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:var(--shadow-2)"><span class="msym" style="font-size:26px">add</span></button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Status badges &amp; confidence</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-success-bg);color:var(--status-success);padding:6px 15px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym fill1" style="font-size:17px">check_circle</span>Normal</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-warning-bg);color:var(--status-warning);padding:6px 15px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym fill1" style="font-size:17px">arrow_downward</span>Low</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-critical-bg);color:var(--status-critical);padding:6px 15px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym fill1" style="font-size:17px">arrow_upward</span>High</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-info-bg);color:var(--status-info);padding:6px 15px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym fill1" style="font-size:17px">info</span>Info</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-success-bg);color:var(--status-success);padding:6px 15px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym fill1" style="font-size:17px">verified</span>High confidence</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:var(--status-warning-bg);color:var(--status-warning);padding:6px 15px;border-radius:99px;font-family:var(--font-display);font-weight:600;font-size:15px"><span class="msym" style="font-size:17px">help</span>Needs checking</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Source / date tags &amp; chips</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <span style="display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-family:var(--font-body);font-size:15px"><span class="msym" style="font-size:16px">edit</span>Today · Manual</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-family:var(--font-body);font-size:15px"><span class="msym" style="font-size:16px">description</span>12 Jul · Lab Report</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-family:var(--font-body);font-size:15px"><span class="msym" style="font-size:16px">watch</span>Today · Health Connect</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-family:var(--font-body);font-size:15px"><span class="msym" style="font-size:16px">auto_awesome</span>AI-extracted</span>
+          <span style="padding:8px 16px;border-radius:99px;background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px">Selected chip</span>
+          <span style="padding:8px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--warm-200);color:var(--warm-900);font-family:var(--font-display);font-weight:600;font-size:14px">Chip</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--red-700);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px">Snackbar &amp; input field</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+          <div style="display:flex;align-items:center;gap:12px;background:var(--warm-900);color:#fff;border-radius:var(--radius-md);padding:14px 18px;box-shadow:var(--shadow-2)"><span class="msym fill1" style="font-size:22px;color:var(--red-300)">check_circle</span><span style="font-family:var(--font-body);font-size:16px">Dose marked as taken</span><span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--red-300);margin-left:8px">Undo</span></div>
+          <div style="width:260px"><div style="height:56px;padding:0 16px;border:2px solid var(--warm-200);border-radius:var(--radius-md);background:var(--warm-50);display:flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:17px;color:var(--warm-900)"><span class="msym" style="font-size:22px;color:var(--text-secondary)">mail</span>Text field</div></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:center;background:var(--warm-100);border-radius:var(--radius-md);padding:16px 18px;margin-top:4px">
+        <span class="msym" style="font-size:24px;color:var(--red-700)">favorite</span>
+        <span style="font-family:var(--font-body);font-size:15px;color:var(--warm-900);line-height:1.45">Built on the Medi-Help design system — warm red ramp, Manrope + Public Sans, 56px tap targets, soft warm shadows. Material 3 &amp; Jetpack Compose–ready.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="width:100%;margin-top:56px;padding:20px;background:var(--warm-100);border-radius:var(--radius-lg);text-align:center;font-family:var(--font-body);font-size:16px;color:var(--text-secondary)">Medi-Help is not a diagnostic tool. Always follow your doctor's advice.</div>
+
+</div>
+</x-dc>
+</body>
+</html>
