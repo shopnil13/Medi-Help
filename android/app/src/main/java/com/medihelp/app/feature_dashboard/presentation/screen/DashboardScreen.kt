@@ -1,10 +1,14 @@
 package com.medihelp.app.feature_dashboard.presentation.screen
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Logout
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -23,7 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.medihelp.app.core.designsystem.components.MediHelpConfirmationDialog
-import com.medihelp.app.core.designsystem.components.MediHelpEmptyState
+import com.medihelp.app.core.designsystem.theme.MediHelpShapes
 import com.medihelp.app.core.designsystem.theme.MediHelpSpacing
 import com.medihelp.app.feature_dashboard.presentation.viewmodel.DashboardViewModel
 
@@ -31,6 +35,7 @@ import com.medihelp.app.feature_dashboard.presentation.viewmodel.DashboardViewMo
 @Composable
 fun DashboardScreen(
     onLoggedOut: () -> Unit,
+    onViewMedicinesClick: () -> Unit,
     viewModel: DashboardViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -74,13 +79,34 @@ fun DashboardScreen(
             )
         },
     ) { padding ->
-        MediHelpEmptyState(
-            message = "Your medicines, vitals, and health tips will show up here soon.",
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(MediHelpSpacing.space6),
-        )
+                .padding(MediHelpSpacing.space4),
+            verticalArrangement = Arrangement.spacedBy(MediHelpSpacing.space3),
+        ) {
+            Card(
+                onClick = onViewMedicinesClick,
+                modifier = Modifier.fillMaxWidth(),
+                shape = MediHelpShapes.large,
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            ) {
+                Column(modifier = Modifier.padding(MediHelpSpacing.space4)) {
+                    Text(text = "Today's Medicines", style = MaterialTheme.typography.titleLarge)
+                    Text(
+                        text = uiState.activeMedicationCount.toString(),
+                        style = MaterialTheme.typography.displayLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Text(
+                        text = "Active reminders",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
     }
 
     if (showLogoutConfirmation) {

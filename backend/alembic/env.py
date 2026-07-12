@@ -9,7 +9,13 @@ from app.core.config import get_settings
 from app.db.base import Base
 
 # Import models so Alembic can detect tables.
-from app.models import RefreshToken, User  # noqa: F401
+from app.models import (  # noqa: F401
+    Medication,
+    MedicationSchedule,
+    RefreshToken,
+    ReminderLog,
+    User,
+)
 
 config = context.config
 
