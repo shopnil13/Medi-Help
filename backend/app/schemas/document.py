@@ -2,7 +2,9 @@ from datetime import datetime
 from typing import Literal
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
+
+from app.schemas.extraction import StructuredExtraction
 
 DocumentType = Literal["prescription", "lab_report", "unknown"]
 DocumentStatus = Literal["uploaded", "processing", "processed", "failed"]
@@ -22,7 +24,7 @@ class DocumentResponse(BaseModel):
 
 
 class ProcessingJobResponse(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True, populate_by_name=True)
 
     id: UUID
     document_id: UUID
@@ -32,6 +34,15 @@ class ProcessingJobResponse(BaseModel):
     created_at: datetime
     updated_at: datetime
     completed_at: datetime | None
+    confirmed_at: datetime | None
+    structured_result: StructuredExtraction | None = Field(
+        default=None,
+        validation_alias="structured_result_json",
+    )
+    confirmed_result: StructuredExtraction | None = Field(
+        default=None,
+        validation_alias="confirmed_result_json",
+    )
     document: DocumentResponse
 
 

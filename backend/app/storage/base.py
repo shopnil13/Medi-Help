@@ -16,3 +16,7 @@ class ObjectStorage(ABC):
     @abstractmethod
     async def delete(self, key: str) -> None:
         raise NotImplementedError
+
+    @abstractmethod
+    async def get(self, key: str) -> bytes:
+        raise NotImplementedError

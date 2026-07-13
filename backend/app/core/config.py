@@ -29,6 +29,14 @@ class Settings(BaseSettings):
     s3_bucket: str = "medi-help-documents"
     s3_region: str = "us-east-1"
 
+    ocr_backend: str = "tesseract"
+    tesseract_command: str | None = None
+    google_vision_api_key: str | None = None
+    extraction_backend: str = "heuristic"
+    openai_api_key: str | None = None
+    openai_api_url: str = "https://api.openai.com/v1"
+    openai_model: str = "gpt-4.1-mini"
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
 

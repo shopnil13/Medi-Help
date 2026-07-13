@@ -16,6 +16,13 @@ A local-first Android Medi-Help app with a FastAPI backend.
 docker compose up -d postgres redis minio
 ```
 
+To run the containerized API and OCR worker as well:
+
+```bash
+docker compose up -d --build
+docker compose exec backend alembic upgrade head
+```
+
 ### 2. Run backend locally
 
 ```bash

@@ -8,6 +8,7 @@ from sqlalchemy.pool import NullPool
 from app.db.base import Base
 from app.db.session import get_db_session
 from app.main import app
+from app.worker.dispatcher import JobDispatcher, get_job_dispatcher
 
 TEST_DATABASE_URL = "postgresql+asyncpg://health_user:health_password@localhost:5433/medi_help_test"
 
@@ -34,8 +35,22 @@ async def _override_get_db_session() -> AsyncGenerator[AsyncSession, None]:
 app.dependency_overrides[get_db_session] = _override_get_db_session
 
 
+class NoopJobDispatcher(JobDispatcher):
+    def enqueue(self, job_id) -> None:
+        del job_id
+
+
+app.dependency_overrides[get_job_dispatcher] = NoopJobDispatcher
+
+
 @pytest_asyncio.fixture
 async def client() -> AsyncGenerator[AsyncClient, None]:
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         yield ac
+
+
+@pytest_asyncio.fixture
+async def db_session() -> AsyncGenerator[AsyncSession, None]:
+    async with TestSessionLocal() as session:
+        yield session

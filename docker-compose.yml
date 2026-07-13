@@ -1,4 +1,37 @@
 services:
+  backend:
+    build: ./backend
+    container_name: medi_help_backend
+    restart: unless-stopped
+    environment: &backend_environment
+      DATABASE_URL: postgresql+asyncpg://health_user:health_password@postgres:5432/medi_help
+      REDIS_URL: redis://redis:6379/0
+      STORAGE_BACKEND: local
+      LOCAL_STORAGE_PATH: /app/storage/uploads
+    ports:
+      - "8000:8000"
+    volumes:
+      - backend_storage:/app/storage
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  worker:
+    build: ./backend
+    container_name: medi_help_worker
+    restart: unless-stopped
+    command: celery -A app.worker.celery_app:celery_app worker --loglevel=info
+    environment: *backend_environment
+    volumes:
+      - backend_storage:/app/storage
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
   postgres:
     image: postgres:16-alpine
     container_name: medi_help_postgres
@@ -46,6 +79,7 @@ services:
       - minio_data:/data
 
 volumes:
+  backend_storage:
   postgres_data:
   redis_data:
   minio_data:

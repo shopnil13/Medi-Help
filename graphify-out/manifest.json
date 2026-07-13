@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   "backend/app/core/config.py": {
-    "mtime": 1783865440.9606287,
-    "ast_hash": "d769b499f63b9c0a1257874b680f76cf",
+    "mtime": 1783955734.9175699,
+    "ast_hash": "600ee734d9b4a7b22ffb5933c22d07d2",
     "semantic_hash": ""
   },
   "backend/app/core/security.py": {
@@ -560,8 +560,8 @@
     "semantic_hash": ""
   },
   "backend/tests/conftest.py": {
-    "mtime": 1783836599.7163084,
-    "ast_hash": "34862ab4537563673471814a253fac94",
+    "mtime": 1783955910.373979,
+    "ast_hash": "066759e2b93022238c0a3f728c315d79",
     "semantic_hash": ""
   },
   ".github/workflows/android-ci.yml": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783838929.9454594,
-    "ast_hash": "9732b6addc2fba3919787be0c76d009d",
+    "mtime": 1783957733.8539152,
+    "ast_hash": "f5a0d569e0cb2482b3a3d3e47e71699e",
     "semantic_hash": ""
   },
   "Resources/Medi-Help App.dc.html": {
@@ -600,18 +600,18 @@
     "semantic_hash": ""
   },
   "backend/requirements.txt": {
-    "mtime": 1783865440.9651446,
-    "ast_hash": "7e86404209884741e416e01c69b652f8",
+    "mtime": 1783955734.9160497,
+    "ast_hash": "175a89b02285df1becbc3d7d7a7fbaf2",
     "semantic_hash": ""
   },
   "contracts/api-contract.md": {
-    "mtime": 1783865552.1195002,
-    "ast_hash": "492eed1c1a504812754d4477261b4185",
+    "mtime": 1783957733.8503747,
+    "ast_hash": "584683c554999b3ae3d9cb929eae1ef2",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
-    "mtime": 1783835046.595107,
-    "ast_hash": "fa142f569b85c8118f11c4ea154cd042",
+    "mtime": 1783955734.9301848,
+    "ast_hash": "b56091de3b52e5ea6955e78adc8af5ba",
     "semantic_hash": ""
   },
   "docs/architecture/system-overview.md": {
@@ -720,13 +720,13 @@
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/documents.py": {
-    "mtime": 1783865552.1104808,
-    "ast_hash": "89a7276e0dce851f59e899933759fd91",
+    "mtime": 1783955870.1261094,
+    "ast_hash": "b7b6f486a6dec7ff0df87861658ae634",
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/jobs.py": {
-    "mtime": 1783865552.1124933,
-    "ast_hash": "d82bf86db579e22db522e6f0f5463d09",
+    "mtime": 1783955883.9900563,
+    "ast_hash": "94ad0a596be903e8a8a3f6215c4f5d86",
     "semantic_hash": ""
   },
   "backend/app/models/document.py": {
@@ -735,18 +735,18 @@
     "semantic_hash": ""
   },
   "backend/app/models/processing_job.py": {
-    "mtime": 1783865463.107471,
-    "ast_hash": "7bebb75a54e22356a82a6098ed002908",
+    "mtime": 1783955870.1001139,
+    "ast_hash": "58d1beb3b7365acaf483b41a2cb2226d",
     "semantic_hash": ""
   },
   "backend/app/schemas/document.py": {
-    "mtime": 1783865440.984801,
-    "ast_hash": "05462a90301d377c862b6235ab89b626",
+    "mtime": 1783955870.1041064,
+    "ast_hash": "5548c045c5acd455c7d5bfc5e21635f3",
     "semantic_hash": ""
   },
   "backend/app/services/document_service.py": {
-    "mtime": 1783865588.4078467,
-    "ast_hash": "79cd141ec848f08e05c0215a725e1e70",
+    "mtime": 1783955964.742489,
+    "ast_hash": "a5efa1083ae7174339a6a3cd58aa36ef",
     "semantic_hash": ""
   },
   "backend/app/storage/__init__.py": {
@@ -755,8 +755,8 @@
     "semantic_hash": ""
   },
   "backend/app/storage/base.py": {
-    "mtime": 1783865440.990473,
-    "ast_hash": "f1b1acc14c4a94de6985ab151264f94c",
+    "mtime": 1783955734.9201832,
+    "ast_hash": "01d89b500615537e21a5740a78bec6cb",
     "semantic_hash": ""
   },
   "backend/app/storage/dependencies.py": {
@@ -765,23 +765,23 @@
     "semantic_hash": ""
   },
   "backend/app/storage/local.py": {
-    "mtime": 1783865440.991364,
-    "ast_hash": "2621659143f97e6ae7beab0cf2933b90",
+    "mtime": 1783955734.921181,
+    "ast_hash": "e29d4e92ec7f198ca9102d6e162483b0",
     "semantic_hash": ""
   },
   "backend/app/storage/s3.py": {
-    "mtime": 1783865440.9968822,
-    "ast_hash": "780e9d91c9451385ad112ab7d5052fb2",
+    "mtime": 1783956023.9469125,
+    "ast_hash": "840fd9790b504ba9d25e2ccc95d4609d",
     "semantic_hash": ""
   },
   "backend/tests/api/test_documents.py": {
-    "mtime": 1783865552.114497,
-    "ast_hash": "603bcb734901e966e2b239782f662d40",
+    "mtime": 1783955734.9261854,
+    "ast_hash": "6efedf0172ab40b79cf1e495fc77da26",
     "semantic_hash": ""
   },
   "backend/tests/test_storage.py": {
-    "mtime": 1783865552.1155,
-    "ast_hash": "ed56ef26088d136a3542f6dfdbb9b504",
+    "mtime": 1783955734.928189,
+    "ast_hash": "f04618321b83ec232cb32ed96a3ac8ae",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "build_log.md": {
-    "mtime": 1783955598.8564796,
-    "ast_hash": "c2a35f668ce2444f93e3a0fd417854fe",
+    "mtime": 1783957738.3253396,
+    "ast_hash": "5504cea994541e899564b7a53e8e9076",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/DocumentDao.kt": {
@@ -892,6 +892,76 @@
   "android/app/src/test/java/com/medihelp/app/feature_documents/presentation/viewmodel/UploadDocumentViewModelTest.kt": {
     "mtime": 1783954683.5354886,
     "ast_hash": "1b0f90b577865ec2fa0d96db805a584c",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/__init__.py": {
+    "mtime": 1783955765.6739337,
+    "ast_hash": "e8f4064b07e9e78ec774c4e6d75edab0",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/extraction.py": {
+    "mtime": 1783955964.2493,
+    "ast_hash": "23fb47d663ded643191d491562d0b8d1",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/image_processor.py": {
+    "mtime": 1783955765.6749468,
+    "ast_hash": "cdf202fde556fa42eac18f57abc9e8ab",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/ocr.py": {
+    "mtime": 1783955765.676938,
+    "ast_hash": "4aca22e7e777cedb27858be8ffb21dd1",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/prompts.py": {
+    "mtime": 1783955765.677937,
+    "ast_hash": "bdd85ff676ca3905069db522b21d024d",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/safety.py": {
+    "mtime": 1783955803.1404507,
+    "ast_hash": "d6edbe02f033de3615e179b01840e880",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/extraction.py": {
+    "mtime": 1783956023.9450667,
+    "ast_hash": "e32499cb7d68f92f13c44ab8fa721208",
+    "semantic_hash": ""
+  },
+  "backend/alembic/versions/52c42b1a8ef4_add_extraction_confirmation_fields.py": {
+    "mtime": 1783955870.1021004,
+    "ast_hash": "7cda0c845492c9e3cba9dbf00af7db66",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/pipeline.py": {
+    "mtime": 1783955964.1475787,
+    "ast_hash": "febed689a1d83cd7613b38c85f53439a",
+    "semantic_hash": ""
+  },
+  "backend/app/worker/__init__.py": {
+    "mtime": 1783955870.105102,
+    "ast_hash": "72f7345023563b18185714e17cdda269",
+    "semantic_hash": ""
+  },
+  "backend/app/worker/celery_app.py": {
+    "mtime": 1783955870.1071064,
+    "ast_hash": "e696fd14c0faf99796d219966f384fe0",
+    "semantic_hash": ""
+  },
+  "backend/app/worker/dispatcher.py": {
+    "mtime": 1783955870.1091096,
+    "ast_hash": "1edde6a07cb4d203a6a52a0b41187430",
+    "semantic_hash": ""
+  },
+  "backend/app/worker/tasks.py": {
+    "mtime": 1783956023.9479232,
+    "ast_hash": "3be6c2632bb0d9141141529d58224bb7",
+    "semantic_hash": ""
+  },
+  "backend/tests/test_processing.py": {
+    "mtime": 1783956034.1809561,
+    "ast_hash": "5328a88cdaa4f9c89dba73c99d8f1bca",
     "semantic_hash": ""
   }
 }

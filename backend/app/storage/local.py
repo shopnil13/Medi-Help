@@ -32,3 +32,6 @@ class LocalObjectStorage(ObjectStorage):
             target.unlink(missing_ok=True)
 
         await asyncio.to_thread(remove)
+
+    async def get(self, key: str) -> bytes:
+        return await asyncio.to_thread(self._target(key).read_bytes)

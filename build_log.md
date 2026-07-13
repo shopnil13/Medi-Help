@@ -6,6 +6,8 @@ Last reviewed: 2026-07-13
 
 Medi-Help is implemented through **Phase 4: Document Upload System**. The app now supports authenticated PDF/image upload from Android, local or S3-compatible backend storage, queued processing jobs, and live job-status tracking.
 
+Phase 5 is in progress. The backend OCR, structured extraction, safety, worker, and confirmation pipeline is implemented; Android review screens remain under development.
+
 ## Completed Work
 
 ### Phase 0 - Project Foundation
@@ -123,19 +125,42 @@ GET    /api/v1/reminders/adherence-summary
 - Running Gradle build, test, and lint concurrently caused Windows Kotlin incremental-cache contention. Gradle recovered for build/tests; stopping the daemons and rerunning checks sequentially produced clean results.
 - Android lint found that camera permission implicitly required camera hardware. Declaring the camera feature optional preserved installation support on devices without a camera and cleared lint.
 
+### Phase 5 - OCR and AI Extraction Pipeline (In Progress)
+
+#### Backend completed
+
+- Added replaceable OCR and extraction provider interfaces.
+- Added local Tesseract OCR and Google Vision REST adapters.
+- Added PDF page rendering plus EXIF orientation, deskewing, noise reduction, contrast enhancement, and thresholding.
+- Added strict prescription and lab-report extraction schemas and provider prompts.
+- Added local heuristic extraction and an OpenAI-compatible strict JSON-schema adapter.
+- Added confidence scoring and safety warnings for uncertain medicines, missing dosage/frequency, and unknown lab units.
+- Added Celery/Redis job dispatch with retry handling and API/worker Docker Compose services.
+- Added raw OCR storage, validated structured-result storage, `needs_review` status, and separate user-confirmed result storage.
+- Added owner-only extraction confirmation without automatically creating medications or vitals.
+- Added processing, safety, PDF conversion, raw-text persistence, and confirmation tests.
+
+#### Incidents
+
+- A migration downgrade initially saw an Alembic version marker left behind after pytest dropped test tables. Resetting only the disposable test marker allowed the complete upgrade/downgrade chain to pass.
+- Docker package downloads failed twice over plain HTTP and then stalled over HTTPS on the current network. Retry and HTTPS handling were added to the Dockerfile, but the OCR image build remains unverified locally.
+- No system Tesseract executable is installed on the Windows host. OCR orchestration is covered with provider doubles; image/PDF preprocessing and structured extraction run locally in tests.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-13:
 
 | Check | Result |
 |---|---|
-| Backend pytest suite | Passed: 23 tests |
+| Backend pytest suite | Passed: 27 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 52 files unchanged |
+| Backend Black format check | Passed: 66 files unchanged |
 | Android debug APK assembly | Passed |
 | Android unit-test Gradle task | Passed: 3 tests |
 | Android lint | Passed |
-| Alembic upgrade/downgrade chain | Passed through Phase 4 |
+| Alembic upgrade/downgrade chain | Passed through Phase 5 |
+| Docker Compose configuration | Passed |
+| Backend OCR Docker image | Not verified: package mirror timed out |
 
 The backend tests required `DEBUG=false` to override the current local `.env` value `DEBUG=release`. `DEBUG` is a boolean setting, so the local value should be changed to `true` or `false` before running the backend normally.
 
@@ -144,7 +169,7 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 - Android repository, Room DAO, reminder, camera, and Compose UI coverage remains to be added.
 - Camera capture and multipart upload still need end-to-end verification on an emulator or physical device with the backend running.
 - Backend CORS currently allows all origins and must be restricted before production.
-- OCR and AI extraction are not implemented yet, so Phase 4 jobs remain queued until the Phase 5 worker is added.
+- Phase 5 Android extraction review and confirmation screens are not implemented yet.
 - Vitals tracking, charts, lab processing, Health Connect, simplification, insights, and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 

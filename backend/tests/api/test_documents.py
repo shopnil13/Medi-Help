@@ -23,6 +23,9 @@ class MemoryStorage(ObjectStorage):
     async def delete(self, key: str) -> None:
         self.objects.pop(key, None)
 
+    async def get(self, key: str) -> bytes:
+        return self.objects[key]
+
 
 @pytest_asyncio.fixture
 async def storage() -> AsyncGenerator[MemoryStorage, None]:

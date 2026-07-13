@@ -10,6 +10,7 @@ from app.models.user import User
 from app.schemas.document import DocumentResponse, DocumentUploadResponse, ProcessingJobResponse
 from app.services.document_service import upload_document
 from app.storage import ObjectStorage, get_object_storage
+from app.worker.dispatcher import JobDispatcher, get_job_dispatcher
 
 router = APIRouter(prefix="/documents")
 
@@ -26,6 +27,7 @@ async def post_document_upload(
     db: AsyncSession = Depends(get_db_session),
     storage: ObjectStorage = Depends(get_object_storage),
     settings: Settings = Depends(get_settings),
+    dispatcher: JobDispatcher = Depends(get_job_dispatcher),
 ) -> DocumentUploadResponse:
     job = await upload_document(
         db=db,
@@ -35,6 +37,7 @@ async def post_document_upload(
         upload=file,
         max_size_bytes=settings.max_upload_size_mb * 1024 * 1024,
     )
+    dispatcher.enqueue(job.id)
     return DocumentUploadResponse(
         document=DocumentResponse.model_validate(job.document),
         job=ProcessingJobResponse.model_validate(job),

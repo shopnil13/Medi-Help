@@ -1,3 +1,4 @@
+from datetime import UTC, datetime
 from pathlib import Path
 from uuid import UUID, uuid4
 
@@ -8,6 +9,7 @@ from sqlalchemy.orm import selectinload
 
 from app.models.document import Document
 from app.models.processing_job import ProcessingJob
+from app.schemas.extraction import StructuredExtraction
 from app.storage.base import ObjectStorage
 
 ALLOWED_FILES = {
@@ -84,3 +86,26 @@ async def get_processing_job(db: AsyncSession, user_id: UUID, job_id: UUID) -> P
     if job is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Processing job not found.")
     return job
+
+
+async def confirm_extraction(
+    db: AsyncSession,
+    user_id: UUID,
+    job_id: UUID,
+    result: StructuredExtraction,
+) -> ProcessingJob:
+    job = await get_processing_job(db, user_id, job_id)
+    if job.status != "needs_review" or job.structured_result_json is None:
+        raise HTTPException(
+            status.HTTP_409_CONFLICT, "This extraction is not ready for confirmation."
+        )
+    extracted_type = job.structured_result_json.get("document_type")
+    if result.document_type != extracted_type:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "Document type does not match.")
+
+    job.confirmed_result_json = result.model_dump(mode="json")
+    job.status = "completed"
+    job.confirmed_at = datetime.now(UTC)
+    job.completed_at = job.confirmed_at
+    await db.commit()
+    return await get_processing_job(db, user_id, job_id)

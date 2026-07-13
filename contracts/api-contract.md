@@ -34,9 +34,17 @@ Document processing endpoints:
 ```text
 POST /api/v1/documents/upload
 GET  /api/v1/jobs/{job_id}
+POST /api/v1/jobs/{job_id}/confirm
 ```
 
 `POST /documents/upload` accepts authenticated multipart form data with a
 `document_type` value (`prescription`, `lab_report`, or `unknown`) and a `file`
 value containing a PDF, JPEG, or PNG. It returns the stored document metadata
 and a queued processing job immediately.
+
+The worker updates jobs through `queued`, `processing`, and `needs_review`.
+Job responses include a discriminated `structured_result` for either a
+prescription or lab report. The Android client may edit and select entries, then
+submit the validated result to `/jobs/{job_id}/confirm`. Confirmation stores a
+separate immutable snapshot and changes the job to `completed`; it does not
+create medications or vital records until the later routing phases.

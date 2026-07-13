@@ -12,6 +12,7 @@ async def test_local_storage_writes_and_deletes_object(tmp_path) -> None:
 
     assert stored.provider == "local"
     assert (tmp_path / "user" / "document.pdf").read_bytes() == b"content"
+    assert await storage.get(stored.key) == b"content"
 
     await storage.delete(stored.key)
     assert not (tmp_path / "user" / "document.pdf").exists()
