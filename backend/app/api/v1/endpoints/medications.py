@@ -6,9 +6,15 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.deps import get_current_user
 from app.db.session import get_db_session
 from app.models.user import User
-from app.schemas.medication import MedicationCreate, MedicationResponse, MedicationUpdate
+from app.schemas.medication import (
+    ConfirmExtractedMedicationsRequest,
+    MedicationCreate,
+    MedicationResponse,
+    MedicationUpdate,
+)
 from app.services.medication_service import (
     create_medication,
+    create_medications_from_confirmed_extraction,
     delete_medication,
     get_medication,
     list_medications,
@@ -16,6 +22,20 @@ from app.services.medication_service import (
 )
 
 router = APIRouter(prefix="/medications")
+
+
+@router.post("/confirm-extracted", response_model=list[MedicationResponse])
+async def confirm_extracted_medications(
+    payload: ConfirmExtractedMedicationsRequest,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db_session),
+) -> list[MedicationResponse]:
+    medications = await create_medications_from_confirmed_extraction(
+        db,
+        current_user.id,
+        payload.job_id,
+    )
+    return [MedicationResponse.model_validate(item) for item in medications]
 
 
 @router.get("", response_model=list[MedicationResponse])

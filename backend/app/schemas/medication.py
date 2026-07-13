@@ -53,6 +53,8 @@ class MedicationResponse(BaseModel):
 
     id: UUID
     user_id: UUID
+    source_document_id: UUID | None
+    source_job_id: UUID | None
     name: str
     strength: str | None
     dosage_instruction: str
@@ -66,3 +68,7 @@ class MedicationResponse(BaseModel):
     created_at: datetime
     updated_at: datetime
     schedules: list[MedicationScheduleResponse] = Field(default_factory=list)
+
+
+class ConfirmExtractedMedicationsRequest(BaseModel):
+    job_id: UUID

@@ -55,6 +55,7 @@ class FixedExtractor(ExtractionProvider):
                     strength="500 mg",
                     dosage="1 tablet",
                     frequency="twice daily",
+                    times=["08:00", "20:00"],
                     confidence=0.92,
                 )
             ],
@@ -132,6 +133,27 @@ async def test_pipeline_extracts_flags_and_allows_confirmation(
     assert confirmation.json()["confirmed_result"]["requires_confirmation"] is True
     medications = await client.get("/api/v1/medications", headers=headers)
     assert medications.json() == []
+
+    created = await client.post(
+        "/api/v1/medications/confirm-extracted",
+        headers=headers,
+        json={"job_id": job_id},
+    )
+    assert created.status_code == 200
+    created_body = created.json()
+    assert len(created_body) == 1
+    assert created_body[0]["name"] == "Metformin"
+    assert created_body[0]["source_document_id"] == body["document_id"]
+    assert created_body[0]["source_job_id"] == job_id
+    assert len(created_body[0]["schedules"]) == 2
+    assert created_body[0]["simplified_instruction"] == "1 tablet. twice daily"
+
+    repeated = await client.post(
+        "/api/v1/medications/confirm-extracted",
+        headers=headers,
+        json={"job_id": job_id},
+    )
+    assert [item["id"] for item in repeated.json()] == [item["id"] for item in created_body]
 
 
 async def test_safety_flags_missing_frequency_and_low_confidence() -> None:

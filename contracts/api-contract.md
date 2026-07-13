@@ -27,6 +27,7 @@ DELETE /api/v1/medications/{medication_id}
 GET    /api/v1/reminders
 POST   /api/v1/reminders/log
 GET    /api/v1/reminders/adherence-summary
+POST   /api/v1/medications/confirm-extracted
 ```
 
 Document processing endpoints:
@@ -48,3 +49,8 @@ prescription or lab report. The Android client may edit and select entries, then
 submit the validated result to `/jobs/{job_id}/confirm`. Confirmation stores a
 separate immutable snapshot and changes the job to `completed`; it does not
 create medications or vital records until the later routing phases.
+
+`POST /medications/confirm-extracted` accepts a confirmed prescription `job_id`.
+It idempotently creates active medications and schedules only for selected
+entries, returns the created medication list, and retains source document/job
+references. Only explicit extracted times become schedules.

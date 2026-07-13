@@ -6,6 +6,8 @@ Last reviewed: 2026-07-13
 
 Medi-Help is implemented through **Phase 5: OCR and AI Extraction Pipeline**. Uploaded prescriptions and lab reports can now be processed into validated, safety-flagged data and reviewed, edited, selected, and confirmed on Android before affecting any health records.
 
+Phase 6 is in progress. Backend prescription-to-medication conversion is complete; Android routing and the success workflow remain under development.
+
 ## Completed Work
 
 ### Phase 0 - Project Foundation
@@ -154,6 +156,20 @@ GET    /api/v1/reminders/adherence-summary
 - Docker package downloads failed twice over plain HTTP and then stalled over HTTPS on the current network. Retry and HTTPS handling were added to the Dockerfile, but the OCR image build remains unverified locally.
 - No system Tesseract executable is installed on the Windows host. OCR orchestration is covered with provider doubles; image/PDF preprocessing and structured extraction run locally in tests.
 
+### Phase 6 - Prescription-to-Medication Automation (In Progress)
+
+#### Backend completed
+
+- Added `POST /api/v1/medications/confirm-extracted` for owner-scoped confirmed jobs.
+- Added idempotent conversion of selected prescription entries into active medication records.
+- Added schedule conversion for explicit valid times without inventing reminder times from frequency text.
+- Added source document/job references, confidence values, confirmed instructions, and review-state clearing.
+- Added migration coverage and end-to-end API assertions for conversion, schedules, provenance, and repeat requests.
+
+#### Incidents
+
+- The first explicit-time conversion test found a missing `datetime` import. Ruff and the failing endpoint test identified it; adding the import restored the full green suite.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-13:
@@ -166,7 +182,7 @@ Checks run on 2026-07-13:
 | Android debug APK assembly | Passed |
 | Android unit-test Gradle task | Passed: 4 tests |
 | Android lint | Passed |
-| Alembic upgrade/downgrade chain | Passed through Phase 5 |
+| Alembic upgrade/downgrade chain | Passed through Phase 6 |
 | Docker Compose configuration | Passed |
 | Backend OCR Docker image | Not verified: package mirror timed out |
 

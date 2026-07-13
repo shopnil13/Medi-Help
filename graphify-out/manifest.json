@@ -430,8 +430,8 @@
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/medications.py": {
-    "mtime": 1783839167.1878824,
-    "ast_hash": "5088ac3c692d5786dbcace2d7a38c9df",
+    "mtime": 1783958286.6485796,
+    "ast_hash": "a42547cf80866530a8068d4947f941c2",
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/reminders.py": {
@@ -490,8 +490,8 @@
     "semantic_hash": ""
   },
   "backend/app/models/medication.py": {
-    "mtime": 1783839074.042888,
-    "ast_hash": "f2b28cedf505d947273e915e3e58a4b5",
+    "mtime": 1783958264.2789545,
+    "ast_hash": "5b16e3a020935609bc6afc40590e0302",
     "semantic_hash": ""
   },
   "backend/app/models/medication_schedule.py": {
@@ -520,8 +520,8 @@
     "semantic_hash": ""
   },
   "backend/app/schemas/medication.py": {
-    "mtime": 1783839114.9945061,
-    "ast_hash": "29beb2fb9152e79ec8c2abc98b68d285",
+    "mtime": 1783958264.2820408,
+    "ast_hash": "0af0686dfc38c5231a6faddd3ee9ea26",
     "semantic_hash": ""
   },
   "backend/app/schemas/reminder.py": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "backend/app/services/medication_service.py": {
-    "mtime": 1783839135.8280725,
-    "ast_hash": "3422bd105aa45b31d20f36bb1ece7eac",
+    "mtime": 1783958324.9908051,
+    "ast_hash": "1f323b4fd5afdb1cbae7c53e545ab672",
     "semantic_hash": ""
   },
   "backend/app/services/reminder_service.py": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "contracts/api-contract.md": {
-    "mtime": 1783957733.8503747,
-    "ast_hash": "584683c554999b3ae3d9cb929eae1ef2",
+    "mtime": 1783958399.437257,
+    "ast_hash": "32f46651b9184166a6ce62d9a6dfd730",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "build_log.md": {
-    "mtime": 1783958184.4879322,
-    "ast_hash": "c9e85161199fde6445ab50ab096e9bc7",
+    "mtime": 1783958399.439262,
+    "ast_hash": "fa73b833143d0410cd0063c31d2ee35d",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/DocumentDao.kt": {
@@ -960,8 +960,8 @@
     "semantic_hash": ""
   },
   "backend/tests/test_processing.py": {
-    "mtime": 1783956034.1809561,
-    "ast_hash": "5328a88cdaa4f9c89dba73c99d8f1bca",
+    "mtime": 1783958273.9700363,
+    "ast_hash": "a066fab57ce13a2507fa48363f7a1337",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/domain/model/ExtractionResult.kt": {
@@ -987,6 +987,11 @@
   "android/app/src/test/java/com/medihelp/app/feature_documents/presentation/viewmodel/ExtractionReviewViewModelTest.kt": {
     "mtime": 1783957981.6728845,
     "ast_hash": "e7516458288db7583a6d269412b3d9c8",
+    "semantic_hash": ""
+  },
+  "backend/alembic/versions/90ee81fb2b47_link_medications_to_source_documents.py": {
+    "mtime": 1783958264.281021,
+    "ast_hash": "7c32737e861a1bcd7c62e0036d67cc16",
     "semantic_hash": ""
   }
 }

@@ -24,6 +24,19 @@ class Medication(Base):
         nullable=False,
     )
 
+    source_document_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("documents.id", ondelete="SET NULL"),
+        index=True,
+        nullable=True,
+    )
+    source_job_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("processing_jobs.id", ondelete="SET NULL"),
+        index=True,
+        nullable=True,
+    )
+
     name: Mapped[str] = mapped_column(String(200), nullable=False)
     strength: Mapped[str | None] = mapped_column(String(100), nullable=True)
     dosage_instruction: Mapped[str] = mapped_column(String(500), nullable=False)
