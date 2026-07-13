@@ -23,6 +23,7 @@ import com.medihelp.app.feature_dashboard.presentation.screen.DashboardScreen
 import com.medihelp.app.feature_documents.presentation.screen.CameraCaptureScreen
 import com.medihelp.app.feature_documents.presentation.screen.ProcessingStatusScreen
 import com.medihelp.app.feature_documents.presentation.screen.UploadDocumentScreen
+import com.medihelp.app.feature_documents.presentation.screen.ExtractionReviewRoute
 import com.medihelp.app.feature_medications.presentation.screen.AddMedicationScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationDetailScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
@@ -120,7 +121,20 @@ fun AppNavGraph(
             route = Routes.PROCESSING_STATUS,
             arguments = listOf(navArgument("jobId") { type = NavType.StringType }),
         ) {
-            ProcessingStatusScreen(onBackClick = { navController.popBackStack() })
+            ProcessingStatusScreen(
+                onBackClick = { navController.popBackStack() },
+                onReviewClick = { jobId -> navController.navigate(Routes.extractionReview(jobId)) },
+            )
+        }
+
+        composable(
+            route = Routes.EXTRACTION_REVIEW,
+            arguments = listOf(navArgument("jobId") { type = NavType.StringType }),
+        ) {
+            ExtractionReviewRoute(
+                onBackClick = { navController.popBackStack() },
+                onConfirmed = { navController.popBackStack() },
+            )
         }
 
         composable(Routes.ADD_MEDICATION) {

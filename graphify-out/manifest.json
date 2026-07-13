@@ -50,13 +50,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/AppDatabase.kt": {
-    "mtime": 1783865724.4274511,
-    "ast_hash": "6b68ba7b652e3e368f4c17d0c55458c8",
+    "mtime": 1783957868.9831018,
+    "ast_hash": "b88934072fb1a4176b9a8179d4b96c88",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/DatabaseModule.kt": {
-    "mtime": 1783865724.4294906,
-    "ast_hash": "11fe6ac8a7c39b765edeac79c85a6e93",
+    "mtime": 1783957868.9850962,
+    "ast_hash": "48d78a0336f3d02bcf5112d722e6af83",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/MedicationDao.kt": {
@@ -120,13 +120,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/navigation/AppNavGraph.kt": {
-    "mtime": 1783865848.8446343,
-    "ast_hash": "860c72fb896a1d851a34aaee66c530d9",
+    "mtime": 1783957946.7597165,
+    "ast_hash": "b303b7fd152d00ee71bafd5296ef991b",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/navigation/Routes.kt": {
-    "mtime": 1783865848.8400877,
-    "ast_hash": "72d417ab8ef76b404a50fbaac45e3b1c",
+    "mtime": 1783957946.7567127,
+    "ast_hash": "6a51106abec3e86743335b68b1adfa9f",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/network/AuthInterceptor.kt": {
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/network/NetworkModule.kt": {
-    "mtime": 1783838045.3270996,
-    "ast_hash": "865cfdabba77ccfa65fe5bac5346ffbf",
+    "mtime": 1783957843.3821251,
+    "ast_hash": "3e563f70aca03ed0fb4a3c4339f4d345",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/network/TokenAuthenticator.kt": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "build_log.md": {
-    "mtime": 1783957738.3253396,
-    "ast_hash": "5504cea994541e899564b7a53e8e9076",
+    "mtime": 1783958184.4879322,
+    "ast_hash": "c9e85161199fde6445ab50ab096e9bc7",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/DocumentDao.kt": {
@@ -805,28 +805,28 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/data/local/entity/DocumentEntity.kt": {
-    "mtime": 1783865724.4184184,
-    "ast_hash": "d145467fdf48b2127432dbc14a8f3683",
+    "mtime": 1783957843.390116,
+    "ast_hash": "e19cf272ac9dfc7bba283d6962964478",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/data/mapper/DocumentMappers.kt": {
-    "mtime": 1783865724.4535975,
-    "ast_hash": "85aea2274fa6269d6bda247e67608804",
+    "mtime": 1783957868.9800966,
+    "ast_hash": "34e42744affd9a463d77bbd9fe326230",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/data/remote/DocumentApi.kt": {
-    "mtime": 1783865724.4440293,
-    "ast_hash": "dbc10e60cd73de87ee7f2abd6eb86187",
+    "mtime": 1783957843.3851035,
+    "ast_hash": "c255da31f1be47ca6710a8bfddfaa4b1",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/data/remote/dto/DocumentDtos.kt": {
-    "mtime": 1783865724.4410336,
-    "ast_hash": "c2024fb6a21dda3d1191cbadd0fba32c",
+    "mtime": 1783957843.3831038,
+    "ast_hash": "37b77ce0138b1a809ec78f61177d9b8c",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/data/repository/DocumentRepositoryImpl.kt": {
-    "mtime": 1783955295.7763903,
-    "ast_hash": "492dfb558bb3bf0f58300ef198111242",
+    "mtime": 1783957868.9810913,
+    "ast_hash": "f35cb433ff783a64fae070063fc254f5",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/di/DocumentModule.kt": {
@@ -835,13 +835,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/domain/model/UploadedDocument.kt": {
-    "mtime": 1783865724.4485743,
-    "ast_hash": "022519292bd22c8f71d033394eff4073",
+    "mtime": 1783957843.3881154,
+    "ast_hash": "2377648e9c40a59cf2d903ebe1572b5f",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/domain/repository/DocumentRepository.kt": {
-    "mtime": 1783865724.4516106,
-    "ast_hash": "c67d5f98f04ed9b5341aa7659d454ef9",
+    "mtime": 1783957843.3921156,
+    "ast_hash": "b48e08f6a74d3474fd13e9aabeaf33bc",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/presentation/screen/CameraCaptureScreen.kt": {
@@ -850,8 +850,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/presentation/screen/ProcessingStatusScreen.kt": {
-    "mtime": 1783865826.9306836,
-    "ast_hash": "3976a6aec944b0a192e0465bdc823a28",
+    "mtime": 1783957946.757715,
+    "ast_hash": "27cb33ce44880f37334e21e51df0988b",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/presentation/screen/UploadDocumentScreen.kt": {
@@ -885,13 +885,13 @@
     "semantic_hash": ""
   },
   "android/app/src/test/java/com/medihelp/app/feature_documents/data/mapper/DocumentMappersTest.kt": {
-    "mtime": 1783954683.5514843,
-    "ast_hash": "ae184c2013c46a4a019c2c0f32ec5ff2",
+    "mtime": 1783957981.6688797,
+    "ast_hash": "ed9000d38328131c5f962b632a9bb92d",
     "semantic_hash": ""
   },
   "android/app/src/test/java/com/medihelp/app/feature_documents/presentation/viewmodel/UploadDocumentViewModelTest.kt": {
-    "mtime": 1783954683.5354886,
-    "ast_hash": "1b0f90b577865ec2fa0d96db805a584c",
+    "mtime": 1783957981.670882,
+    "ast_hash": "33441f7a6fe4708ac2941feda6db62f8",
     "semantic_hash": ""
   },
   "backend/app/processing/__init__.py": {
@@ -962,6 +962,31 @@
   "backend/tests/test_processing.py": {
     "mtime": 1783956034.1809561,
     "ast_hash": "5328a88cdaa4f9c89dba73c99d8f1bca",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_documents/domain/model/ExtractionResult.kt": {
+    "mtime": 1783957843.3861032,
+    "ast_hash": "eded605089450bd75866f3ed0c0a00d0",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_documents/presentation/screen/ExtractionReviewScreen.kt": {
+    "mtime": 1783957929.88735,
+    "ast_hash": "53636f7fd26b72ec05f0c69c583d4065",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_documents/presentation/state/ExtractionReviewUiState.kt": {
+    "mtime": 1783957887.982145,
+    "ast_hash": "ce869ba8a4477713075e473052c8f5b5",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_documents/presentation/viewmodel/ExtractionReviewViewModel.kt": {
+    "mtime": 1783957887.9841456,
+    "ast_hash": "033f56183c72f005dc73619cfbe76fd4",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/medihelp/app/feature_documents/presentation/viewmodel/ExtractionReviewViewModelTest.kt": {
+    "mtime": 1783957981.6728845,
+    "ast_hash": "e7516458288db7583a6d269412b3d9c8",
     "semantic_hash": ""
   }
 }

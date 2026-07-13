@@ -22,6 +22,7 @@ object NetworkModule {
     fun provideJson(): Json = Json {
         ignoreUnknownKeys = true
         encodeDefaults = true
+        classDiscriminator = "document_type"
     }
 
     @Provides

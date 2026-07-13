@@ -4,6 +4,7 @@ import android.net.Uri
 import com.medihelp.app.MainDispatcherRule
 import com.medihelp.app.core.common.Result
 import com.medihelp.app.feature_documents.domain.model.UploadedDocument
+import com.medihelp.app.feature_documents.domain.model.ExtractionResult
 import com.medihelp.app.feature_documents.domain.repository.DocumentRepository
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -67,4 +68,6 @@ private class FakeDocumentRepository(
     }
 
     override suspend fun refreshJob(jobId: String): Result<Unit> = Result.Success(Unit)
+    override suspend fun confirmExtraction(jobId: String, result: ExtractionResult): Result<Unit> =
+        Result.Success(Unit)
 }

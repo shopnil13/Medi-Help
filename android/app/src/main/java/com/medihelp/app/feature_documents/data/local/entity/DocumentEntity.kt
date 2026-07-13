@@ -15,6 +15,9 @@ data class DocumentEntity(
     val jobStatus: String,
     val progressPercent: Int,
     val errorMessage: String?,
+    val structuredResultJson: String?,
+    val confirmedResultJson: String?,
+    val confirmedAtEpochMillis: Long?,
     val createdAtEpochMillis: Long,
     val updatedAtEpochMillis: Long,
 )

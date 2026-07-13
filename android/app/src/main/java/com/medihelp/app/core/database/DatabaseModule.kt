@@ -41,11 +41,19 @@ object DatabaseModule {
         }
     }
 
+    private val migration2To3 = object : Migration(2, 3) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("ALTER TABLE documents ADD COLUMN structuredResultJson TEXT")
+            db.execSQL("ALTER TABLE documents ADD COLUMN confirmedResultJson TEXT")
+            db.execSQL("ALTER TABLE documents ADD COLUMN confirmedAtEpochMillis INTEGER")
+        }
+    }
+
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, "medi_help.db")
-            .addMigrations(migration1To2)
+            .addMigrations(migration1To2, migration2To3)
             .build()
 
     @Provides

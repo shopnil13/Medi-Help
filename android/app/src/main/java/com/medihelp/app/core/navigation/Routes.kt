@@ -11,7 +11,9 @@ object Routes {
     const val UPLOAD_DOCUMENT = "upload_document"
     const val DOCUMENT_CAMERA = "document_camera"
     const val PROCESSING_STATUS = "processing_status/{jobId}"
+    const val EXTRACTION_REVIEW = "extraction_review/{jobId}"
 
     fun medicationDetail(medicationId: String) = "medication_detail/$medicationId"
     fun processingStatus(jobId: String) = "processing_status/$jobId"
+    fun extractionReview(jobId: String) = "extraction_review/$jobId"
 }

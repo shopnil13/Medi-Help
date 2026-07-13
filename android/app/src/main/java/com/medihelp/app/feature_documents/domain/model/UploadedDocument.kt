@@ -13,6 +13,9 @@ data class UploadedDocument(
     val jobStatus: String,
     val progressPercent: Int,
     val errorMessage: String?,
+    val structuredResult: ExtractionResult?,
+    val confirmedResult: ExtractionResult?,
+    val confirmedAt: Instant?,
     val createdAt: Instant,
     val updatedAt: Instant,
 )

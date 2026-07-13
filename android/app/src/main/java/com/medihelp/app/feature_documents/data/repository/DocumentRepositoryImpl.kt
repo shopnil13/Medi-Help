@@ -9,6 +9,7 @@ import com.medihelp.app.core.common.toUserMessage
 import com.medihelp.app.core.database.dao.DocumentDao
 import com.medihelp.app.feature_documents.data.mapper.toDomain
 import com.medihelp.app.feature_documents.data.mapper.toEntity
+import com.medihelp.app.feature_documents.data.mapper.toDto
 import com.medihelp.app.feature_documents.data.remote.DocumentApi
 import com.medihelp.app.feature_documents.domain.model.UploadedDocument
 import com.medihelp.app.feature_documents.domain.repository.DocumentRepository
@@ -17,6 +18,9 @@ import java.io.IOException
 import java.io.ByteArrayOutputStream
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.serialization.json.Json
+import com.medihelp.app.feature_documents.data.remote.dto.ConfirmExtractionRequestDto
+import com.medihelp.app.feature_documents.domain.model.ExtractionResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import okhttp3.MediaType.Companion.toMediaType
@@ -28,14 +32,15 @@ class DocumentRepositoryImpl @Inject constructor(
     @ApplicationContext context: Context,
     private val documentApi: DocumentApi,
     private val documentDao: DocumentDao,
+    private val json: Json,
 ) : DocumentRepository {
     private val contentResolver: ContentResolver = context.contentResolver
 
     override fun observeJob(jobId: String): Flow<UploadedDocument?> =
-        documentDao.observeByJobId(jobId).map { it?.toDomain() }
+        documentDao.observeByJobId(jobId).map { it?.toDomain(json) }
 
     override fun observeDocuments(): Flow<List<UploadedDocument>> =
-        documentDao.observeAll().map { documents -> documents.map { it.toDomain() } }
+        documentDao.observeAll().map { documents -> documents.map { it.toDomain(json) } }
 
     override suspend fun uploadDocument(uri: Uri, documentType: String): Result<String> {
         return try {
@@ -52,7 +57,7 @@ class DocumentRepositoryImpl @Inject constructor(
                 documentType.toRequestBody("text/plain".toMediaType()),
                 part,
             )
-            documentDao.upsert(response.job.toEntity())
+            documentDao.upsert(response.job.toEntity(json))
             Result.Success(response.job.id)
         } catch (error: Exception) {
             Result.Error(error.toUserMessage())
@@ -61,7 +66,20 @@ class DocumentRepositoryImpl @Inject constructor(
 
     override suspend fun refreshJob(jobId: String): Result<Unit> {
         return try {
-            documentDao.upsert(documentApi.getJob(jobId).toEntity())
+            documentDao.upsert(documentApi.getJob(jobId).toEntity(json))
+            Result.Success(Unit)
+        } catch (error: Exception) {
+            Result.Error(error.toUserMessage())
+        }
+    }
+
+    override suspend fun confirmExtraction(jobId: String, result: ExtractionResult): Result<Unit> {
+        return try {
+            val response = documentApi.confirmExtraction(
+                jobId,
+                ConfirmExtractionRequestDto(result.toDto()),
+            )
+            documentDao.upsert(response.toEntity(json))
             Result.Success(Unit)
         } catch (error: Exception) {
             Result.Error(error.toUserMessage())

@@ -23,12 +23,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.medihelp.app.core.designsystem.components.MediHelpErrorState
 import com.medihelp.app.core.designsystem.components.MediHelpLoadingState
 import com.medihelp.app.core.designsystem.components.MediHelpTopBar
+import com.medihelp.app.core.designsystem.components.MediHelpPrimaryButton
 import com.medihelp.app.core.designsystem.theme.MediHelpSpacing
 import com.medihelp.app.feature_documents.presentation.viewmodel.ProcessingStatusViewModel
 
 @Composable
 fun ProcessingStatusScreen(
     onBackClick: () -> Unit,
+    onReviewClick: (String) -> Unit,
     viewModel: ProcessingStatusViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -46,7 +48,8 @@ fun ProcessingStatusScreen(
             else -> {
                 val document = checkNotNull(uiState.document)
                 val isFailed = document.jobStatus == "failed"
-                val isComplete = document.jobStatus in setOf("completed", "needs_review")
+                val needsReview = document.jobStatus == "needs_review"
+                val isComplete = document.jobStatus == "completed" || needsReview
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -78,6 +81,12 @@ fun ProcessingStatusScreen(
                     }
                     uiState.refreshError?.let {
                         Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                    if (needsReview) {
+                        MediHelpPrimaryButton(
+                            text = "Review extracted data",
+                            onClick = { onReviewClick(document.jobId) },
+                        )
                     }
                 }
             }

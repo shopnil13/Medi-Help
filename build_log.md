@@ -4,9 +4,7 @@ Last reviewed: 2026-07-13
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 4: Document Upload System**. The app now supports authenticated PDF/image upload from Android, local or S3-compatible backend storage, queued processing jobs, and live job-status tracking.
-
-Phase 5 is in progress. The backend OCR, structured extraction, safety, worker, and confirmation pipeline is implemented; Android review screens remain under development.
+Medi-Help is implemented through **Phase 5: OCR and AI Extraction Pipeline**. Uploaded prescriptions and lab reports can now be processed into validated, safety-flagged data and reviewed, edited, selected, and confirmed on Android before affecting any health records.
 
 ## Completed Work
 
@@ -125,7 +123,7 @@ GET    /api/v1/reminders/adherence-summary
 - Running Gradle build, test, and lint concurrently caused Windows Kotlin incremental-cache contention. Gradle recovered for build/tests; stopping the daemons and rerunning checks sequentially produced clean results.
 - Android lint found that camera permission implicitly required camera hardware. Declaring the camera feature optional preserved installation support on devices without a camera and cleared lint.
 
-### Phase 5 - OCR and AI Extraction Pipeline (In Progress)
+### Phase 5 - OCR and AI Extraction Pipeline
 
 #### Backend completed
 
@@ -139,6 +137,16 @@ GET    /api/v1/reminders/adherence-summary
 - Added raw OCR storage, validated structured-result storage, `needs_review` status, and separate user-confirmed result storage.
 - Added owner-only extraction confirmation without automatically creating medications or vitals.
 - Added processing, safety, PDF conversion, raw-text persistence, and confirmation tests.
+
+#### Android completed
+
+- Added typed prescription and lab extraction models with polymorphic JSON handling.
+- Added Room persistence for extracted and confirmed results with a version 2-to-3 migration.
+- Added separate prescription and lab-report review layouts.
+- Added editable medicine, dosage, frequency, biomarker, value, unit, and reference-range fields.
+- Added selection checkboxes, confidence percentages, and extraction safety warnings.
+- Added confirmation submission and local cache refresh without creating medications or vitals.
+- Added review navigation from `needs_review` job status and unit coverage for mapping/editing/confirmation state.
 
 #### Incidents
 
@@ -156,7 +164,7 @@ Checks run on 2026-07-13:
 | Backend Ruff lint | Passed |
 | Backend Black format check | Passed: 66 files unchanged |
 | Android debug APK assembly | Passed |
-| Android unit-test Gradle task | Passed: 3 tests |
+| Android unit-test Gradle task | Passed: 4 tests |
 | Android lint | Passed |
 | Alembic upgrade/downgrade chain | Passed through Phase 5 |
 | Docker Compose configuration | Passed |
@@ -169,15 +177,15 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 - Android repository, Room DAO, reminder, camera, and Compose UI coverage remains to be added.
 - Camera capture and multipart upload still need end-to-end verification on an emulator or physical device with the backend running.
 - Backend CORS currently allows all origins and must be restricted before production.
-- Phase 5 Android extraction review and confirmation screens are not implemented yet.
+- Production OCR/LLM providers still need credentialed end-to-end verification with representative medical documents.
 - Vitals tracking, charts, lab processing, Health Connect, simplification, insights, and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 
 ## Next Planned Milestone
 
-**Phase 5 - OCR and AI Extraction Pipeline**
+**Phase 6 - Prescription-to-Medication Automation**
 
-The next milestone is to process queued documents with replaceable OCR and LLM providers, validate structured prescription/lab output, add confidence and safety flags, and present editable review screens on Android.
+The next milestone is to convert selected, confirmed prescription medicines into backend medication/schedule records, insert them into Android Room, schedule local reminders, and update the dashboard immediately.
 
 ## Build Timeline
 
@@ -189,3 +197,4 @@ The next milestone is to process queued documents with replaceable OCR and LLM p
 | 2026-07-12 | Phase 2 Android foundation and auth flow completed |
 | 2026-07-12 | Phase 3 medication management and exact-alarm reminders completed |
 | 2026-07-13 | Phase 4 document upload, storage, camera capture, and job tracking completed |
+| 2026-07-13 | Phase 5 OCR/extraction pipeline and editable Android review completed |

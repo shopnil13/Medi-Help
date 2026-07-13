@@ -17,7 +17,7 @@ import com.medihelp.app.feature_documents.data.local.entity.DocumentEntity
         ReminderLogEntity::class,
         DocumentEntity::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = false,
 )
 abstract class AppDatabase : RoomDatabase() {
