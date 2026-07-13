@@ -1,12 +1,10 @@
 # Medi-Help Build Log
 
-Last reviewed: 2026-07-12
+Last reviewed: 2026-07-13
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 3: Medication Management MVP**. The repository currently contains a working FastAPI backend, an Android application with authentication, and local-first medication management with device-scheduled reminders.
-
-Phase 4 is in progress. Its backend document upload and processing-job foundation is complete; the Android upload workflow remains under development.
+Medi-Help is implemented through **Phase 4: Document Upload System**. The app now supports authenticated PDF/image upload from Android, local or S3-compatible backend storage, queued processing jobs, and live job-status tracking.
 
 ## Completed Work
 
@@ -93,7 +91,7 @@ GET    /api/v1/reminders/adherence-summary
 - Graphify has indexed the repository and generated `graphify-out/graph.json` and `graphify-out/GRAPH_TREE.html`.
 - Graphify hooks and guidance are installed for both Claude Code and Codex through `.claude/`, `.codex/`, `CLAUDE.md`, and `AGENTS.md`.
 
-### Phase 4 - Document Upload System (In Progress)
+### Phase 4 - Document Upload System
 
 #### Backend completed
 
@@ -105,41 +103,56 @@ GET    /api/v1/reminders/adherence-summary
 - Added API tests for upload, authentication, validation, ownership, and size limits, plus local-storage tests.
 - Verified the complete Alembic chain upgrades to the Phase 4 schema and downgrades cleanly on the test database.
 
+#### Android completed
+
+- Added a Documents navigation destination and dashboard entry point.
+- Added prescription, lab report, and unknown document-type selection.
+- Added Android file selection for PDF, JPEG, and PNG files with persisted read permission.
+- Added in-app CameraX capture, runtime camera permission handling, FileProvider sharing, and image preview.
+- Added PDF/image metadata display and bounded 10 MB client-side reads.
+- Added Retrofit multipart upload and authenticated job-status requests.
+- Added a Room document cache with a version 1-to-2 migration.
+- Added a processing-status screen with three-second polling that stops on review, completion, or failure.
+- Added three Android unit tests for upload state and document mapping.
+
 #### Incidents
 
 - Initial verification found two misplaced model imports from a patch context mismatch; Ruff identified them and the imports were corrected.
 - The project virtual environment did not yet contain the new `boto3` dependency; reinstalling `requirements.txt` resolved it.
 - The full mypy run still reports pre-existing strict-typing issues in authentication, medication, and reminder modules. New Phase 4 endpoint return types were made explicit, while the older issues remain separate cleanup work.
+- Running Gradle build, test, and lint concurrently caused Windows Kotlin incremental-cache contention. Gradle recovered for build/tests; stopping the daemons and rerunning checks sequentially produced clean results.
+- Android lint found that camera permission implicitly required camera hardware. Declaring the camera feature optional preserved installation support on devices without a camera and cleared lint.
 
 ## Verification Snapshot
 
-Checks run on 2026-07-12:
+Checks run on 2026-07-13:
 
 | Check | Result |
 |---|---|
 | Backend pytest suite | Passed: 23 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 38 files unchanged |
+| Backend Black format check | Passed: 52 files unchanged |
 | Android debug APK assembly | Passed |
-| Android unit-test Gradle task | Passed, but reported `NO-SOURCE` |
+| Android unit-test Gradle task | Passed: 3 tests |
+| Android lint | Passed |
 | Alembic upgrade/downgrade chain | Passed through Phase 4 |
 
 The backend tests required `DEBUG=false` to override the current local `.env` value `DEBUG=release`. `DEBUG` is a boolean setting, so the local value should be changed to `true` or `false` before running the backend normally.
 
 ## Known Gaps
 
-- Android unit, repository, Room DAO, reminder, and Compose UI tests have not been added.
-- The checked-in API contract notes are behind the implementation and do not list the medication/reminder endpoints.
+- Android repository, Room DAO, reminder, camera, and Compose UI coverage remains to be added.
+- Camera capture and multipart upload still need end-to-end verification on an emulator or physical device with the backend running.
 - Backend CORS currently allows all origins and must be restricted before production.
-- Document upload, object-storage integration, processing jobs, OCR, and AI extraction are not implemented.
+- OCR and AI extraction are not implemented yet, so Phase 4 jobs remain queued until the Phase 5 worker is added.
 - Vitals tracking, charts, lab processing, Health Connect, simplification, insights, and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 
 ## Next Planned Milestone
 
-**Phase 4 - Document Upload System**
+**Phase 5 - OCR and AI Extraction Pipeline**
 
-The next milestone is to add document and processing-job models, secure PDF/JPEG/PNG upload, MinIO/S3-backed storage, job-status APIs, and Android file/camera selection with upload progress and processing-status screens.
+The next milestone is to process queued documents with replaceable OCR and LLM providers, validate structured prescription/lab output, add confidence and safety flags, and present editable review screens on Android.
 
 ## Build Timeline
 
@@ -150,3 +163,4 @@ The next milestone is to add document and processing-job models, secure PDF/JPEG
 | 2026-07-12 | Phase 1 backend foundation completed |
 | 2026-07-12 | Phase 2 Android foundation and auth flow completed |
 | 2026-07-12 | Phase 3 medication management and exact-alarm reminders completed |
+| 2026-07-13 | Phase 4 document upload, storage, camera capture, and job tracking completed |

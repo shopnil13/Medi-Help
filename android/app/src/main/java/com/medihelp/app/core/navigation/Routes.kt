@@ -8,6 +8,10 @@ object Routes {
     const val MEDICATIONS = "medications"
     const val ADD_MEDICATION = "add_medication"
     const val MEDICATION_DETAIL = "medication_detail/{medicationId}"
+    const val UPLOAD_DOCUMENT = "upload_document"
+    const val DOCUMENT_CAMERA = "document_camera"
+    const val PROCESSING_STATUS = "processing_status/{jobId}"
 
     fun medicationDetail(medicationId: String) = "medication_detail/$medicationId"
+    fun processingStatus(jobId: String) = "processing_status/$jobId"
 }

@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -18,6 +20,9 @@ import com.medihelp.app.feature_auth.presentation.screen.LoginScreen
 import com.medihelp.app.feature_auth.presentation.screen.OnboardingScreen
 import com.medihelp.app.feature_auth.presentation.screen.RegisterScreen
 import com.medihelp.app.feature_dashboard.presentation.screen.DashboardScreen
+import com.medihelp.app.feature_documents.presentation.screen.CameraCaptureScreen
+import com.medihelp.app.feature_documents.presentation.screen.ProcessingStatusScreen
+import com.medihelp.app.feature_documents.presentation.screen.UploadDocumentScreen
 import com.medihelp.app.feature_medications.presentation.screen.AddMedicationScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationDetailScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
@@ -63,6 +68,11 @@ fun AppNavGraph(
                             popUpTo(Routes.DASHBOARD)
                         }
                     },
+                    onUploadDocumentClick = {
+                        navController.navigate(Routes.UPLOAD_DOCUMENT) {
+                            popUpTo(Routes.DASHBOARD)
+                        }
+                    },
                 )
             }
         }
@@ -74,6 +84,43 @@ fun AppNavGraph(
                     onMedicationClick = { id -> navController.navigate(Routes.medicationDetail(id)) },
                 )
             }
+        }
+
+        composable(Routes.UPLOAD_DOCUMENT) { backStackEntry ->
+            val capturedUri by backStackEntry.savedStateHandle
+                .getStateFlow<String?>("captured_document_uri", null)
+                .collectAsState()
+            MainTabScaffold(navController = navController, selectedTab = BottomNavTab.DOCUMENTS) {
+                UploadDocumentScreen(
+                    onOpenCamera = { navController.navigate(Routes.DOCUMENT_CAMERA) },
+                    onUploadStarted = { jobId ->
+                        navController.navigate(Routes.processingStatus(jobId))
+                    },
+                    capturedUri = capturedUri?.let(android.net.Uri::parse),
+                    onCapturedUriConsumed = {
+                        backStackEntry.savedStateHandle["captured_document_uri"] = null
+                    },
+                )
+            }
+        }
+
+        composable(Routes.DOCUMENT_CAMERA) {
+            CameraCaptureScreen(
+                onBackClick = { navController.popBackStack() },
+                onCaptured = { uri ->
+                    navController.previousBackStackEntry
+                        ?.savedStateHandle
+                        ?.set("captured_document_uri", uri.toString())
+                    navController.popBackStack()
+                },
+            )
+        }
+
+        composable(
+            route = Routes.PROCESSING_STATUS,
+            arguments = listOf(navArgument("jobId") { type = NavType.StringType }),
+        ) {
+            ProcessingStatusScreen(onBackClick = { navController.popBackStack() })
         }
 
         composable(Routes.ADD_MEDICATION) {
@@ -109,6 +156,7 @@ private fun MainTabScaffold(
                     val route = when (tab) {
                         BottomNavTab.HOME -> Routes.DASHBOARD
                         BottomNavTab.MEDICINES -> Routes.MEDICATIONS
+                        BottomNavTab.DOCUMENTS -> Routes.UPLOAD_DOCUMENT
                     }
                     if (tab != selectedTab) {
                         navController.navigate(route) {
