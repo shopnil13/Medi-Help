@@ -9,6 +9,10 @@ import com.medihelp.app.feature_documents.domain.model.ExtractionResult
 import com.medihelp.app.feature_documents.domain.model.PrescriptionExtraction
 import com.medihelp.app.feature_documents.domain.model.UploadedDocument
 import com.medihelp.app.feature_documents.domain.repository.DocumentRepository
+import com.medihelp.app.feature_medications.domain.model.Medication
+import com.medihelp.app.feature_medications.domain.model.MedicationStatus
+import com.medihelp.app.feature_medications.domain.repository.MedicationRepository
+import com.medihelp.app.feature_medications.domain.model.NewMedicationInput
 import java.time.Instant
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -33,9 +37,11 @@ class ExtractionReviewViewModelTest {
             overallConfidence = 0.8,
         )
         val repository = ReviewRepository(document(extracted))
+        val medicationRepository = ReviewMedicationRepository()
         val viewModel = ExtractionReviewViewModel(
             SavedStateHandle(mapOf("jobId" to "job-1")),
             repository,
+            medicationRepository,
         )
         advanceUntilIdle()
 
@@ -46,6 +52,12 @@ class ExtractionReviewViewModelTest {
         val confirmed = repository.confirmed as PrescriptionExtraction
         assertEquals("1 tablet", confirmed.medications.single().dosage)
         assertTrue(viewModel.uiState.value.isConfirmed)
+        assertEquals("Metformin", viewModel.uiState.value.importedMedications.single().name)
+
+        viewModel.setReminderEnabled("medication-1", false)
+        advanceUntilIdle()
+        assertEquals(MedicationStatus.PAUSED, viewModel.uiState.value.importedMedications.single().status)
+        assertEquals(MedicationStatus.PAUSED, medicationRepository.updatedStatus)
     }
 
     private fun document(result: ExtractionResult) = UploadedDocument(
@@ -65,6 +77,40 @@ class ExtractionReviewViewModelTest {
         createdAt = Instant.EPOCH,
         updatedAt = Instant.EPOCH,
     )
+}
+
+private class ReviewMedicationRepository : MedicationRepository {
+    var updatedStatus: MedicationStatus? = null
+    override fun observeActiveMedications(): Flow<List<Medication>> = emptyFlow()
+    override fun observeMedication(id: String): Flow<Medication?> = emptyFlow()
+    override suspend fun addMedication(input: NewMedicationInput): Result<Unit> = Result.Success(Unit)
+    override suspend fun updateStatus(id: String, status: MedicationStatus): Result<Unit> {
+        updatedStatus = status
+        return Result.Success(Unit)
+    }
+    override suspend fun deleteMedication(id: String): Result<Unit> = Result.Success(Unit)
+    override suspend fun logReminderAction(medicationId: String, scheduledAt: Instant, action: String) = Unit
+    override suspend fun refreshFromBackend() = Unit
+    override suspend fun syncPendingChanges() = Unit
+    override suspend fun importConfirmedPrescription(jobId: String): Result<List<Medication>> =
+        Result.Success(
+            listOf(
+                Medication(
+                    id = "medication-1",
+                    name = "Metformin",
+                    strength = "500 mg",
+                    dosageInstruction = "1 tablet",
+                    simplifiedInstruction = "1 tablet",
+                    purposeSimplified = null,
+                    startDate = null,
+                    endDate = null,
+                    status = MedicationStatus.ACTIVE,
+                    requiresReview = false,
+                    isSynced = true,
+                    schedules = emptyList(),
+                ),
+            ),
+        )
 }
 
 private class ReviewRepository(initial: UploadedDocument) : DocumentRepository {

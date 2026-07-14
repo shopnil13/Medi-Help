@@ -95,6 +95,8 @@ async def confirm_extraction(
     result: StructuredExtraction,
 ) -> ProcessingJob:
     job = await get_processing_job(db, user_id, job_id)
+    if job.status == "completed" and job.confirmed_result_json is not None:
+        return job
     if job.status != "needs_review" or job.structured_result_json is None:
         raise HTTPException(
             status.HTTP_409_CONFLICT, "This extraction is not ready for confirmation."

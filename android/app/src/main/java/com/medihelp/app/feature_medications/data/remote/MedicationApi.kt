@@ -4,6 +4,7 @@ import com.medihelp.app.feature_medications.data.remote.dto.MedicationCreateRequ
 import com.medihelp.app.feature_medications.data.remote.dto.MedicationResponseDto
 import com.medihelp.app.feature_medications.data.remote.dto.MedicationUpdateRequestDto
 import com.medihelp.app.feature_medications.data.remote.dto.ReminderLogRequestDto
+import com.medihelp.app.feature_medications.data.remote.dto.ConfirmExtractedMedicationsRequestDto
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -30,4 +31,9 @@ interface MedicationApi {
 
     @POST("api/v1/reminders/log")
     suspend fun logReminder(@Body body: ReminderLogRequestDto)
+
+    @POST("api/v1/medications/confirm-extracted")
+    suspend fun confirmExtractedMedications(
+        @Body body: ConfirmExtractedMedicationsRequestDto,
+    ): List<MedicationResponseDto>
 }

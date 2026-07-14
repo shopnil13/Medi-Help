@@ -42,6 +42,11 @@ data class MedicationUpdateRequestDto(
 )
 
 @Serializable
+data class ConfirmExtractedMedicationsRequestDto(
+    @SerialName("job_id") val jobId: String,
+)
+
+@Serializable
 data class MedicationResponseDto(
     val id: String,
     val name: String,

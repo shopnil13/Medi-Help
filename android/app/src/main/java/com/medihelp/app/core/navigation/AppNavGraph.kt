@@ -133,7 +133,13 @@ fun AppNavGraph(
         ) {
             ExtractionReviewRoute(
                 onBackClick = { navController.popBackStack() },
-                onConfirmed = { navController.popBackStack() },
+                onLabConfirmed = { navController.popBackStack() },
+                onPrescriptionDone = {
+                    navController.navigate(Routes.MEDICATIONS) {
+                        popUpTo(Routes.DASHBOARD)
+                        launchSingleTop = true
+                    }
+                },
             )
         }
 

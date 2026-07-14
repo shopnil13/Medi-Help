@@ -62,6 +62,30 @@ fun MedicationResponseDto.toEntity(localId: String, isSynced: Boolean): Medicati
     )
 }
 
+fun MedicationResponseDto.toDomain(): Medication = Medication(
+    id = id,
+    name = name,
+    strength = strength,
+    dosageInstruction = dosageInstruction,
+    simplifiedInstruction = simplifiedInstruction,
+    purposeSimplified = purposeSimplified,
+    startDate = startDate?.let(LocalDate::parse),
+    endDate = endDate?.let(LocalDate::parse),
+    status = MedicationStatus.fromApiValue(status),
+    requiresReview = requiresReview,
+    isSynced = true,
+    schedules = schedules.map { schedule ->
+        MedicationSchedule(
+            id = schedule.id,
+            timeOfDay = LocalTime.parse(schedule.timeOfDay, TIME_FORMATTER),
+            frequencyType = schedule.frequencyType,
+            mealRelation = schedule.mealRelation,
+            doseAmount = schedule.doseAmount,
+            notes = schedule.notes,
+        )
+    },
+)
+
 fun MedicationScheduleResponseDto.toEntity(localId: String, medicationLocalId: String) =
     MedicationScheduleEntity(
         id = localId,

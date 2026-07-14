@@ -18,6 +18,7 @@ import com.medihelp.app.feature_medications.data.remote.MedicationApi
 import com.medihelp.app.feature_medications.data.remote.dto.MedicationResponseDto
 import com.medihelp.app.feature_medications.data.remote.dto.MedicationUpdateRequestDto
 import com.medihelp.app.feature_medications.data.remote.dto.ReminderLogRequestDto
+import com.medihelp.app.feature_medications.data.remote.dto.ConfirmExtractedMedicationsRequestDto
 import com.medihelp.app.feature_medications.domain.model.Medication
 import com.medihelp.app.feature_medications.domain.model.MedicationStatus
 import com.medihelp.app.feature_medications.domain.model.NewMedicationInput
@@ -136,8 +137,20 @@ class MedicationRepositoryImpl @Inject constructor(
     }
 
     override suspend fun updateStatus(id: String, status: MedicationStatus): Result<Unit> {
+        val medication = medicationDao.getMedicationOnce(id)
         val apiValue = status.name.lowercase()
         medicationDao.updateStatus(id, apiValue, System.currentTimeMillis())
+        medication?.let { cached ->
+            if (status == MedicationStatus.ACTIVE) {
+                alarmScheduler.scheduleAllForMedication(
+                    cached.medication.id,
+                    cached.medication.name,
+                    cached.schedules,
+                )
+            } else {
+                alarmScheduler.cancelAll(cached.schedules.map { it.id })
+            }
+        }
 
         if (id.startsWith(LOCAL_ID_PREFIX)) {
             return Result.Success(Unit)
@@ -261,6 +274,22 @@ class MedicationRepositoryImpl @Inject constructor(
             medicationDao.insertSchedules(schedules)
         }
 
-        alarmScheduler.scheduleAllForMedication(dto.id, entity.name, schedules)
+        if (entity.status == "active") {
+            alarmScheduler.scheduleAllForMedication(dto.id, entity.name, schedules)
+        } else {
+            alarmScheduler.cancelAll(schedules.map { it.id })
+        }
+    }
+
+    override suspend fun importConfirmedPrescription(jobId: String): Result<List<Medication>> {
+        return try {
+            val responses = medicationApi.confirmExtractedMedications(
+                ConfirmExtractedMedicationsRequestDto(jobId),
+            )
+            responses.forEach { cacheRemoteMedication(it) }
+            Result.Success(responses.map { it.toDomain() })
+        } catch (error: Exception) {
+            Result.Error(error.toUserMessage())
+        }
     }
 }

@@ -28,6 +28,10 @@ interface MedicationDao {
     @Query("SELECT * FROM medications WHERE id = :medicationId")
     fun observeMedication(medicationId: String): Flow<MedicationWithSchedules?>
 
+    @Transaction
+    @Query("SELECT * FROM medications WHERE id = :medicationId LIMIT 1")
+    suspend fun getMedicationOnce(medicationId: String): MedicationWithSchedules?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMedication(medication: MedicationEntity)
 

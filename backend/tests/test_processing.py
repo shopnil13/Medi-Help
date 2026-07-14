@@ -131,6 +131,15 @@ async def test_pipeline_extracts_flags_and_allows_confirmation(
     assert confirmation.status_code == 200
     assert confirmation.json()["status"] == "completed"
     assert confirmation.json()["confirmed_result"]["requires_confirmation"] is True
+    repeated_confirmation = await client.post(
+        f"/api/v1/jobs/{job_id}/confirm",
+        headers=headers,
+        json={"result": body["structured_result"]},
+    )
+    assert repeated_confirmation.status_code == 200
+    assert (
+        repeated_confirmation.json()["confirmed_result"] == confirmation.json()["confirmed_result"]
+    )
     medications = await client.get("/api/v1/medications", headers=headers)
     assert medications.json() == []
 

@@ -4,9 +4,7 @@ Last reviewed: 2026-07-13
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 5: OCR and AI Extraction Pipeline**. Uploaded prescriptions and lab reports can now be processed into validated, safety-flagged data and reviewed, edited, selected, and confirmed on Android before affecting any health records.
-
-Phase 6 is in progress. Backend prescription-to-medication conversion is complete; Android routing and the success workflow remain under development.
+Medi-Help is implemented through **Phase 6: Prescription-to-Medication Automation**. Confirmed prescription medicines now become medication records with explicit reminder schedules, local Room state, controllable alarms, and immediate dashboard visibility.
 
 ## Completed Work
 
@@ -156,7 +154,7 @@ GET    /api/v1/reminders/adherence-summary
 - Docker package downloads failed twice over plain HTTP and then stalled over HTTPS on the current network. Retry and HTTPS handling were added to the Dockerfile, but the OCR image build remains unverified locally.
 - No system Tesseract executable is installed on the Windows host. OCR orchestration is covered with provider doubles; image/PDF preprocessing and structured extraction run locally in tests.
 
-### Phase 6 - Prescription-to-Medication Automation (In Progress)
+### Phase 6 - Prescription-to-Medication Automation
 
 #### Backend completed
 
@@ -166,9 +164,21 @@ GET    /api/v1/reminders/adherence-summary
 - Added source document/job references, confidence values, confirmed instructions, and review-state clearing.
 - Added migration coverage and end-to-end API assertions for conversion, schedules, provenance, and repeat requests.
 
+#### Android completed
+
+- Routed confirmed prescription selections through the medication-conversion API.
+- Cached imported medicines and schedules in Room so existing dashboard flows update immediately.
+- Scheduled local alarms only for explicit active schedules returned by the backend.
+- Added a completion screen with medicine and active-reminder counts.
+- Added reminder switches that pause, cancel, and re-enable alarms for each imported medicine.
+- Preserved paused reminder state during later backend cache refreshes.
+- Added unit coverage for confirmation, import, success state, and reminder status updates.
+
 #### Incidents
 
 - The first explicit-time conversion test found a missing `datetime` import. Ruff and the failing endpoint test identified it; adding the import restored the full green suite.
+- A direct import of Compose's internal `weight` symbol caused the first Android compile to fail. Removing the import and using the scoped row modifier restored the build.
+- The combined Gradle verification session outlived its command channel after completing tests and assembly. The generated reports were checked, and lint was rerun separately to complete verification.
 
 ## Verification Snapshot
 
@@ -178,7 +188,7 @@ Checks run on 2026-07-13:
 |---|---|
 | Backend pytest suite | Passed: 27 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 66 files unchanged |
+| Backend Black format check | Passed: 67 files unchanged |
 | Android debug APK assembly | Passed |
 | Android unit-test Gradle task | Passed: 4 tests |
 | Android lint | Passed |
@@ -192,6 +202,7 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 
 - Android repository, Room DAO, reminder, camera, and Compose UI coverage remains to be added.
 - Camera capture and multipart upload still need end-to-end verification on an emulator or physical device with the backend running.
+- Prescription import and alarm toggling still need end-to-end verification on an emulator or physical device with the backend running.
 - Backend CORS currently allows all origins and must be restricted before production.
 - Production OCR/LLM providers still need credentialed end-to-end verification with representative medical documents.
 - Vitals tracking, charts, lab processing, Health Connect, simplification, insights, and accessibility polish remain future phases.
@@ -199,9 +210,9 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 
 ## Next Planned Milestone
 
-**Phase 6 - Prescription-to-Medication Automation**
+**Phase 7 - Manual Vitals and Health Charts**
 
-The next milestone is to convert selected, confirmed prescription medicines into backend medication/schedule records, insert them into Android Room, schedule local reminders, and update the dashboard immediately.
+The next milestone is to add owner-scoped vital measurements, manual Android entry, Room-backed history, and time-range charts.
 
 ## Build Timeline
 
@@ -214,3 +225,4 @@ The next milestone is to convert selected, confirmed prescription medicines into
 | 2026-07-12 | Phase 3 medication management and exact-alarm reminders completed |
 | 2026-07-13 | Phase 4 document upload, storage, camera capture, and job tracking completed |
 | 2026-07-13 | Phase 5 OCR/extraction pipeline and editable Android review completed |
+| 2026-07-13 | Phase 6 prescription automation, Room import, and reminder controls completed |

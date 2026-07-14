@@ -16,4 +16,5 @@ interface MedicationRepository {
     suspend fun logReminderAction(medicationId: String, scheduledAt: Instant, action: String)
     suspend fun refreshFromBackend()
     suspend fun syncPendingChanges()
+    suspend fun importConfirmedPrescription(jobId: String): Result<List<Medication>>
 }

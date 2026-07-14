@@ -10,6 +10,8 @@ import com.medihelp.app.feature_documents.domain.model.LabReportExtraction
 import com.medihelp.app.feature_documents.domain.model.PrescriptionExtraction
 import com.medihelp.app.feature_documents.domain.repository.DocumentRepository
 import com.medihelp.app.feature_documents.presentation.state.ExtractionReviewUiState
+import com.medihelp.app.feature_medications.domain.model.MedicationStatus
+import com.medihelp.app.feature_medications.domain.repository.MedicationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +24,7 @@ import kotlinx.coroutines.launch
 class ExtractionReviewViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: DocumentRepository,
+    private val medicationRepository: MedicationRepository,
 ) : ViewModel() {
     private val jobId: String = checkNotNull(savedStateHandle["jobId"])
     private val _uiState = MutableStateFlow(ExtractionReviewUiState())
@@ -40,7 +43,7 @@ class ExtractionReviewViewModel @Inject constructor(
                         it.copy(
                             document = document,
                             isLoading = document == null,
-                            isConfirmed = document?.confirmedResult != null || it.isConfirmed,
+                            extractionConfirmed = document?.confirmedResult != null || it.extractionConfirmed,
                         )
                     }
                 }
@@ -81,13 +84,50 @@ class ExtractionReviewViewModel @Inject constructor(
         if (_uiState.value.isSaving) return
         _uiState.update { it.copy(isSaving = true, errorMessage = null) }
         viewModelScope.launch {
-            when (val result = repository.confirmExtraction(jobId, draft)) {
-                is Result.Success -> _uiState.update {
-                    it.copy(isSaving = false, isConfirmed = true)
+            if (!_uiState.value.extractionConfirmed) {
+                when (val confirmation = repository.confirmExtraction(jobId, draft)) {
+                    is Result.Success -> _uiState.update { it.copy(extractionConfirmed = true) }
+                    is Result.Error -> {
+                        _uiState.update {
+                            it.copy(isSaving = false, errorMessage = confirmation.message)
+                        }
+                        return@launch
+                    }
                 }
-                is Result.Error -> _uiState.update {
-                    it.copy(isSaving = false, errorMessage = result.message)
+            }
+
+            if (draft is PrescriptionExtraction) {
+                when (val imported = medicationRepository.importConfirmedPrescription(jobId)) {
+                    is Result.Success -> _uiState.update {
+                        it.copy(
+                            isSaving = false,
+                            isConfirmed = true,
+                            importedMedications = imported.data,
+                        )
+                    }
+                    is Result.Error -> _uiState.update {
+                        it.copy(isSaving = false, errorMessage = imported.message)
+                    }
                 }
+            } else {
+                _uiState.update { it.copy(isSaving = false, isConfirmed = true) }
+            }
+        }
+    }
+
+    fun setReminderEnabled(medicationId: String, enabled: Boolean) {
+        viewModelScope.launch {
+            val status = if (enabled) MedicationStatus.ACTIVE else MedicationStatus.PAUSED
+            when (val result = medicationRepository.updateStatus(medicationId, status)) {
+                is Result.Success -> _uiState.update { state ->
+                    state.copy(
+                        importedMedications = state.importedMedications.map { medication ->
+                            if (medication.id == medicationId) medication.copy(status = status) else medication
+                        },
+                        errorMessage = null,
+                    )
+                }
+                is Result.Error -> _uiState.update { it.copy(errorMessage = result.message) }
             }
         }
     }

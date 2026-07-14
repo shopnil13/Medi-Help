@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
@@ -18,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -36,18 +38,29 @@ import com.medihelp.app.feature_documents.domain.model.LabReportExtraction
 import com.medihelp.app.feature_documents.domain.model.PrescriptionExtraction
 import com.medihelp.app.feature_documents.presentation.state.ExtractionReviewUiState
 import com.medihelp.app.feature_documents.presentation.viewmodel.ExtractionReviewViewModel
+import com.medihelp.app.feature_medications.domain.model.MedicationStatus
 import kotlin.math.roundToInt
 
 @Composable
 fun ExtractionReviewRoute(
     onBackClick: () -> Unit,
-    onConfirmed: () -> Unit,
+    onLabConfirmed: () -> Unit,
+    onPrescriptionDone: () -> Unit,
     viewModel: ExtractionReviewViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsState()
 
     LaunchedEffect(state.isConfirmed) {
-        if (state.isConfirmed) onConfirmed()
+        if (state.isConfirmed && state.draft is LabReportExtraction) onLabConfirmed()
+    }
+
+    if (state.isConfirmed && state.draft is PrescriptionExtraction) {
+        PrescriptionImportSuccessScreen(
+            state = state,
+            onReminderEnabled = viewModel::setReminderEnabled,
+            onDone = onPrescriptionDone,
+        )
+        return
     }
 
     when (state.draft) {
@@ -67,6 +80,75 @@ fun ExtractionReviewRoute(
             MediHelpLoadingState()
         } else {
             MediHelpErrorState(state.errorMessage ?: "No extracted data is available.")
+        }
+    }
+}
+
+@Composable
+private fun PrescriptionImportSuccessScreen(
+    state: ExtractionReviewUiState,
+    onReminderEnabled: (String, Boolean) -> Unit,
+    onDone: () -> Unit,
+) {
+    val reminderCount = state.importedMedications
+        .filter { it.status == MedicationStatus.ACTIVE }
+        .sumOf { it.schedules.size }
+    Scaffold(topBar = { MediHelpTopBar("Medicines added") }) { padding ->
+        LazyColumn(
+            modifier = Modifier.fillMaxSize().padding(padding),
+            contentPadding = PaddingValues(MediHelpSpacing.space4),
+            verticalArrangement = Arrangement.spacedBy(MediHelpSpacing.space3),
+        ) {
+            item {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(MediHelpSpacing.space2),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(
+                        Icons.Filled.CheckCircle,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                    Text(
+                        "${state.importedMedications.size} medicines added",
+                        style = MaterialTheme.typography.headlineMedium,
+                    )
+                    Text(
+                        "$reminderCount reminders scheduled",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            itemsIndexed(state.importedMedications, key = { _, item -> item.id }) { _, medication ->
+                Card(modifier = Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(MediHelpSpacing.space4),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(medication.name, style = MaterialTheme.typography.titleMedium)
+                            Text(
+                                "${medication.schedules.size} reminders",
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                        Switch(
+                            checked = medication.status == MedicationStatus.ACTIVE,
+                            onCheckedChange = { enabled -> onReminderEnabled(medication.id, enabled) },
+                        )
+                    }
+                }
+            }
+            item {
+                Column(verticalArrangement = Arrangement.spacedBy(MediHelpSpacing.space2)) {
+                    state.errorMessage?.let {
+                        Text(it, color = MaterialTheme.colorScheme.error)
+                    }
+                    MediHelpPrimaryButton(text = "Done", onClick = onDone)
+                }
+            }
         }
     }
 }
