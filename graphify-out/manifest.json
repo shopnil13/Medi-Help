@@ -385,8 +385,8 @@
     "semantic_hash": ""
   },
   "backend/alembic/env.py": {
-    "mtime": 1783865457.588354,
-    "ast_hash": "2241db44041852d61b7c6f3900b4ff64",
+    "mtime": 1784007057.8190794,
+    "ast_hash": "d03b2241167a5ed3bf967a1f4f9b25d0",
     "semantic_hash": ""
   },
   "backend/alembic/versions/87e9723e56da_create_medications_medication_schedules_.py": {
@@ -445,8 +445,8 @@
     "semantic_hash": ""
   },
   "backend/app/api/v1/router.py": {
-    "mtime": 1783865441.0109913,
-    "ast_hash": "5263908eb261ef90c8e6c326e3d22fb1",
+    "mtime": 1784007072.1390035,
+    "ast_hash": "99152b499342a244fbc8bdc00443529e",
     "semantic_hash": ""
   },
   "backend/app/core/__init__.py": {
@@ -485,8 +485,8 @@
     "semantic_hash": ""
   },
   "backend/app/models/__init__.py": {
-    "mtime": 1783865457.5873375,
-    "ast_hash": "891573953c1b411450dbaf456047867e",
+    "mtime": 1784006969.155228,
+    "ast_hash": "6ecaf04c154f48bf1f0e9702447825ce",
     "semantic_hash": ""
   },
   "backend/app/models/medication.py": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "contracts/api-contract.md": {
-    "mtime": 1783958399.437257,
-    "ast_hash": "32f46651b9184166a6ce62d9a6dfd730",
+    "mtime": 1784007062.2404263,
+    "ast_hash": "34363870fa9c137914e4b196d811bb98",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "build_log.md": {
-    "mtime": 1784006721.0747242,
-    "ast_hash": "d286eaa99111420c6d48afda943fffb7",
+    "mtime": 1784007199.2569318,
+    "ast_hash": "48f1a8db6a5fb6be0e1053d155fd407e",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/DocumentDao.kt": {
@@ -992,6 +992,41 @@
   "backend/alembic/versions/90ee81fb2b47_link_medications_to_source_documents.py": {
     "mtime": 1783958264.281021,
     "ast_hash": "7c32737e861a1bcd7c62e0036d67cc16",
+    "semantic_hash": ""
+  },
+  "backend/alembic/versions/a31f46d8c902_create_vital_records_and_biomarkers.py": {
+    "mtime": 1784007072.2784388,
+    "ast_hash": "d31361c9acf7eda6968e829750dfee2c",
+    "semantic_hash": ""
+  },
+  "backend/app/api/v1/endpoints/vitals.py": {
+    "mtime": 1784007072.235303,
+    "ast_hash": "ac3561f0f9de13e69acf8675274c1389",
+    "semantic_hash": ""
+  },
+  "backend/app/models/biomarker.py": {
+    "mtime": 1784007072.245438,
+    "ast_hash": "58fa305d71433fd9d1bec800f786a414",
+    "semantic_hash": ""
+  },
+  "backend/app/models/vital_record.py": {
+    "mtime": 1784007072.3040462,
+    "ast_hash": "b2694bf2290e4145c6ddefd655cf651b",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/vital.py": {
+    "mtime": 1784007072.2680268,
+    "ast_hash": "a0d1d522a5e29b3babe83e1c53753413",
+    "semantic_hash": ""
+  },
+  "backend/app/services/vital_service.py": {
+    "mtime": 1784007125.6594145,
+    "ast_hash": "765750f350eab2e754cc4d33fd40dfea",
+    "semantic_hash": ""
+  },
+  "backend/tests/api/test_vitals.py": {
+    "mtime": 1784007072.4659507,
+    "ast_hash": "10601bb8f3655ce98c305fa9a4ca009f",
     "semantic_hash": ""
   }
 }

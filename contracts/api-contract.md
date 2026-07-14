@@ -28,6 +28,10 @@ GET    /api/v1/reminders
 POST   /api/v1/reminders/log
 GET    /api/v1/reminders/adherence-summary
 POST   /api/v1/medications/confirm-extracted
+GET    /api/v1/vitals
+POST   /api/v1/vitals
+POST   /api/v1/vitals/bulk-sync
+GET    /api/v1/vitals/trends
 ```
 
 Document processing endpoints:
@@ -54,3 +58,10 @@ create medications or vital records until the later routing phases.
 It idempotently creates active medications and schedules only for selected
 entries, returns the created medication list, and retains source document/job
 references. Only explicit extracted times become schedules.
+
+Vital writes include a metric type, numeric value, unit, recorded date, and
+source. Blood pressure is represented as paired systolic and diastolic records.
+`GET /vitals` accepts optional `metric_type`, `start_date`, `end_date`, and
+`source` filters. `GET /vitals/trends` applies the same filters and groups points
+by metric name and unit with minimum, maximum, average, latest, and direction
+summaries. Lab-sourced records must reference a document owned by the user.

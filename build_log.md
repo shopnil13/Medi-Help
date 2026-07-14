@@ -6,6 +6,8 @@ Last reviewed: 2026-07-13
 
 Medi-Help is implemented through **Phase 6: Prescription-to-Medication Automation**. Confirmed prescription medicines now become medication records with explicit reminder schedules, local Room state, controllable alarms, and immediate dashboard visibility.
 
+Phase 7 is in progress. The backend vital history, provenance filters, trends, and biomarker persistence are complete; the Android vitals dashboard and manual-entry workflow remain under development.
+
 ## Completed Work
 
 ### Phase 0 - Project Foundation
@@ -180,19 +182,35 @@ GET    /api/v1/reminders/adherence-summary
 - A direct import of Compose's internal `weight` symbol caused the first Android compile to fail. Removing the import and using the scoped row modifier restored the build.
 - The combined Gradle verification session outlived its command channel after completing tests and assembly. The generated reports were checked, and lint was rerun separately to complete verification.
 
+### Phase 7 - Health Chart & Manual Vitals Tracker (In Progress)
+
+#### Backend completed
+
+- Added owner-scoped `vital_records` and document-linked `biomarkers` tables.
+- Added single-record and bounded bulk vital writes with required date, unit, and source provenance.
+- Added heart rate, systolic/diastolic blood pressure, blood glucose, weight, and named custom metrics.
+- Added metric, date-range, and source filtering for vital history.
+- Added grouped trend responses with ordered points, minimum, maximum, average, latest value, and direction.
+- Added lab-document ownership validation and explicit provenance rules.
+- Added six API tests covering authentication, manual writes, bulk blood pressure/custom writes, filtering, trends, ownership isolation, and validation.
+
+#### Incidents
+
+- The first test run exposed two Starlette deprecation warnings for the older 422 status constant. Replacing it with the current unprocessable-content constant removed warnings without changing API behavior.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-13:
 
 | Check | Result |
 |---|---|
-| Backend pytest suite | Passed: 27 tests |
+| Backend pytest suite | Passed: 33 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 67 files unchanged |
+| Backend Black format check | Passed: 74 files unchanged |
 | Android debug APK assembly | Passed |
 | Android unit-test Gradle task | Passed: 4 tests |
 | Android lint | Passed |
-| Alembic upgrade/downgrade chain | Passed through Phase 6 |
+| Alembic upgrade/downgrade chain | Passed through Phase 7 |
 | Docker Compose configuration | Passed |
 | Backend OCR Docker image | Not verified: package mirror timed out |
 
@@ -212,7 +230,7 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 
 **Phase 7 - Manual Vitals and Health Charts**
 
-The next milestone is to add owner-scoped vital measurements, manual Android entry, Room-backed history, and time-range charts.
+The backend contract is complete. The next task is manual Android entry, Room-backed history, time-range charts, source labels, and backend synchronization.
 
 ## Build Timeline
 
