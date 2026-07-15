@@ -1,12 +1,10 @@
 # Medi-Help Build Log
 
-Last reviewed: 2026-07-13
+Last reviewed: 2026-07-15
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 6: Prescription-to-Medication Automation**. Confirmed prescription medicines now become medication records with explicit reminder schedules, local Room state, controllable alarms, and immediate dashboard visibility.
-
-Phase 7 is in progress. The backend vital history, provenance filters, trends, and biomarker persistence are complete; the Android vitals dashboard and manual-entry workflow remain under development.
+Medi-Help is implemented through **Phase 7: Health Chart & Manual Vitals Tracker**. Users can record supported vitals locally, inspect time-filtered Vico charts and provenance, and synchronize health history with the owner-scoped backend.
 
 ## Completed Work
 
@@ -182,7 +180,7 @@ GET    /api/v1/reminders/adherence-summary
 - A direct import of Compose's internal `weight` symbol caused the first Android compile to fail. Removing the import and using the scoped row modifier restored the build.
 - The combined Gradle verification session outlived its command channel after completing tests and assembly. The generated reports were checked, and lint was rerun separately to complete verification.
 
-### Phase 7 - Health Chart & Manual Vitals Tracker (In Progress)
+### Phase 7 - Health Chart & Manual Vitals Tracker
 
 #### Backend completed
 
@@ -194,13 +192,26 @@ GET    /api/v1/reminders/adherence-summary
 - Added lab-document ownership validation and explicit provenance rules.
 - Added six API tests covering authentication, manual writes, bulk blood pressure/custom writes, filtering, trends, ownership isolation, and validation.
 
+#### Android completed
+
+- Added a Room v4 vital-record cache with metric, date, source, server-ID, and synchronization fields.
+- Added immediate local writes and WorkManager-backed upload/refresh synchronization.
+- Added manual entry for paired blood pressure, heart rate, blood glucose, weight, and named custom markers.
+- Added editable measurement date/time, unit controls, and optional notes.
+- Added a Vitals bottom-navigation destination, dashboard entry point, and add-vital route.
+- Added Vico line charts with 7-day, 30-day, and all-history ranges.
+- Added metric/custom-marker filters and a dated point history with Manual, Lab Report, Health Connect, Device, or Imported source labels.
+- Added unit coverage for blood-pressure pairing, custom validation, and chart filtering.
+
 #### Incidents
 
 - The first test run exposed two Starlette deprecation warnings for the older 422 status constant. Replacing it with the current unprocessable-content constant removed warnings without changing API behavior.
+- Current Vico 3 artifacts require compile SDK 36, while the project uses the supported AGP 8.6/SDK 35 toolchain. Pinning Vico to compatible release `2.2.0` and using its core model API preserved Compose-native charts without a broad toolchain upgrade.
+- The first Vico 2 compile exposed moved core axis/model imports and the older `lineSeries` API. Inspecting the resolved artifacts provided the exact package and function names; compilation then passed.
 
 ## Verification Snapshot
 
-Checks run on 2026-07-13:
+Checks run on 2026-07-15:
 
 | Check | Result |
 |---|---|
@@ -208,7 +219,7 @@ Checks run on 2026-07-13:
 | Backend Ruff lint | Passed |
 | Backend Black format check | Passed: 74 files unchanged |
 | Android debug APK assembly | Passed |
-| Android unit-test Gradle task | Passed: 4 tests |
+| Android unit-test Gradle task | Passed: 7 tests |
 | Android lint | Passed |
 | Alembic upgrade/downgrade chain | Passed through Phase 7 |
 | Docker Compose configuration | Passed |
@@ -221,16 +232,17 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 - Android repository, Room DAO, reminder, camera, and Compose UI coverage remains to be added.
 - Camera capture and multipart upload still need end-to-end verification on an emulator or physical device with the backend running.
 - Prescription import and alarm toggling still need end-to-end verification on an emulator or physical device with the backend running.
+- Manual vital entry, Room migration, chart interaction, and offline synchronization still need end-to-end verification on an emulator or physical device.
 - Backend CORS currently allows all origins and must be restricted before production.
 - Production OCR/LLM providers still need credentialed end-to-end verification with representative medical documents.
-- Vitals tracking, charts, lab processing, Health Connect, simplification, insights, and accessibility polish remain future phases.
+- Lab routing, Health Connect, simplification, insights, and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 
 ## Next Planned Milestone
 
-**Phase 7 - Manual Vitals and Health Charts**
+**Phase 8 - Lab Report-to-Health Chart Automation**
 
-The backend contract is complete. The next task is manual Android entry, Room-backed history, time-range charts, source labels, and backend synchronization.
+The next milestone is to normalize selected confirmed lab biomarkers, retain report provenance and reference ranges, and route them into the existing Room-backed Health Chart.
 
 ## Build Timeline
 
@@ -244,3 +256,4 @@ The backend contract is complete. The next task is manual Android entry, Room-ba
 | 2026-07-13 | Phase 4 document upload, storage, camera capture, and job tracking completed |
 | 2026-07-13 | Phase 5 OCR/extraction pipeline and editable Android review completed |
 | 2026-07-13 | Phase 6 prescription automation, Room import, and reminder controls completed |
+| 2026-07-15 | Phase 7 manual vitals, local synchronization, provenance, and charts completed |

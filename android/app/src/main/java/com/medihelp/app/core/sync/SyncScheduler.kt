@@ -9,7 +9,7 @@ import androidx.work.WorkManager
 import java.util.concurrent.TimeUnit
 
 object SyncScheduler {
-    private const val UNIQUE_WORK_NAME = "medication_sync"
+    private const val UNIQUE_WORK_NAME = "health_data_sync"
 
     fun enqueuePeriodicSync(context: Context) {
         val constraints = Constraints.Builder()

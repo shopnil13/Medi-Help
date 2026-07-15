@@ -3,6 +3,7 @@ package com.medihelp.app.core.designsystem.components
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Medication
+import androidx.compose.material.icons.filled.MonitorHeart
 import androidx.compose.material.icons.filled.UploadFile
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -14,6 +15,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 enum class BottomNavTab(val label: String, val icon: ImageVector) {
     HOME("Home", Icons.Filled.Home),
     MEDICINES("Medicines", Icons.Filled.Medication),
+    VITALS("Vitals", Icons.Filled.MonitorHeart),
     DOCUMENTS("Documents", Icons.Filled.UploadFile),
 }
 

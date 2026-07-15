@@ -102,6 +102,8 @@ dependencies {
     implementation(libs.androidx.camera.view)
 
     implementation(libs.coil.compose)
+    implementation(libs.vico.compose)
+    implementation(libs.vico.compose.m3)
 
     implementation(libs.kotlinx.coroutines.android)
 

@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "android/app/build.gradle.kts": {
-    "mtime": 1783954942.7544825,
-    "ast_hash": "d97f217206a37e8f0d24bf0535bb90ea",
+    "mtime": 1784007365.5029476,
+    "ast_hash": "7fc16a4bd2c11d06bb3a8e46dc835e8c",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/MainActivity.kt": {
@@ -50,13 +50,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/AppDatabase.kt": {
-    "mtime": 1783957868.9831018,
-    "ast_hash": "b88934072fb1a4176b9a8179d4b96c88",
+    "mtime": 1784007378.6673644,
+    "ast_hash": "fa0d7737245ea07a24ba761416e94f0b",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/DatabaseModule.kt": {
-    "mtime": 1783957868.9850962,
-    "ast_hash": "48d78a0336f3d02bcf5112d722e6af83",
+    "mtime": 1784007378.669362,
+    "ast_hash": "1f11947a956c3c1c49f8061697b8455e",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/MedicationDao.kt": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/designsystem/components/MediHelpBottomNavBar.kt": {
-    "mtime": 1783865848.8415995,
-    "ast_hash": "c9fd7fc1b6ac3ad132c4a08e699e08e3",
+    "mtime": 1784007554.2158935,
+    "ast_hash": "bb0ce4e933e6477f60a266fc44b79265",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/designsystem/components/MediHelpButton.kt": {
@@ -120,13 +120,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/navigation/AppNavGraph.kt": {
-    "mtime": 1783958512.0156643,
-    "ast_hash": "03114c4adc78564a9ea038cd83a5b21f",
+    "mtime": 1784007554.2189014,
+    "ast_hash": "ad94cd0303dfdc194240d399ec814f0f",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/navigation/Routes.kt": {
-    "mtime": 1783957946.7567127,
-    "ast_hash": "6a51106abec3e86743335b68b1adfa9f",
+    "mtime": 1784007554.213889,
+    "ast_hash": "05821ddb408e978aa9783c3ce0d56fb5",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/network/AuthInterceptor.kt": {
@@ -190,13 +190,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/sync/SyncScheduler.kt": {
-    "mtime": 1783840125.196456,
-    "ast_hash": "654b30d72e9e71d869ddaa0a043fe9fd",
+    "mtime": 1784007378.6723595,
+    "ast_hash": "96f8dd91a24e94dafaf749a81fb7f250",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/sync/SyncWorker.kt": {
-    "mtime": 1783840101.5950954,
-    "ast_hash": "fcc845ea92faf2b1be14365318fec81c",
+    "mtime": 1784007378.6703646,
+    "ast_hash": "85edcfb47136f4fa7592eb6ee43dcceb",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_auth/data/remote/AuthApi.kt": {
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_dashboard/presentation/screen/DashboardScreen.kt": {
-    "mtime": 1783865859.1981752,
-    "ast_hash": "1795b59c98e7a60d087a6b3d5a7a18f7",
+    "mtime": 1784007554.217889,
+    "ast_hash": "a933ee3cde95fcc0c0101d415bef5cb5",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_dashboard/presentation/viewmodel/DashboardViewModel.kt": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "build_log.md": {
-    "mtime": 1784007199.2569318,
-    "ast_hash": "48f1a8db6a5fb6be0e1053d155fd407e",
+    "mtime": 1784113963.2032897,
+    "ast_hash": "769b7f9ac972eb9d1bbb021dc9cc56c8",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/DocumentDao.kt": {
@@ -1027,6 +1027,91 @@
   "backend/tests/api/test_vitals.py": {
     "mtime": 1784007072.4659507,
     "ast_hash": "10601bb8f3655ce98c305fa9a4ca009f",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/core/database/dao/VitalDao.kt": {
+    "mtime": 1784007365.5119488,
+    "ast_hash": "86af881734026d40cf7158e514127ad8",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/data/local/entity/VitalRecordEntity.kt": {
+    "mtime": 1784007365.5099478,
+    "ast_hash": "e38bd8702afc8a4a7592dbca5e94865d",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/data/mapper/VitalMappers.kt": {
+    "mtime": 1784007365.5239463,
+    "ast_hash": "3fea21fd796e0cbdd8425d324407f827",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/data/remote/VitalApi.kt": {
+    "mtime": 1784007365.5189486,
+    "ast_hash": "a78220c683833ecc7b10e01cdbef5ab6",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/data/remote/dto/VitalDtos.kt": {
+    "mtime": 1784007365.5149481,
+    "ast_hash": "60908d19416b4c20bbf0ad8e0fe09442",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/data/repository/VitalRepositoryImpl.kt": {
+    "mtime": 1784113745.9134803,
+    "ast_hash": "95942a1027013fd6c0a72a9f30b18720",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/di/VitalModule.kt": {
+    "mtime": 1784007365.5329497,
+    "ast_hash": "696dfd6f3c3f12cd2b374d4dfc686364",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/domain/model/VitalRecord.kt": {
+    "mtime": 1784007365.505947,
+    "ast_hash": "705888b08fea6cf22a59b21eccfb533c",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/domain/repository/VitalRepository.kt": {
+    "mtime": 1784007365.5069463,
+    "ast_hash": "a30a1620eccea4bd36a1f34147859fd0",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/screen/AddVitalScreen.kt": {
+    "mtime": 1784113745.914482,
+    "ast_hash": "292ebc3a44966878fe8c8a6741131676",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/screen/VitalDashboardScreen.kt": {
+    "mtime": 1784113740.9711373,
+    "ast_hash": "e355376d3f20bc2a3224a131211557b6",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/state/AddVitalUiState.kt": {
+    "mtime": 1784007434.9379816,
+    "ast_hash": "c89871c8a632380316686f5a364ea9ac",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/state/VitalDashboardUiState.kt": {
+    "mtime": 1784007485.1683662,
+    "ast_hash": "b83595321fcecde3e35a6b110ac349b4",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/viewmodel/AddVitalViewModel.kt": {
+    "mtime": 1784007434.9399824,
+    "ast_hash": "e51992b5591e1dee6c42d545d5157317",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/viewmodel/VitalDashboardViewModel.kt": {
+    "mtime": 1784007485.1693711,
+    "ast_hash": "f43888156d86e2adcdeb3e555b9383ed",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/medihelp/app/feature_vitals/presentation/state/VitalDashboardUiStateTest.kt": {
+    "mtime": 1784007579.5030146,
+    "ast_hash": "78b99b134bea38fbd919d1df545c9d3a",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/medihelp/app/feature_vitals/presentation/viewmodel/AddVitalViewModelTest.kt": {
+    "mtime": 1784007579.5010052,
+    "ast_hash": "8a62bf55196ac5b20531bb52809b6fbb",
     "semantic_hash": ""
   }
 }

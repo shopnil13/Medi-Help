@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.UploadFile
+import androidx.compose.material.icons.filled.MonitorHeart
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -38,6 +39,7 @@ import com.medihelp.app.feature_dashboard.presentation.viewmodel.DashboardViewMo
 fun DashboardScreen(
     onLoggedOut: () -> Unit,
     onViewMedicinesClick: () -> Unit,
+    onViewVitalsClick: () -> Unit,
     onUploadDocumentClick: () -> Unit,
     viewModel: DashboardViewModel = hiltViewModel(),
 ) {
@@ -107,6 +109,32 @@ fun DashboardScreen(
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                }
+            }
+
+            Card(
+                onClick = onViewVitalsClick,
+                modifier = Modifier.fillMaxWidth(),
+                shape = MediHelpShapes.large,
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            ) {
+                Row(
+                    modifier = Modifier.padding(MediHelpSpacing.space4),
+                    horizontalArrangement = Arrangement.spacedBy(MediHelpSpacing.space3),
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.MonitorHeart,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                    Column {
+                        Text(text = "Health chart", style = MaterialTheme.typography.titleLarge)
+                        Text(
+                            text = "Vitals and trends",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
 

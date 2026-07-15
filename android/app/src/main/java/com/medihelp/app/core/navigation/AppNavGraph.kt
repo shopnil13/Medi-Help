@@ -27,6 +27,8 @@ import com.medihelp.app.feature_documents.presentation.screen.ExtractionReviewRo
 import com.medihelp.app.feature_medications.presentation.screen.AddMedicationScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationDetailScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
+import com.medihelp.app.feature_vitals.presentation.screen.AddVitalScreen
+import com.medihelp.app.feature_vitals.presentation.screen.VitalDashboardScreen
 
 @Composable
 fun AppNavGraph(
@@ -69,6 +71,11 @@ fun AppNavGraph(
                             popUpTo(Routes.DASHBOARD)
                         }
                     },
+                    onViewVitalsClick = {
+                        navController.navigate(Routes.VITALS) {
+                            popUpTo(Routes.DASHBOARD)
+                        }
+                    },
                     onUploadDocumentClick = {
                         navController.navigate(Routes.UPLOAD_DOCUMENT) {
                             popUpTo(Routes.DASHBOARD)
@@ -85,6 +92,21 @@ fun AppNavGraph(
                     onMedicationClick = { id -> navController.navigate(Routes.medicationDetail(id)) },
                 )
             }
+        }
+
+        composable(Routes.VITALS) {
+            MainTabScaffold(navController = navController, selectedTab = BottomNavTab.VITALS) {
+                VitalDashboardScreen(
+                    onAddVitalClick = { navController.navigate(Routes.ADD_VITAL) },
+                )
+            }
+        }
+
+        composable(Routes.ADD_VITAL) {
+            AddVitalScreen(
+                onBackClick = { navController.popBackStack() },
+                onSaveSuccess = { navController.popBackStack() },
+            )
         }
 
         composable(Routes.UPLOAD_DOCUMENT) { backStackEntry ->
@@ -176,6 +198,7 @@ private fun MainTabScaffold(
                     val route = when (tab) {
                         BottomNavTab.HOME -> Routes.DASHBOARD
                         BottomNavTab.MEDICINES -> Routes.MEDICATIONS
+                        BottomNavTab.VITALS -> Routes.VITALS
                         BottomNavTab.DOCUMENTS -> Routes.UPLOAD_DOCUMENT
                     }
                     if (tab != selectedTab) {

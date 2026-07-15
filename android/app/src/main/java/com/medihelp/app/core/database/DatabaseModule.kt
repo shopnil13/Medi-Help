@@ -7,6 +7,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.medihelp.app.core.database.dao.DocumentDao
 import com.medihelp.app.core.database.dao.MedicationDao
 import com.medihelp.app.core.database.dao.ReminderLogDao
+import com.medihelp.app.core.database.dao.VitalDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,11 +50,43 @@ object DatabaseModule {
         }
     }
 
+    private val migration3To4 = object : Migration(3, 4) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS vital_records (
+                    id TEXT NOT NULL PRIMARY KEY,
+                    serverId TEXT,
+                    metricType TEXT NOT NULL,
+                    metricName TEXT NOT NULL,
+                    valueNumeric REAL NOT NULL,
+                    unit TEXT NOT NULL,
+                    recordedAtEpochMillis INTEGER NOT NULL,
+                    source TEXT NOT NULL,
+                    sourceDocumentId TEXT,
+                    notes TEXT,
+                    isSynced INTEGER NOT NULL,
+                    createdAtEpochMillis INTEGER NOT NULL
+                )
+                """.trimIndent(),
+            )
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_vital_records_metricType ON vital_records(metricType)")
+            db.execSQL(
+                "CREATE INDEX IF NOT EXISTS index_vital_records_recordedAtEpochMillis " +
+                    "ON vital_records(recordedAtEpochMillis)",
+            )
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_vital_records_source ON vital_records(source)")
+            db.execSQL(
+                "CREATE UNIQUE INDEX IF NOT EXISTS index_vital_records_serverId ON vital_records(serverId)",
+            )
+        }
+    }
+
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, "medi_help.db")
-            .addMigrations(migration1To2, migration2To3)
+            .addMigrations(migration1To2, migration2To3, migration3To4)
             .build()
 
     @Provides
@@ -64,4 +97,7 @@ object DatabaseModule {
 
     @Provides
     fun provideDocumentDao(database: AppDatabase): DocumentDao = database.documentDao()
+
+    @Provides
+    fun provideVitalDao(database: AppDatabase): VitalDao = database.vitalDao()
 }
