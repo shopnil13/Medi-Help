@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Numeric, String, Text, func
+from sqlalchemy import DateTime, ForeignKey, Index, Numeric, String, Text, func, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -10,6 +10,18 @@ from app.db.base import Base
 
 class VitalRecord(Base):
     __tablename__ = "vital_records"
+    __table_args__ = (
+        Index(
+            "uq_vital_records_health_connect_identity",
+            "user_id",
+            "metric_type",
+            "source",
+            "recorded_at",
+            unique=True,
+            postgresql_where=text("source = 'health_connect'"),
+            sqlite_where=text("source = 'health_connect'"),
+        ),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),

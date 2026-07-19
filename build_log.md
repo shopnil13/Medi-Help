@@ -4,7 +4,7 @@ Last reviewed: 2026-07-19
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 8: Lab Report-to-Health Chart Automation**. Users can review and edit extracted lab values, confirm selected biomarkers, and immediately inspect chartable results with lab-report provenance in the Room-backed Health Chart.
+Medi-Help is implemented through **Phase 9: Health Connect Integration**. Users can grant read-only access to supported Health Connect records, import them into the Room-backed Health Chart, sync them to the backend, and pause future wearable imports.
 
 ## Completed Work
 
@@ -236,19 +236,46 @@ GET    /api/v1/reminders/adherence-summary
 - The verification shell did not expose Java through `PATH` or `JAVA_HOME`. Pointing Gradle at Android Studio's bundled JDK restored unit-test, assembly, and lint execution.
 - Device-level lab upload, Room migration, and chart-navigation verification remains part of manual QA because no emulator or physical device was attached during this phase.
 
+### Phase 9 - Health Connect Integration
+
+#### Backend completed
+
+- Added Health Connect identity deduplication by user, metric type, source, and recorded timestamp.
+- Added database-level conflict protection with a partial unique index and migration cleanup for pre-existing duplicates.
+- Extended bulk vital synchronization to return existing records for idempotent Health Connect retries while preserving regular vital writes.
+- Added API coverage for duplicate records within one upload, repeated uploads, stable server IDs, original-value preservation, and source filtering.
+
+#### Android completed
+
+- Added the stable Health Connect client with device/provider availability checks and Android 13-or-lower provider discovery.
+- Requested only read permissions for heart rate, blood pressure, and blood glucose.
+- Added the required Health Connect privacy-rationale activity and Android 14 permission-usage alias.
+- Added a Health Connect settings screen with connection status, permission flow, sync toggle, manual sync, provider update, and access-management actions.
+- Imported the most recent 30 days of permitted records with pagination and stored them through the existing Room/backend vital pipeline.
+- Added deterministic local identities for wearable records so offline repeated imports do not duplicate chart points.
+- Preserved the existing Health Connect source label and icon in Health Chart history.
+- Added ViewModel coverage for permission grant, initial import, permission revocation, and automatic sync disablement.
+- Upgraded compile SDK to 36, Android Gradle Plugin to 8.9.1, and Gradle to 8.11.1 as required by Health Connect 1.1.0.
+
+#### Incidents
+
+- Health Connect 1.1.0 required compile SDK 36 and Android Gradle Plugin 8.9.1 or newer. Aligning the project toolchain and wrapper resolved the AAR compatibility check without changing the target SDK.
+- The upgraded dependency graph exposed CameraX's compile-time `ListenableFuture` type as missing because the standalone artifact resolves to Guava's empty conflict placeholder. Declaring Guava's Android artifact restored the CameraX compile classpath.
+- Device-level permission, provider update, Room import, and chart verification remains manual because no emulator or physical Android device was attached.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-19:
 
 | Check | Result |
 |---|---|
-| Backend pytest suite | Passed: 34 tests |
+| Backend pytest suite | Passed: 35 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 76 files unchanged |
+| Backend Black format check | Passed: 77 files unchanged |
 | Android debug APK assembly | Passed |
-| Android unit-test Gradle task | Passed: 8 tests |
+| Android unit-test Gradle task | Passed: 10 tests |
 | Android lint | Passed |
-| Alembic upgrade/downgrade chain | Passed through Phase 8 |
+| Alembic upgrade/downgrade chain | Passed through Phase 9 |
 | Docker Compose configuration | Passed |
 | Backend OCR Docker image | Not verified: package mirror timed out |
 
@@ -263,14 +290,15 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 - Backend CORS currently allows all origins and must be restricted before production.
 - Production OCR/LLM providers still need credentialed end-to-end verification with representative medical documents.
 - Confirmed lab import, Room v5 migration, and automatic chart navigation still need end-to-end verification on an emulator or physical device with the backend running.
-- Health Connect, simplification, insights, and accessibility polish remain future phases.
+- Health Connect permission, import, and chart behavior still need end-to-end verification on an emulator or physical device with representative provider data.
+- Medical simplification, insights, and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 
 ## Next Planned Milestone
 
-**Phase 9 - Health Connect Integration**
+**Phase 10 - Medical Simplification Engine**
 
-The next milestone is to request minimal Health Connect permissions, import supported wearable records into Room, deduplicate synced measurements, and expose user-controlled synchronization settings.
+The next milestone is to generate cached, plain-language medicine and lab explanations with safety validation, non-diagnostic wording, and clear uncertainty guidance.
 
 ## Build Timeline
 
@@ -286,3 +314,4 @@ The next milestone is to request minimal Health Connect permissions, import supp
 | 2026-07-13 | Phase 6 prescription automation, Room import, and reminder controls completed |
 | 2026-07-15 | Phase 7 manual vitals, local synchronization, provenance, and charts completed |
 | 2026-07-19 | Phase 8 confirmed lab normalization, provenance, Room import, and chart routing completed |
+| 2026-07-19 | Phase 9 Health Connect permissions, import, deduplication, settings, and chart integration completed |

@@ -25,12 +25,20 @@ class UserPreferencesDataStore @Inject constructor(
         prefs[KEY_DISPLAY_NAME]
     }
 
+    val healthConnectSyncEnabled: Flow<Boolean> = context.dataStore.data.map { prefs ->
+        prefs[KEY_HEALTH_CONNECT_SYNC_ENABLED] ?: false
+    }
+
     suspend fun setOnboardingCompleted() {
         context.dataStore.edit { prefs -> prefs[KEY_ONBOARDING_COMPLETE] = true }
     }
 
     suspend fun setDisplayName(name: String) {
         context.dataStore.edit { prefs -> prefs[KEY_DISPLAY_NAME] = name }
+    }
+
+    suspend fun setHealthConnectSyncEnabled(enabled: Boolean) {
+        context.dataStore.edit { prefs -> prefs[KEY_HEALTH_CONNECT_SYNC_ENABLED] = enabled }
     }
 
     suspend fun clear() {
@@ -40,5 +48,6 @@ class UserPreferencesDataStore @Inject constructor(
     private companion object {
         val KEY_ONBOARDING_COMPLETE = booleanPreferencesKey("onboarding_complete")
         val KEY_DISPLAY_NAME = stringPreferencesKey("display_name")
+        val KEY_HEALTH_CONNECT_SYNC_ENABLED = booleanPreferencesKey("health_connect_sync_enabled")
     }
 }

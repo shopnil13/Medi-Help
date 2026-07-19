@@ -25,7 +25,11 @@ fun VitalRecordEntity.toDomain() = VitalRecord(
 )
 
 fun NewVitalInput.toLocalEntity(now: Long = System.currentTimeMillis()) = VitalRecordEntity(
-    id = "local-${UUID.randomUUID()}",
+    id = if (source == VitalSource.HEALTH_CONNECT) {
+        "health-connect-${metricType.apiValue}-${recordedAt.toEpochMilli()}"
+    } else {
+        "local-${UUID.randomUUID()}"
+    },
     serverId = null,
     metricType = metricType.apiValue,
     metricName = metricName?.trim().orEmpty().ifBlank { metricType.displayName },

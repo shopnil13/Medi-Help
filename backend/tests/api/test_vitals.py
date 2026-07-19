@@ -114,6 +114,54 @@ async def test_bulk_sync_creates_blood_pressure_and_custom_records(
     ]
 
 
+async def test_health_connect_bulk_sync_deduplicates_by_metric_and_timestamp(
+    client: AsyncClient,
+    auth_headers: dict[str, str],
+) -> None:
+    payload = {
+        "records": [
+            {
+                "metric_type": "heart_rate",
+                "value_numeric": 72,
+                "unit": "bpm",
+                "recorded_at": "2026-07-01T09:00:00Z",
+                "source": "health_connect",
+            },
+            {
+                "metric_type": "heart_rate",
+                "value_numeric": 99,
+                "unit": "bpm",
+                "recorded_at": "2026-07-01T09:00:00Z",
+                "source": "health_connect",
+            },
+            {
+                "metric_type": "blood_glucose",
+                "value_numeric": 108,
+                "unit": "mg/dL",
+                "recorded_at": "2026-07-01T09:00:00Z",
+                "source": "health_connect",
+            },
+        ]
+    }
+    first = await client.post("/api/v1/vitals/bulk-sync", headers=auth_headers, json=payload)
+    assert first.status_code == 201
+    assert len(first.json()) == 2
+    assert [item["value_numeric"] for item in first.json()] == [72, 108]
+
+    payload["records"][0]["value_numeric"] = 80
+    repeated = await client.post("/api/v1/vitals/bulk-sync", headers=auth_headers, json=payload)
+    assert repeated.status_code == 201
+    assert [item["id"] for item in repeated.json()] == [item["id"] for item in first.json()]
+    assert [item["value_numeric"] for item in repeated.json()] == [72, 108]
+
+    history = await client.get(
+        "/api/v1/vitals",
+        headers=auth_headers,
+        params={"source": "health_connect"},
+    )
+    assert len(history.json()) == 2
+
+
 async def test_trends_group_points_and_calculate_direction(
     client: AsyncClient,
     auth_headers: dict[str, str],

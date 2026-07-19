@@ -10,6 +10,7 @@ object Routes {
     const val MEDICATION_DETAIL = "medication_detail/{medicationId}"
     const val VITALS = "vitals"
     const val ADD_VITAL = "add_vital"
+    const val HEALTH_CONNECT = "health_connect"
     const val UPLOAD_DOCUMENT = "upload_document"
     const val DOCUMENT_CAMERA = "document_camera"
     const val PROCESSING_STATUS = "processing_status/{jobId}"

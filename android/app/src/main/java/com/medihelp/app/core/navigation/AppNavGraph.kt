@@ -27,6 +27,7 @@ import com.medihelp.app.feature_documents.presentation.screen.ExtractionReviewRo
 import com.medihelp.app.feature_medications.presentation.screen.AddMedicationScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationDetailScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
+import com.medihelp.app.feature_healthconnect.presentation.HealthConnectScreen
 import com.medihelp.app.feature_vitals.presentation.screen.AddVitalScreen
 import com.medihelp.app.feature_vitals.presentation.screen.VitalDashboardScreen
 
@@ -98,6 +99,7 @@ fun AppNavGraph(
             MainTabScaffold(navController = navController, selectedTab = BottomNavTab.VITALS) {
                 VitalDashboardScreen(
                     onAddVitalClick = { navController.navigate(Routes.ADD_VITAL) },
+                    onHealthConnectClick = { navController.navigate(Routes.HEALTH_CONNECT) },
                 )
             }
         }
@@ -107,6 +109,10 @@ fun AppNavGraph(
                 onBackClick = { navController.popBackStack() },
                 onSaveSuccess = { navController.popBackStack() },
             )
+        }
+
+        composable(Routes.HEALTH_CONNECT) {
+            HealthConnectScreen(onBackClick = { navController.popBackStack() })
         }
 
         composable(Routes.UPLOAD_DOCUMENT) { backStackEntry ->

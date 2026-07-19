@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Watch
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
@@ -62,6 +63,7 @@ import java.time.format.FormatStyle
 @Composable
 fun VitalDashboardScreen(
     onAddVitalClick: () -> Unit,
+    onHealthConnectClick: () -> Unit,
     viewModel: VitalDashboardViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -72,7 +74,16 @@ fun VitalDashboardScreen(
         .distinct()
 
     Scaffold(
-        topBar = { MediHelpTopBar("Health chart") },
+        topBar = {
+            MediHelpTopBar(
+                title = "Health chart",
+                actions = {
+                    IconButton(onClick = onHealthConnectClick) {
+                        Icon(Icons.Filled.Watch, contentDescription = "Health Connect settings")
+                    }
+                },
+            )
+        },
         floatingActionButton = {
             FloatingActionButton(onClick = onAddVitalClick) {
                 Icon(Icons.Filled.Add, contentDescription = "Add vital")

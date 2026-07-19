@@ -1,5 +1,5 @@
 [versions]
-agp = "8.6.0"
+agp = "8.9.1"
 kotlin = "2.0.21"
 ksp = "2.0.21-1.0.28"
 coreKtx = "1.13.1"
@@ -20,6 +20,8 @@ securityCrypto = "1.1.0-alpha06"
 coil = "2.7.0"
 coroutines = "1.9.0"
 cameraX = "1.4.0"
+healthConnect = "1.1.0"
+guava = "33.6.0-android"
 vico = "2.2.0"
 junit = "4.13.2"
 androidxTestExt = "1.2.1"
@@ -69,6 +71,8 @@ androidx-camera-core = { group = "androidx.camera", name = "camera-core", versio
 androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "cameraX" }
 androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "cameraX" }
 androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraX" }
+androidx-health-connect-client = { group = "androidx.health.connect", name = "connect-client", version.ref = "healthConnect" }
+guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
 
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 vico-compose = { group = "com.patrykandpatrick.vico", name = "compose", version.ref = "vico" }

@@ -3,7 +3,8 @@ from datetime import datetime
 from uuid import UUID
 
 from fastapi import HTTPException, status
-from sqlalchemy import select
+from sqlalchemy import select, tuple_
+from sqlalchemy.dialects.postgresql import insert as postgresql_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.document import Document
@@ -43,24 +44,55 @@ async def create_vitals(
         if owned_ids != document_ids:
             raise HTTPException(status.HTTP_404_NOT_FOUND, "Source document not found.")
 
-    records = [
-        VitalRecord(
-            user_id=user_id,
-            metric_type=payload.metric_type,
-            metric_name=_metric_name(payload),
-            value_numeric=payload.value_numeric,
-            unit=payload.unit.strip(),
-            recorded_at=payload.recorded_at,
-            source=payload.source,
-            source_document_id=payload.source_document_id,
-            notes=payload.notes,
+    regular_records: dict[int, VitalRecord] = {}
+    health_connect_payloads: dict[tuple[str, datetime], VitalCreate] = {}
+    for index, payload in enumerate(payloads):
+        if payload.source == "health_connect":
+            health_connect_payloads.setdefault((payload.metric_type, payload.recorded_at), payload)
+            continue
+        record = _record_from_payload(user_id, payload)
+        regular_records[index] = record
+        db.add(record)
+
+    if health_connect_payloads:
+        values = [_record_values(user_id, payload) for payload in health_connect_payloads.values()]
+        statement = postgresql_insert(VitalRecord).values(values)
+        await db.execute(
+            statement.on_conflict_do_nothing(
+                index_elements=["user_id", "metric_type", "source", "recorded_at"],
+                index_where=VitalRecord.source == "health_connect",
+            )
         )
-        for payload in payloads
-    ]
-    db.add_all(records)
+
     await db.commit()
-    for record in records:
+    for record in regular_records.values():
         await db.refresh(record)
+
+    health_connect_records: dict[tuple[str, datetime], VitalRecord] = {}
+    if health_connect_payloads:
+        result = await db.execute(
+            select(VitalRecord).where(
+                VitalRecord.user_id == user_id,
+                VitalRecord.source == "health_connect",
+                tuple_(VitalRecord.metric_type, VitalRecord.recorded_at).in_(
+                    health_connect_payloads.keys()
+                ),
+            )
+        )
+        health_connect_records = {
+            (record.metric_type, record.recorded_at): record for record in result.scalars().all()
+        }
+
+    records: list[VitalRecord] = []
+    included_health_connect: set[tuple[str, datetime]] = set()
+    for index, payload in enumerate(payloads):
+        if payload.source != "health_connect":
+            records.append(regular_records[index])
+            continue
+        key = (payload.metric_type, payload.recorded_at)
+        if key not in included_health_connect:
+            records.append(health_connect_records[key])
+            included_health_connect.add(key)
     return records
 
 
@@ -133,6 +165,24 @@ def _metric_name(payload: VitalCreate) -> str:
             )
         return payload.metric_name.strip()
     return METRIC_NAMES[payload.metric_type]
+
+
+def _record_values(user_id: UUID, payload: VitalCreate) -> dict[str, object]:
+    return {
+        "user_id": user_id,
+        "metric_type": payload.metric_type,
+        "metric_name": _metric_name(payload),
+        "value_numeric": payload.value_numeric,
+        "unit": payload.unit.strip(),
+        "recorded_at": payload.recorded_at,
+        "source": payload.source,
+        "source_document_id": payload.source_document_id,
+        "notes": payload.notes,
+    }
+
+
+def _record_from_payload(user_id: UUID, payload: VitalCreate) -> VitalRecord:
+    return VitalRecord(**_record_values(user_id, payload))
 
 
 def _validate_range(start_date: datetime | None, end_date: datetime | None) -> None:

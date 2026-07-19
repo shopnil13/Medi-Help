@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.medihelp.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.medihelp.app"
@@ -100,6 +100,8 @@ dependencies {
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
+    implementation(libs.guava)
+    implementation(libs.androidx.health.connect.client)
 
     implementation(libs.coil.compose)
     implementation(libs.vico.compose)
