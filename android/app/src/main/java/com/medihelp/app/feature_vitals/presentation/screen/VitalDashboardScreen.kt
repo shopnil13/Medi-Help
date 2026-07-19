@@ -1,6 +1,7 @@
 package com.medihelp.app.feature_vitals.presentation.screen
 
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -18,6 +19,7 @@ import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Watch
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -64,6 +66,7 @@ import java.time.format.FormatStyle
 fun VitalDashboardScreen(
     onAddVitalClick: () -> Unit,
     onHealthConnectClick: () -> Unit,
+    onBiomarkerClick: (String) -> Unit,
     viewModel: VitalDashboardViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -165,7 +168,7 @@ fun VitalDashboardScreen(
                     )
                 }
                 items(visibleRecords.asReversed(), key = { it.id }) { record ->
-                    VitalPointCard(record)
+                    VitalPointCard(record, onBiomarkerClick)
                 }
             }
         }
@@ -216,11 +219,16 @@ private fun VitalLineChart(records: List<VitalRecord>) {
 }
 
 @Composable
-private fun VitalPointCard(record: VitalRecord) {
+private fun VitalPointCard(record: VitalRecord, onBiomarkerClick: (String) -> Unit) {
     val zone = ZoneId.systemDefault()
     val dateTime = record.recordedAt.atZone(zone)
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(
+                enabled = record.sourceBiomarkerId != null,
+                onClick = { record.sourceBiomarkerId?.let(onBiomarkerClick) },
+            ),
         shape = MediHelpShapes.small,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
     ) {
@@ -262,6 +270,13 @@ private fun VitalPointCard(record: VitalRecord) {
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(start = MediHelpSpacing.space2),
             )
+            if (record.sourceBiomarkerId != null) {
+                Icon(
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = "Open lab explanation",
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }

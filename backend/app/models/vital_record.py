@@ -54,6 +54,12 @@ class VitalRecord(Base):
         index=True,
         nullable=True,
     )
+    source_biomarker_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("biomarkers.id", ondelete="SET NULL"),
+        index=True,
+        nullable=True,
+    )
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

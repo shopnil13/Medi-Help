@@ -14,6 +14,9 @@ import retrofit2.http.Path
 
 interface MedicationApi {
 
+    @POST("api/v1/medications/{id}/simplify")
+    suspend fun simplifyMedication(@Path("id") id: String): MedicationResponseDto
+
     @GET("api/v1/medications")
     suspend fun getMedications(): List<MedicationResponseDto>
 

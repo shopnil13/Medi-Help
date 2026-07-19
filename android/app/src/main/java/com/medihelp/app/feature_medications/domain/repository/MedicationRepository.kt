@@ -17,4 +17,5 @@ interface MedicationRepository {
     suspend fun refreshFromBackend()
     suspend fun syncPendingChanges()
     suspend fun importConfirmedPrescription(jobId: String): Result<List<Medication>>
+    suspend fun simplifyMedication(id: String): Result<Unit>
 }

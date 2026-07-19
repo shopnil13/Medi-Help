@@ -51,6 +51,7 @@ class VitalResponse(BaseModel):
     source: VitalSource
     source_document_id: UUID | None
     source_job_id: UUID | None
+    source_biomarker_id: UUID | None
     notes: str | None
     created_at: datetime
 
@@ -87,6 +88,10 @@ class BiomarkerResponse(BaseModel):
     status: Literal["low", "normal", "high", "unknown"]
     recorded_at: datetime
     confidence_score: float | None
+    explanation_simplified: str | None
+    status_explanation: str | None
+    details_simplified: str | None
+    ask_doctor: bool
     created_at: datetime
 
 

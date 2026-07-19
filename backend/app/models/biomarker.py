@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Numeric, String, func
+from sqlalchemy import Boolean, DateTime, ForeignKey, Numeric, String, Text, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -45,6 +45,10 @@ class Biomarker(Base):
         DateTime(timezone=True), index=True, nullable=False
     )
     confidence_score: Mapped[float | None] = mapped_column(Numeric(4, 3), nullable=True)
+    explanation_simplified: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    status_explanation: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    details_simplified: Mapped[str | None] = mapped_column(Text, nullable=True)
+    ask_doctor: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         server_default=func.now(),

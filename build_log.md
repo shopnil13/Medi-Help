@@ -4,7 +4,7 @@ Last reviewed: 2026-07-19
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 9: Health Connect Integration**. Users can grant read-only access to supported Health Connect records, import them into the Room-backed Health Chart, sync them to the backend, and pause future wearable imports.
+Medi-Help is implemented through **Phase 10: Medical Simplification Engine**. Users can read cached, plain-language medicine and lab explanations with original details available on demand and doctor guidance for uncertain or abnormal information.
 
 ## Completed Work
 
@@ -263,19 +263,50 @@ GET    /api/v1/reminders/adherence-summary
 - The upgraded dependency graph exposed CameraX's compile-time `ListenableFuture` type as missing because the standalone artifact resolves to Guava's empty conflict placeholder. Declaring Guava's Android artifact restored the CameraX compile classpath.
 - Device-level permission, provider update, Room import, and chart verification remains manual because no emulator or physical Android device was attached.
 
+### Phase 10 - Medical Simplification Engine
+
+#### Backend completed
+
+- Added structured medicine and biomarker simplification schemas and a provider abstraction with heuristic and OpenAI-compatible implementations.
+- Added a plain-language prompt using short sentences, common words, one idea per sentence, and explicit non-diagnostic constraints.
+- Added deterministic explanations for supported lab markers and conservative fallback text when a medicine purpose or marker is unknown.
+- Added a safety validator that removes personal diagnosis claims and rejects medicine rewrites that alter numeric dose information.
+- Added lazy, owner-scoped medicine and biomarker simplification endpoints so text is generated only when requested.
+- Cached medicine purpose/instructions and biomarker explanation, status meaning, details, and doctor-guidance state in PostgreSQL.
+- Invalidated cached medicine simplifications when the medicine name, strength, or dosage instruction changes.
+- Linked lab-derived vital records to exact biomarker records for direct detail navigation.
+- Added a Phase 10 Alembic migration for biomarker simplification fields and vital-to-biomarker provenance.
+- Added API and processing coverage for caching, invalidation, diagnosis filtering, abnormal-result guidance, provenance, and ownership isolation.
+
+#### Android completed
+
+- Requested medicine simplification when Medicine Detail opens and cached the response through the existing Room medication store.
+- Added plain-language medicine purpose and instructions with original prescription text and reminder times under an expandable **More details** section.
+- Added doctor/pharmacist guidance for uncertain medicine explanations or simplification failures.
+- Added a Room version 5-to-6 migration carrying exact biomarker provenance on lab-derived vital records.
+- Made linked lab points in Health Chart open a dedicated Biomarker Detail screen.
+- Added plain-language marker and high/low comparison explanations, expandable reference details, and conditional doctor guidance.
+- Added ViewModel tests for medicine simplification refresh and biomarker detail loading.
+
+#### Incidents
+
+- The focused backend test run initially could not connect because Docker Desktop and PostgreSQL were stopped. Starting Docker Desktop and only the PostgreSQL service restored the test database without resetting data.
+- The first safety-filter test treated “after you have not eaten” as a diagnosis claim because the `you have` pattern was too broad. Restricting the rule to named condition claims preserved safe fasting-glucose text while continuing to remove statements such as “you have diabetes.”
+- Medicine and biomarker explanation rendering, Room v6 migration, and chart-to-detail navigation still require device-level QA because no emulator or physical Android device was attached.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-19:
 
 | Check | Result |
 |---|---|
-| Backend pytest suite | Passed: 35 tests |
+| Backend pytest suite | Passed: 37 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 77 files unchanged |
+| Backend Black format check | Passed: 82 files unchanged |
 | Android debug APK assembly | Passed |
-| Android unit-test Gradle task | Passed: 10 tests |
+| Android unit-test Gradle task | Passed: 12 tests |
 | Android lint | Passed |
-| Alembic upgrade/downgrade chain | Passed through Phase 9 |
+| Alembic upgrade/downgrade chain | Passed through Phase 10 |
 | Docker Compose configuration | Passed |
 | Backend OCR Docker image | Not verified: package mirror timed out |
 
@@ -291,14 +322,16 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 - Production OCR/LLM providers still need credentialed end-to-end verification with representative medical documents.
 - Confirmed lab import, Room v5 migration, and automatic chart navigation still need end-to-end verification on an emulator or physical device with the backend running.
 - Health Connect permission, import, and chart behavior still need end-to-end verification on an emulator or physical device with representative provider data.
-- Medical simplification, insights, and accessibility polish remain future phases.
+- Medicine/biomarker simplification, Room v6 migration, expandable details, and chart navigation still need end-to-end verification on an emulator or physical device.
+- The OpenAI-compatible simplification provider still needs credentialed verification with representative medicine and lab data.
+- Medical insights and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 
 ## Next Planned Milestone
 
-**Phase 10 - Medical Simplification Engine**
+**Phase 11 - Medical History Analyzer & Health Tips**
 
-The next milestone is to generate cached, plain-language medicine and lab explanations with safety validation, non-diagnostic wording, and clear uncertainty guidance.
+The next milestone is to generate stored, timeframe-based health summaries and lifestyle tips from medication adherence, vital trends, and lab changes with source ranges and safety filtering.
 
 ## Build Timeline
 
@@ -315,3 +348,4 @@ The next milestone is to generate cached, plain-language medicine and lab explan
 | 2026-07-15 | Phase 7 manual vitals, local synchronization, provenance, and charts completed |
 | 2026-07-19 | Phase 8 confirmed lab normalization, provenance, Room import, and chart routing completed |
 | 2026-07-19 | Phase 9 Health Connect permissions, import, deduplication, settings, and chart integration completed |
+| 2026-07-19 | Phase 10 cached medicine and lab simplification, safety validation, and detail experiences completed |

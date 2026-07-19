@@ -1,4 +1,5 @@
 import re
+import uuid
 from datetime import UTC, datetime
 from uuid import UUID
 
@@ -78,6 +79,7 @@ async def create_records_from_confirmed_lab(
         normalized_name, display_name, metric_type = normalize_biomarker_name(item.name)
         numeric_value = parse_numeric_value(item.value)
         biomarker = Biomarker(
+            id=uuid.uuid4(),
             user_id=user_id,
             source_document_id=job.document_id,
             source_job_id=job.id,
@@ -110,6 +112,7 @@ async def create_records_from_confirmed_lab(
                 source="lab_report",
                 source_document_id=job.document_id,
                 source_job_id=job.id,
+                source_biomarker_id=biomarker.id,
                 notes=note,
             )
             vital_records.append(vital)

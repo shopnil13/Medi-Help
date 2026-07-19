@@ -4,11 +4,16 @@ import com.medihelp.app.feature_vitals.data.remote.dto.VitalBulkCreateRequestDto
 import com.medihelp.app.feature_vitals.data.remote.dto.ConfirmExtractedLabRequestDto
 import com.medihelp.app.feature_vitals.data.remote.dto.ConfirmExtractedLabResponseDto
 import com.medihelp.app.feature_vitals.data.remote.dto.VitalResponseDto
+import com.medihelp.app.feature_vitals.data.remote.dto.BiomarkerResponseDto
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface VitalApi {
+    @POST("api/v1/vitals/biomarkers/{id}/simplify")
+    suspend fun simplifyBiomarker(@Path("id") id: String): BiomarkerResponseDto
+
     @POST("api/v1/vitals/confirm-extracted")
     suspend fun confirmExtractedLab(
         @Body request: ConfirmExtractedLabRequestDto,

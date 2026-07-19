@@ -50,13 +50,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/AppDatabase.kt": {
-    "mtime": 1784474949.70424,
-    "ast_hash": "6a16f250fde09ebada979250658b77b7",
+    "mtime": 1784482800.6112158,
+    "ast_hash": "ee2a81a69b260787258e09d5f1c273c0",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/DatabaseModule.kt": {
-    "mtime": 1784474949.7062435,
-    "ast_hash": "d9026bbfb159144d6a174c5d6172ce9f",
+    "mtime": 1784482800.6132617,
+    "ast_hash": "27594d8b5da4e8ebc06fc12c7fc4414c",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/MedicationDao.kt": {
@@ -120,13 +120,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/navigation/AppNavGraph.kt": {
-    "mtime": 1784477848.785585,
-    "ast_hash": "2d0ca1dfc030bb43ee922550da1e9e09",
+    "mtime": 1784482849.57037,
+    "ast_hash": "8a7ae97a50c8bcf6fc93a50643a82209",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/navigation/Routes.kt": {
-    "mtime": 1784477848.7805848,
-    "ast_hash": "da14f1063f6cf572b71dda7f3467e164",
+    "mtime": 1784482800.6810596,
+    "ast_hash": "69a4be0b9ee447bc8c506e8e9483ad94",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/network/AuthInterceptor.kt": {
@@ -295,8 +295,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/data/remote/MedicationApi.kt": {
-    "mtime": 1783958469.7592618,
-    "ast_hash": "8d4b761c5361cc955895b6d1dbd513a0",
+    "mtime": 1784482800.6494844,
+    "ast_hash": "5294c671c93c98c80e021c4c2f77e421",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/data/remote/dto/MedicationDtos.kt": {
@@ -305,8 +305,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/data/repository/MedicationRepositoryImpl.kt": {
-    "mtime": 1783958768.1283119,
-    "ast_hash": "6f993e62e0d8d6c3f978af1edf01dde3",
+    "mtime": 1784482800.661665,
+    "ast_hash": "d85a530dcfedb97730a5c4af9e6b48ba",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/di/MedicationModule.kt": {
@@ -325,8 +325,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/domain/repository/MedicationRepository.kt": {
-    "mtime": 1783958469.7602632,
-    "ast_hash": "4475080a0cf1016c9ef909ec73349e9f",
+    "mtime": 1784482800.6570253,
+    "ast_hash": "6fe3fe578fc725868649fd494c2bbdc4",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/screen/AddMedicationScreen.kt": {
@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/screen/MedicationDetailScreen.kt": {
-    "mtime": 1783840327.460328,
-    "ast_hash": "21b6e56d21dd3f3644880be1009ca774",
+    "mtime": 1784482893.571772,
+    "ast_hash": "2059674e73d1d35face43b9cae2713ac",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/screen/MedicationListScreen.kt": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/viewmodel/MedicationDetailViewModel.kt": {
-    "mtime": 1783840247.8879144,
-    "ast_hash": "3a284fc1b29c2dbbf710d6a61885e2a2",
+    "mtime": 1784482957.680355,
+    "ast_hash": "87d8e2fa6fb40621fcd232bf191b9419",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_medications/presentation/viewmodel/MedicationListViewModel.kt": {
@@ -430,8 +430,8 @@
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/medications.py": {
-    "mtime": 1783958286.6485796,
-    "ast_hash": "a42547cf80866530a8068d4947f941c2",
+    "mtime": 1784482472.3098962,
+    "ast_hash": "80674d50e517a582e49ed688a4fb563b",
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/reminders.py": {
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   "backend/app/core/config.py": {
-    "mtime": 1783955734.9175699,
-    "ast_hash": "600ee734d9b4a7b22ffb5933c22d07d2",
+    "mtime": 1784482472.2868972,
+    "ast_hash": "51b8b1a369c0cf36de4883669f21afab",
     "semantic_hash": ""
   },
   "backend/app/core/security.py": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "backend/app/services/medication_service.py": {
-    "mtime": 1783958324.9908051,
-    "ast_hash": "1f323b4fd5afdb1cbae7c53e545ab672",
+    "mtime": 1784482472.306895,
+    "ast_hash": "9ba0338d62dc9bc402a694610d6e92b5",
     "semantic_hash": ""
   },
   "backend/app/services/reminder_service.py": {
@@ -555,8 +555,8 @@
     "semantic_hash": ""
   },
   "backend/tests/api/test_medications.py": {
-    "mtime": 1783839286.7426188,
-    "ast_hash": "63296c86ef9f27b4a85d9d242c932dcd",
+    "mtime": 1784482510.5242083,
+    "ast_hash": "e896c8759a41b2de9670d9edd86ea5fb",
     "semantic_hash": ""
   },
   "backend/tests/conftest.py": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "build_log.md": {
-    "mtime": 1784480201.2626064,
-    "ast_hash": "fd9ac34a98cb9c50c3afb6cefdb88e4e",
+    "mtime": 1784483350.0749135,
+    "ast_hash": "3603e32dfd350f478e1f740419cf594f",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/core/database/dao/DocumentDao.kt": {
@@ -960,8 +960,8 @@
     "semantic_hash": ""
   },
   "backend/tests/test_processing.py": {
-    "mtime": 1784114141.5411098,
-    "ast_hash": "eee6031bcf37d1ea48bd9e7b36cbe6a0",
+    "mtime": 1784483221.3840208,
+    "ast_hash": "08c67cff21d461bcc2775a1a3d94c7a6",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_documents/domain/model/ExtractionResult.kt": {
@@ -985,8 +985,8 @@
     "semantic_hash": ""
   },
   "android/app/src/test/java/com/medihelp/app/feature_documents/presentation/viewmodel/ExtractionReviewViewModelTest.kt": {
-    "mtime": 1784474997.0325105,
-    "ast_hash": "36aa317e9a718eed71876a3315c5129c",
+    "mtime": 1784483056.736656,
+    "ast_hash": "5bdecccf4ef8734a18ee65bf97af0394",
     "semantic_hash": ""
   },
   "backend/alembic/versions/90ee81fb2b47_link_medications_to_source_documents.py": {
@@ -1000,23 +1000,23 @@
     "semantic_hash": ""
   },
   "backend/app/api/v1/endpoints/vitals.py": {
-    "mtime": 1784114111.3091693,
-    "ast_hash": "a68869b05fd00e741210d622f4f787f1",
+    "mtime": 1784482526.7419546,
+    "ast_hash": "4650b7270ac6045f07df79ee293814d6",
     "semantic_hash": ""
   },
   "backend/app/models/biomarker.py": {
-    "mtime": 1784114071.461404,
-    "ast_hash": "a56d4bf062b243f959bfd7eba153e5d4",
+    "mtime": 1784482472.288898,
+    "ast_hash": "53595687e903a35a853657b90185b55c",
     "semantic_hash": ""
   },
   "backend/app/models/vital_record.py": {
-    "mtime": 1784480201.2556052,
-    "ast_hash": "463d5eaffa7ee54b627de78f14c9e918",
+    "mtime": 1784482472.2908988,
+    "ast_hash": "0cd4da0f0a146b8e499f35b7b22a6137",
     "semantic_hash": ""
   },
   "backend/app/schemas/vital.py": {
-    "mtime": 1784114071.4654055,
-    "ast_hash": "b6b725f1523b3f9e2684f913cba939ea",
+    "mtime": 1784482472.2958946,
+    "ast_hash": "8fd58e65225afc928696955b08d5cad6",
     "semantic_hash": ""
   },
   "backend/app/services/vital_service.py": {
@@ -1035,28 +1035,28 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/data/local/entity/VitalRecordEntity.kt": {
-    "mtime": 1784474949.6892288,
-    "ast_hash": "ce8e4a717605102291bae9887900f09f",
+    "mtime": 1784482800.615881,
+    "ast_hash": "5214355db745bcab6f7040743b065916",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/data/mapper/VitalMappers.kt": {
-    "mtime": 1784477856.9564683,
-    "ast_hash": "899464e86828fd6fc494a9c7aa24158d",
+    "mtime": 1784482800.623886,
+    "ast_hash": "e0f55643ba82c8df76dcf996c732e2b2",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/data/remote/VitalApi.kt": {
-    "mtime": 1784474949.6852293,
-    "ast_hash": "a2a8571b32df589ebf5a39122e5abfd6",
+    "mtime": 1784482800.6414855,
+    "ast_hash": "19c4465d902b0ca6d719607cc63ba3db",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/data/remote/dto/VitalDtos.kt": {
-    "mtime": 1784474949.6842265,
-    "ast_hash": "61c4dff3497bf36cc43e40482d057213",
+    "mtime": 1784482800.6208882,
+    "ast_hash": "0540cb5aa1110ab8d17e1b9ab1d09056",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/data/repository/VitalRepositoryImpl.kt": {
-    "mtime": 1784474949.702228,
-    "ast_hash": "661742bc73c6f00dcfda91ff93cbd7c0",
+    "mtime": 1784482800.6474645,
+    "ast_hash": "26aa3fe2db3db3a062c4b17d391cd6d7",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/di/VitalModule.kt": {
@@ -1065,13 +1065,13 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/domain/model/VitalRecord.kt": {
-    "mtime": 1784474949.6882257,
-    "ast_hash": "116c14fbd8951248903cc92f7e544330",
+    "mtime": 1784482800.6148684,
+    "ast_hash": "6e54cf9d1639c6e7d2eaf5427b6664f4",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/domain/repository/VitalRepository.kt": {
-    "mtime": 1784474949.6922302,
-    "ast_hash": "4ca8f82aa206ce71b2fa781b38d03368",
+    "mtime": 1784482800.6429262,
+    "ast_hash": "d1fe44c7d8fba19a59de2dec93ca4eba",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/screen/AddVitalScreen.kt": {
@@ -1080,8 +1080,8 @@
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/screen/VitalDashboardScreen.kt": {
-    "mtime": 1784477848.7835872,
-    "ast_hash": "92c59e9be2f394317e1e9c75e7b6bd5e",
+    "mtime": 1784482849.5613754,
+    "ast_hash": "05d8045fbd10265ef7e99bc115f54ca1",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/state/AddVitalUiState.kt": {
@@ -1110,8 +1110,8 @@
     "semantic_hash": ""
   },
   "android/app/src/test/java/com/medihelp/app/feature_vitals/presentation/viewmodel/AddVitalViewModelTest.kt": {
-    "mtime": 1784474997.030736,
-    "ast_hash": "b5551d5ab7448600f97f5086471334a6",
+    "mtime": 1784483056.7376716,
+    "ast_hash": "6b439b826f927565e1d8c538ef5cb9cd",
     "semantic_hash": ""
   },
   "backend/alembic/versions/d4f37c90a126_link_lab_records_to_processing_jobs.py": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "backend/app/services/lab_service.py": {
-    "mtime": 1784475283.061541,
-    "ast_hash": "8bafb00c0966c7283768965f07a802c4",
+    "mtime": 1784482472.3048954,
+    "ast_hash": "0ed7be04f0fb374cc6957eec2152a3ef",
     "semantic_hash": ""
   },
   "android/app/src/main/java/com/medihelp/app/feature_healthconnect/data/HealthConnectRepositoryImpl.kt": {
@@ -1172,6 +1172,56 @@
   "backend/alembic/versions/f81a2c7d9e44_deduplicate_health_connect_vitals.py": {
     "mtime": 1784480201.258608,
     "ast_hash": "847c0b0052ba65206713b5012069152b",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/domain/model/BiomarkerDetail.kt": {
+    "mtime": 1784482800.6344154,
+    "ast_hash": "93740f24d4333733f5c4641c90b3b1f8",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/screen/BiomarkerDetailScreen.kt": {
+    "mtime": 1784482849.574596,
+    "ast_hash": "813d44a2183ae99bc92e3d7e8d9f04fc",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/java/com/medihelp/app/feature_vitals/presentation/viewmodel/BiomarkerDetailViewModel.kt": {
+    "mtime": 1784482849.5713768,
+    "ast_hash": "58ef7bb49f7b3da6605140828edc944f",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/medihelp/app/feature_medications/presentation/viewmodel/MedicationDetailViewModelTest.kt": {
+    "mtime": 1784483067.2363315,
+    "ast_hash": "639713cb674904add683cde47d8d9d06",
+    "semantic_hash": ""
+  },
+  "android/app/src/test/java/com/medihelp/app/feature_vitals/presentation/viewmodel/BiomarkerDetailViewModelTest.kt": {
+    "mtime": 1784483056.7396693,
+    "ast_hash": "2fe87b6c2832edc65556e3693c9f8842",
+    "semantic_hash": ""
+  },
+  "backend/alembic/versions/c43f62a91b7e_cache_medical_simplifications.py": {
+    "mtime": 1784482510.5212107,
+    "ast_hash": "ec6fd195385a32b1df57f120c579d91a",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/simplification.py": {
+    "mtime": 1784482526.7429554,
+    "ast_hash": "3a87213564be5ebeecc8ed58852c77ee",
+    "semantic_hash": ""
+  },
+  "backend/app/processing/simplification_safety.py": {
+    "mtime": 1784482688.4536793,
+    "ast_hash": "63cb0f539fdd5f34cd32aac47e98007b",
+    "semantic_hash": ""
+  },
+  "backend/app/schemas/simplification.py": {
+    "mtime": 1784482472.282889,
+    "ast_hash": "2abb65acc30afa38a339fb6ea503ad44",
+    "semantic_hash": ""
+  },
+  "backend/app/services/simplification_service.py": {
+    "mtime": 1784482472.3078952,
+    "ast_hash": "8489627e86cd59a46d29346a117f8e8f",
     "semantic_hash": ""
   }
 }

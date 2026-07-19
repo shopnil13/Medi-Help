@@ -292,4 +292,14 @@ class MedicationRepositoryImpl @Inject constructor(
             Result.Error(error.toUserMessage())
         }
     }
+
+    override suspend fun simplifyMedication(id: String): Result<Unit> {
+        if (id.startsWith(LOCAL_ID_PREFIX)) return Result.Success(Unit)
+        return try {
+            cacheRemoteMedication(medicationApi.simplifyMedication(id))
+            Result.Success(Unit)
+        } catch (error: Exception) {
+            Result.Error(error.toUserMessage())
+        }
+    }
 }

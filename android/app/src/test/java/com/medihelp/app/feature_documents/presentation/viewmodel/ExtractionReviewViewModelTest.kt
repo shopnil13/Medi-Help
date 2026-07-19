@@ -153,6 +153,8 @@ private class ReviewVitalRepository : VitalRepository {
     }
     override suspend fun refreshFromBackend() = Unit
     override suspend fun syncPendingChanges() = Unit
+    override suspend fun getBiomarkerDetail(id: String) =
+        Result.Error("Not used")
 }
 
 private class ReviewMedicationRepository : MedicationRepository {
@@ -187,6 +189,7 @@ private class ReviewMedicationRepository : MedicationRepository {
                 ),
             ),
         )
+    override suspend fun simplifyMedication(id: String): Result<Unit> = Result.Error("Not used")
 }
 
 private class ReviewRepository(initial: UploadedDocument) : DocumentRepository {

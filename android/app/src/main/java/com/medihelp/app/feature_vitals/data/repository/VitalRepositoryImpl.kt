@@ -13,10 +13,13 @@ import com.medihelp.app.feature_vitals.data.local.entity.VitalRecordEntity
 import com.medihelp.app.feature_vitals.data.remote.VitalApi
 import com.medihelp.app.feature_vitals.data.remote.dto.VitalBulkCreateRequestDto
 import com.medihelp.app.feature_vitals.data.remote.dto.ConfirmExtractedLabRequestDto
+import com.medihelp.app.feature_vitals.data.remote.dto.BiomarkerResponseDto
+import com.medihelp.app.feature_vitals.domain.model.BiomarkerDetail
 import com.medihelp.app.feature_vitals.domain.model.NewVitalInput
 import com.medihelp.app.feature_vitals.domain.model.VitalRecord
 import com.medihelp.app.feature_vitals.domain.repository.VitalRepository
 import java.io.IOException
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
@@ -64,6 +67,12 @@ class VitalRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getBiomarkerDetail(id: String): Result<BiomarkerDetail> = try {
+        Result.Success(api.simplifyBiomarker(id).toDomain())
+    } catch (error: Exception) {
+        Result.Error(error.toUserMessage())
+    }
+
     override suspend fun refreshFromBackend() {
         runCatching { api.getVitals() }
             .onSuccess { response -> dao.insertAll(response.map { it.toEntity() }) }
@@ -89,3 +98,17 @@ class VitalRepositoryImpl @Inject constructor(
         }
     }
 }
+
+private fun BiomarkerResponseDto.toDomain() = BiomarkerDetail(
+    id = id,
+    name = name,
+    value = valueText ?: valueNumeric?.toString().orEmpty(),
+    unit = unit,
+    referenceRange = referenceRangeText,
+    status = status,
+    recordedAt = Instant.parse(recordedAt),
+    explanation = explanationSimplified.orEmpty(),
+    statusExplanation = statusExplanation.orEmpty(),
+    moreDetails = detailsSimplified.orEmpty(),
+    askDoctor = askDoctor,
+)

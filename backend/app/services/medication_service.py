@@ -87,6 +87,9 @@ async def update_medication(
     medication = await get_medication(db, user_id, medication_id)
 
     updates = payload.model_dump(exclude_unset=True)
+    if {"name", "strength", "dosage_instruction"} & updates.keys():
+        medication.simplified_instruction = None
+        medication.purpose_simplified = None
     for field, value in updates.items():
         setattr(medication, field, value)
 

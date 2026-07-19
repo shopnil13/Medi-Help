@@ -1,4 +1,5 @@
 from datetime import datetime
+from uuid import UUID
 
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -7,6 +8,7 @@ from app.api.deps import get_current_user
 from app.db.session import get_db_session
 from app.models.user import User
 from app.schemas.vital import (
+    BiomarkerResponse,
     ConfirmExtractedLabRequest,
     ConfirmExtractedLabResponse,
     VitalBulkCreate,
@@ -17,9 +19,28 @@ from app.schemas.vital import (
     VitalTrend,
 )
 from app.services.lab_service import create_records_from_confirmed_lab
+from app.services.simplification_service import get_biomarker, simplify_biomarker
 from app.services.vital_service import create_vital, create_vitals, get_vital_trends, list_vitals
 
 router = APIRouter(prefix="/vitals")
+
+
+@router.get("/biomarkers/{biomarker_id}", response_model=BiomarkerResponse)
+async def get_biomarker_detail(
+    biomarker_id: UUID,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db_session),
+) -> BiomarkerResponse:
+    return await get_biomarker(db, current_user.id, biomarker_id)
+
+
+@router.post("/biomarkers/{biomarker_id}/simplify", response_model=BiomarkerResponse)
+async def post_biomarker_simplification(
+    biomarker_id: UUID,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db_session),
+) -> BiomarkerResponse:
+    return await simplify_biomarker(db, current_user.id, biomarker_id)
 
 
 @router.post("/confirm-extracted", response_model=ConfirmExtractedLabResponse)

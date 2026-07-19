@@ -68,6 +68,46 @@ async def test_get_medication_detail(client: AsyncClient, auth_headers: dict[str
     assert detail_response.json()["id"] == medication_id
 
 
+async def test_simplify_medication_caches_and_invalidates_plain_language(
+    client: AsyncClient,
+    auth_headers: dict[str, str],
+) -> None:
+    created = await client.post(
+        "/api/v1/medications",
+        json=MEDICATION_PAYLOAD,
+        headers=auth_headers,
+    )
+    medication_id = created.json()["id"]
+
+    first = await client.post(
+        f"/api/v1/medications/{medication_id}/simplify",
+        headers=auth_headers,
+    )
+    assert first.status_code == 200
+    assert first.json()["simplified_instruction"] == (
+        "Follow this instruction: Take 1 tablet after breakfast"
+    )
+    assert "Ask your doctor or pharmacist" in first.json()["purpose_simplified"]
+
+    repeated = await client.post(
+        f"/api/v1/medications/{medication_id}/simplify",
+        headers=auth_headers,
+    )
+    assert repeated.json()["purpose_simplified"] == first.json()["purpose_simplified"]
+
+    updated = await client.patch(
+        f"/api/v1/medications/{medication_id}",
+        json={"dosage_instruction": "Take 2 tablets with dinner"},
+        headers=auth_headers,
+    )
+    assert updated.json()["simplified_instruction"] is None
+    refreshed = await client.post(
+        f"/api/v1/medications/{medication_id}/simplify",
+        headers=auth_headers,
+    )
+    assert refreshed.json()["simplified_instruction"].endswith("Take 2 tablets with dinner")
+
+
 async def test_get_medication_not_owned_returns_404(
     client: AsyncClient, auth_headers: dict[str, str]
 ) -> None:

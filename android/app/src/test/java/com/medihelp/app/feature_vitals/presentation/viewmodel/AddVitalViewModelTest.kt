@@ -72,4 +72,6 @@ private class FakeVitalRepository : VitalRepository {
     override suspend fun refreshFromBackend() = Unit
 
     override suspend fun syncPendingChanges() = Unit
+
+    override suspend fun getBiomarkerDetail(id: String) = Result.Error("Not used")
 }

@@ -20,6 +20,7 @@ from app.services.medication_service import (
     list_medications,
     update_medication,
 )
+from app.services.simplification_service import simplify_medication
 
 router = APIRouter(prefix="/medications")
 
@@ -62,6 +63,15 @@ async def get_medication_detail(
     db: AsyncSession = Depends(get_db_session),
 ) -> MedicationResponse:
     return await get_medication(db, current_user.id, medication_id)
+
+
+@router.post("/{medication_id}/simplify", response_model=MedicationResponse)
+async def post_medication_simplification(
+    medication_id: UUID,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db_session),
+) -> MedicationResponse:
+    return await simplify_medication(db, current_user.id, medication_id)
 
 
 @router.patch("/{medication_id}", response_model=MedicationResponse)

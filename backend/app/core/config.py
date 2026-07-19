@@ -33,6 +33,7 @@ class Settings(BaseSettings):
     tesseract_command: str | None = None
     google_vision_api_key: str | None = None
     extraction_backend: str = "heuristic"
+    simplification_backend: str = "heuristic"
     openai_api_key: str | None = None
     openai_api_url: str = "https://api.openai.com/v1"
     openai_model: str = "gpt-4.1-mini"

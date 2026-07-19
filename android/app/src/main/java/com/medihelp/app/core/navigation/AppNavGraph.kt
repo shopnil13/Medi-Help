@@ -29,6 +29,7 @@ import com.medihelp.app.feature_medications.presentation.screen.MedicationDetail
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
 import com.medihelp.app.feature_healthconnect.presentation.HealthConnectScreen
 import com.medihelp.app.feature_vitals.presentation.screen.AddVitalScreen
+import com.medihelp.app.feature_vitals.presentation.screen.BiomarkerDetailScreen
 import com.medihelp.app.feature_vitals.presentation.screen.VitalDashboardScreen
 
 @Composable
@@ -100,6 +101,7 @@ fun AppNavGraph(
                 VitalDashboardScreen(
                     onAddVitalClick = { navController.navigate(Routes.ADD_VITAL) },
                     onHealthConnectClick = { navController.navigate(Routes.HEALTH_CONNECT) },
+                    onBiomarkerClick = { id -> navController.navigate(Routes.biomarkerDetail(id)) },
                 )
             }
         }
@@ -113,6 +115,13 @@ fun AppNavGraph(
 
         composable(Routes.HEALTH_CONNECT) {
             HealthConnectScreen(onBackClick = { navController.popBackStack() })
+        }
+
+        composable(
+            route = Routes.BIOMARKER_DETAIL,
+            arguments = listOf(navArgument("biomarkerId") { type = NavType.StringType }),
+        ) {
+            BiomarkerDetailScreen(onBackClick = { navController.popBackStack() })
         }
 
         composable(Routes.UPLOAD_DOCUMENT) { backStackEntry ->

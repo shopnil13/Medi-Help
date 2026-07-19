@@ -29,6 +29,7 @@ data class VitalResponseDto(
     val source: String,
     @SerialName("source_document_id") val sourceDocumentId: String? = null,
     @SerialName("source_job_id") val sourceJobId: String? = null,
+    @SerialName("source_biomarker_id") val sourceBiomarkerId: String? = null,
     val notes: String? = null,
     @SerialName("created_at") val createdAt: String,
 )
@@ -58,5 +59,9 @@ data class BiomarkerResponseDto(
     val status: String,
     @SerialName("recorded_at") val recordedAt: String,
     @SerialName("confidence_score") val confidenceScore: Double? = null,
+    @SerialName("explanation_simplified") val explanationSimplified: String? = null,
+    @SerialName("status_explanation") val statusExplanation: String? = null,
+    @SerialName("details_simplified") val detailsSimplified: String? = null,
+    @SerialName("ask_doctor") val askDoctor: Boolean = false,
     @SerialName("created_at") val createdAt: String,
 )

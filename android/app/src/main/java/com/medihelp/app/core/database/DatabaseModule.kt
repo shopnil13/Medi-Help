@@ -91,11 +91,27 @@ object DatabaseModule {
         }
     }
 
+    private val migration5To6 = object : Migration(5, 6) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("ALTER TABLE vital_records ADD COLUMN sourceBiomarkerId TEXT")
+            db.execSQL(
+                "CREATE INDEX IF NOT EXISTS index_vital_records_sourceBiomarkerId " +
+                    "ON vital_records(sourceBiomarkerId)",
+            )
+        }
+    }
+
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, "medi_help.db")
-            .addMigrations(migration1To2, migration2To3, migration3To4, migration4To5)
+            .addMigrations(
+                migration1To2,
+                migration2To3,
+                migration3To4,
+                migration4To5,
+                migration5To6,
+            )
             .build()
 
     @Provides

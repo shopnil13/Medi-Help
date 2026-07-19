@@ -43,6 +43,7 @@ data class VitalRecord(
     val source: VitalSource,
     val sourceDocumentId: String?,
     val sourceJobId: String? = null,
+    val sourceBiomarkerId: String? = null,
     val notes: String?,
     val isSynced: Boolean,
 )

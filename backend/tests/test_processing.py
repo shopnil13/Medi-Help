@@ -318,7 +318,38 @@ async def test_confirmed_lab_routes_normalized_biomarkers_to_vitals(
     assert fasting_vital["source"] == "lab_report"
     assert fasting_vital["source_document_id"] == job_body["document_id"]
     assert fasting_vital["source_job_id"] == job_id
+    assert fasting_vital["source_biomarker_id"] == by_name["fasting_glucose"]["id"]
     assert fasting_vital["notes"] == "Reference range: 70-99"
+
+    simplified = await client.post(
+        f"/api/v1/vitals/biomarkers/{fasting_vital['source_biomarker_id']}/simplify",
+        headers=headers,
+    )
+    assert simplified.status_code == 200
+    assert "blood" in simplified.json()["explanation_simplified"].lower()
+    assert "above" in simplified.json()["status_explanation"].lower()
+    assert simplified.json()["ask_doctor"] is True
+
+    cached = await client.post(
+        f"/api/v1/vitals/biomarkers/{fasting_vital['source_biomarker_id']}/simplify",
+        headers=headers,
+    )
+    assert cached.json()["details_simplified"] == simplified.json()["details_simplified"]
+
+    other_registration = await client.post(
+        "/api/v1/auth/register",
+        json={
+            "full_name": "Other Lab User",
+            "email": "other-lab@example.com",
+            "password": "password123",
+        },
+    )
+    other_headers = {"Authorization": f"Bearer {other_registration.json()['access_token']}"}
+    not_owned = await client.post(
+        f"/api/v1/vitals/biomarkers/{fasting_vital['source_biomarker_id']}/simplify",
+        headers=other_headers,
+    )
+    assert not_owned.status_code == 404
 
     repeated = await client.post(
         "/api/v1/vitals/confirm-extracted",
@@ -347,6 +378,23 @@ async def test_safety_flags_missing_frequency_and_low_confidence() -> None:
     assert "Frequency is missing." in flagged.medications[0].warnings
     assert "Dosage is missing." in flagged.medications[0].warnings
     assert flagged.requires_confirmation is True
+
+
+async def test_simplification_safety_removes_diagnosis_claims() -> None:
+    from app.processing.simplification_safety import validate_biomarker_simplification
+    from app.schemas.simplification import BiomarkerSimplification
+
+    safe, changed = validate_biomarker_simplification(
+        BiomarkerSimplification(
+            explanation="This test measures blood sugar. You have diabetes.",
+            status_meaning="This means you have a disease. One result cannot explain why.",
+            more_details="Ask your doctor about this result.",
+        )
+    )
+
+    assert changed is True
+    assert "you have" not in " ".join(safe.model_dump().values()).lower()
+    assert safe.explanation == "This test measures blood sugar."
 
 
 async def test_heuristic_extractor_keeps_result_in_review_shape() -> None:
