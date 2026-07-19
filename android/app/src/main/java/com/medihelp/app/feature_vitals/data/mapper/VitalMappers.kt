@@ -19,6 +19,7 @@ fun VitalRecordEntity.toDomain() = VitalRecord(
     recordedAt = Instant.ofEpochMilli(recordedAtEpochMillis),
     source = VitalSource.fromApi(source),
     sourceDocumentId = sourceDocumentId,
+    sourceJobId = sourceJobId,
     notes = notes,
     isSynced = isSynced,
 )
@@ -33,6 +34,7 @@ fun NewVitalInput.toLocalEntity(now: Long = System.currentTimeMillis()) = VitalR
     recordedAtEpochMillis = recordedAt.toEpochMilli(),
     source = source.apiValue,
     sourceDocumentId = sourceDocumentId,
+    sourceJobId = null,
     notes = notes?.trim()?.ifBlank { null },
     isSynced = false,
     createdAtEpochMillis = now,
@@ -59,8 +61,8 @@ fun VitalResponseDto.toEntity() = VitalRecordEntity(
     recordedAtEpochMillis = Instant.parse(recordedAt).toEpochMilli(),
     source = source,
     sourceDocumentId = sourceDocumentId,
+    sourceJobId = sourceJobId,
     notes = notes,
     isSynced = true,
     createdAtEpochMillis = Instant.parse(createdAt).toEpochMilli(),
 )
-

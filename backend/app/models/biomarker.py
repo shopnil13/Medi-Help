@@ -28,6 +28,12 @@ class Biomarker(Base):
         index=True,
         nullable=False,
     )
+    source_job_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("processing_jobs.id", ondelete="SET NULL"),
+        index=True,
+        nullable=True,
+    )
     name: Mapped[str] = mapped_column(String(120), nullable=False)
     normalized_name: Mapped[str] = mapped_column(String(120), index=True, nullable=False)
     value_numeric: Mapped[float | None] = mapped_column(Numeric(14, 4), nullable=True)

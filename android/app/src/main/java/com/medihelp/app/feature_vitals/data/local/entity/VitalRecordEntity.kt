@@ -10,6 +10,7 @@ import androidx.room.PrimaryKey
         Index("metricType"),
         Index("recordedAtEpochMillis"),
         Index("source"),
+        Index("sourceJobId"),
         Index(value = ["serverId"], unique = true),
     ],
 )
@@ -23,8 +24,8 @@ data class VitalRecordEntity(
     val recordedAtEpochMillis: Long,
     val source: String,
     val sourceDocumentId: String?,
+    val sourceJobId: String?,
     val notes: String?,
     val isSynced: Boolean,
     val createdAtEpochMillis: Long,
 )
-

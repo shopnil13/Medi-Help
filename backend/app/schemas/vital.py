@@ -50,6 +50,7 @@ class VitalResponse(BaseModel):
     recorded_at: datetime
     source: VitalSource
     source_document_id: UUID | None
+    source_job_id: UUID | None
     notes: str | None
     created_at: datetime
 
@@ -65,3 +66,30 @@ class VitalTrend(BaseModel):
     latest: float
     direction: Literal["up", "down", "stable"]
     points: list[VitalResponse]
+
+
+class ConfirmExtractedLabRequest(BaseModel):
+    job_id: UUID
+
+
+class BiomarkerResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: UUID
+    source_document_id: UUID
+    source_job_id: UUID | None
+    name: str
+    normalized_name: str
+    value_numeric: float | None
+    value_text: str | None
+    unit: str | None
+    reference_range_text: str | None
+    status: Literal["low", "normal", "high", "unknown"]
+    recorded_at: datetime
+    confidence_score: float | None
+    created_at: datetime
+
+
+class ConfirmExtractedLabResponse(BaseModel):
+    biomarkers: list[BiomarkerResponse]
+    vital_records: list[VitalResponse]

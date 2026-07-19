@@ -20,7 +20,7 @@ import com.medihelp.app.feature_vitals.data.local.entity.VitalRecordEntity
         DocumentEntity::class,
         VitalRecordEntity::class,
     ],
-    version = 4,
+    version = 5,
     exportSchema = false,
 )
 abstract class AppDatabase : RoomDatabase() {

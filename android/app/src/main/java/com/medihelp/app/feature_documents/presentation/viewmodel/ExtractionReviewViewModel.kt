@@ -12,6 +12,7 @@ import com.medihelp.app.feature_documents.domain.repository.DocumentRepository
 import com.medihelp.app.feature_documents.presentation.state.ExtractionReviewUiState
 import com.medihelp.app.feature_medications.domain.model.MedicationStatus
 import com.medihelp.app.feature_medications.domain.repository.MedicationRepository
+import com.medihelp.app.feature_vitals.domain.repository.VitalRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,6 +26,7 @@ class ExtractionReviewViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: DocumentRepository,
     private val medicationRepository: MedicationRepository,
+    private val vitalRepository: VitalRepository,
 ) : ViewModel() {
     private val jobId: String = checkNotNull(savedStateHandle["jobId"])
     private val _uiState = MutableStateFlow(ExtractionReviewUiState())
@@ -109,8 +111,19 @@ class ExtractionReviewViewModel @Inject constructor(
                         it.copy(isSaving = false, errorMessage = imported.message)
                     }
                 }
-            } else {
-                _uiState.update { it.copy(isSaving = false, isConfirmed = true) }
+            } else if (draft is LabReportExtraction) {
+                when (val imported = vitalRepository.importConfirmedLab(jobId)) {
+                    is Result.Success -> _uiState.update {
+                        it.copy(
+                            isSaving = false,
+                            isConfirmed = true,
+                            importedLabRecords = imported.data,
+                        )
+                    }
+                    is Result.Error -> _uiState.update {
+                        it.copy(isSaving = false, errorMessage = imported.message)
+                    }
+                }
             }
         }
     }

@@ -42,6 +42,7 @@ data class VitalRecord(
     val recordedAt: Instant,
     val source: VitalSource,
     val sourceDocumentId: String?,
+    val sourceJobId: String? = null,
     val notes: String?,
     val isSynced: Boolean,
 )
@@ -56,4 +57,3 @@ data class NewVitalInput(
     val sourceDocumentId: String? = null,
     val notes: String? = null,
 )
-

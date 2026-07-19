@@ -12,6 +12,7 @@ import com.medihelp.app.feature_vitals.data.mapper.toLocalEntity
 import com.medihelp.app.feature_vitals.data.local.entity.VitalRecordEntity
 import com.medihelp.app.feature_vitals.data.remote.VitalApi
 import com.medihelp.app.feature_vitals.data.remote.dto.VitalBulkCreateRequestDto
+import com.medihelp.app.feature_vitals.data.remote.dto.ConfirmExtractedLabRequestDto
 import com.medihelp.app.feature_vitals.domain.model.NewVitalInput
 import com.medihelp.app.feature_vitals.domain.model.VitalRecord
 import com.medihelp.app.feature_vitals.domain.repository.VitalRepository
@@ -49,6 +50,17 @@ class VitalRepositoryImpl @Inject constructor(
                 dao.deleteByIds(localRecords.map { it.id })
                 Result.Error(error.toUserMessage())
             }
+        }
+    }
+
+    override suspend fun importConfirmedLab(jobId: String): Result<List<VitalRecord>> {
+        return try {
+            val response = api.confirmExtractedLab(ConfirmExtractedLabRequestDto(jobId))
+            val records = response.vitalRecords.map { it.toEntity() }
+            dao.insertAll(records)
+            Result.Success(records.map { it.toDomain() })
+        } catch (error: Exception) {
+            Result.Error(error.toUserMessage())
         }
     }
 

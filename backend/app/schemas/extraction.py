@@ -25,9 +25,9 @@ class PrescriptionExtraction(BaseModel):
 
 
 class ExtractedBiomarker(BaseModel):
-    name: str = Field(min_length=1, max_length=200)
+    name: str = Field(min_length=1, max_length=120)
     value: str = Field(min_length=1, max_length=100)
-    unit: str | None = Field(default=None, max_length=50)
+    unit: str | None = Field(default=None, max_length=30)
     reference_range: str | None = Field(default=None, max_length=100)
     confidence: float = Field(ge=0, le=1)
     selected: bool = True

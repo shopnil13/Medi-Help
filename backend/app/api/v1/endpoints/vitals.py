@@ -7,6 +7,8 @@ from app.api.deps import get_current_user
 from app.db.session import get_db_session
 from app.models.user import User
 from app.schemas.vital import (
+    ConfirmExtractedLabRequest,
+    ConfirmExtractedLabResponse,
     VitalBulkCreate,
     VitalCreate,
     VitalMetricType,
@@ -14,9 +16,27 @@ from app.schemas.vital import (
     VitalSource,
     VitalTrend,
 )
+from app.services.lab_service import create_records_from_confirmed_lab
 from app.services.vital_service import create_vital, create_vitals, get_vital_trends, list_vitals
 
 router = APIRouter(prefix="/vitals")
+
+
+@router.post("/confirm-extracted", response_model=ConfirmExtractedLabResponse)
+async def confirm_extracted_lab(
+    payload: ConfirmExtractedLabRequest,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db_session),
+) -> ConfirmExtractedLabResponse:
+    biomarkers, vital_records = await create_records_from_confirmed_lab(
+        db,
+        current_user.id,
+        payload.job_id,
+    )
+    return ConfirmExtractedLabResponse(
+        biomarkers=biomarkers,
+        vital_records=vital_records,
+    )
 
 
 @router.post("", response_model=VitalResponse, status_code=status.HTTP_201_CREATED)

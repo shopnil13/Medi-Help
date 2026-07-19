@@ -5,7 +5,9 @@ import androidx.lifecycle.SavedStateHandle
 import com.medihelp.app.MainDispatcherRule
 import com.medihelp.app.core.common.Result
 import com.medihelp.app.feature_documents.domain.model.ExtractedMedication
+import com.medihelp.app.feature_documents.domain.model.ExtractedBiomarker
 import com.medihelp.app.feature_documents.domain.model.ExtractionResult
+import com.medihelp.app.feature_documents.domain.model.LabReportExtraction
 import com.medihelp.app.feature_documents.domain.model.PrescriptionExtraction
 import com.medihelp.app.feature_documents.domain.model.UploadedDocument
 import com.medihelp.app.feature_documents.domain.repository.DocumentRepository
@@ -13,6 +15,11 @@ import com.medihelp.app.feature_medications.domain.model.Medication
 import com.medihelp.app.feature_medications.domain.model.MedicationStatus
 import com.medihelp.app.feature_medications.domain.repository.MedicationRepository
 import com.medihelp.app.feature_medications.domain.model.NewMedicationInput
+import com.medihelp.app.feature_vitals.domain.model.NewVitalInput
+import com.medihelp.app.feature_vitals.domain.model.VitalMetricType
+import com.medihelp.app.feature_vitals.domain.model.VitalRecord
+import com.medihelp.app.feature_vitals.domain.model.VitalSource
+import com.medihelp.app.feature_vitals.domain.repository.VitalRepository
 import java.time.Instant
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -38,10 +45,12 @@ class ExtractionReviewViewModelTest {
         )
         val repository = ReviewRepository(document(extracted))
         val medicationRepository = ReviewMedicationRepository()
+        val vitalRepository = ReviewVitalRepository()
         val viewModel = ExtractionReviewViewModel(
             SavedStateHandle(mapOf("jobId" to "job-1")),
             repository,
             medicationRepository,
+            vitalRepository,
         )
         advanceUntilIdle()
 
@@ -60,10 +69,48 @@ class ExtractionReviewViewModelTest {
         assertEquals(MedicationStatus.PAUSED, medicationRepository.updatedStatus)
     }
 
-    private fun document(result: ExtractionResult) = UploadedDocument(
+    @Test
+    fun editsAndImportsConfirmedLabIntoHealthChart() = runTest {
+        val extracted = LabReportExtraction(
+            biomarkers = listOf(
+                ExtractedBiomarker(
+                    name = "Fasting glucose",
+                    value = "108",
+                    unit = "mg/dL",
+                    referenceRange = "70-99",
+                    confidence = 0.9,
+                ),
+            ),
+            overallConfidence = 0.9,
+        )
+        val repository = ReviewRepository(document(extracted, "lab_report"))
+        val vitalRepository = ReviewVitalRepository()
+        val viewModel = ExtractionReviewViewModel(
+            SavedStateHandle(mapOf("jobId" to "job-1")),
+            repository,
+            ReviewMedicationRepository(),
+            vitalRepository,
+        )
+        advanceUntilIdle()
+
+        viewModel.updateBiomarker(0) { it.copy(value = "110") }
+        viewModel.confirm()
+        advanceUntilIdle()
+
+        val confirmed = repository.confirmed as LabReportExtraction
+        assertEquals("110", confirmed.biomarkers.single().value)
+        assertEquals("job-1", vitalRepository.importedJobId)
+        assertTrue(viewModel.uiState.value.isConfirmed)
+        assertEquals(VitalSource.LAB_REPORT, viewModel.uiState.value.importedLabRecords.single().source)
+    }
+
+    private fun document(
+        result: ExtractionResult,
+        documentType: String = "prescription",
+    ) = UploadedDocument(
         id = "document-1",
         jobId = "job-1",
-        documentType = "prescription",
+        documentType = documentType,
         originalFilename = "prescription.pdf",
         contentType = "application/pdf",
         fileSizeBytes = 100,
@@ -77,6 +124,35 @@ class ExtractionReviewViewModelTest {
         createdAt = Instant.EPOCH,
         updatedAt = Instant.EPOCH,
     )
+}
+
+private class ReviewVitalRepository : VitalRepository {
+    var importedJobId: String? = null
+
+    override fun observeVitals(): Flow<List<VitalRecord>> = emptyFlow()
+    override suspend fun addVitals(inputs: List<NewVitalInput>): Result<Unit> = Result.Error("Not used")
+    override suspend fun importConfirmedLab(jobId: String): Result<List<VitalRecord>> {
+        importedJobId = jobId
+        return Result.Success(
+            listOf(
+                VitalRecord(
+                    id = "vital-1",
+                    metricType = VitalMetricType.BLOOD_GLUCOSE,
+                    metricName = "Fasting glucose",
+                    value = 110.0,
+                    unit = "mg/dL",
+                    recordedAt = Instant.EPOCH,
+                    source = VitalSource.LAB_REPORT,
+                    sourceDocumentId = "document-1",
+                    sourceJobId = jobId,
+                    notes = "Reference range: 70-99",
+                    isSynced = true,
+                ),
+            ),
+        )
+    }
+    override suspend fun refreshFromBackend() = Unit
+    override suspend fun syncPendingChanges() = Unit
 }
 
 private class ReviewMedicationRepository : MedicationRepository {

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface VitalRepository {
     fun observeVitals(): Flow<List<VitalRecord>>
     suspend fun addVitals(inputs: List<NewVitalInput>): Result<Unit>
+    suspend fun importConfirmedLab(jobId: String): Result<List<VitalRecord>>
     suspend fun refreshFromBackend()
     suspend fun syncPendingChanges()
 }
-

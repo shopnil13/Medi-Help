@@ -16,7 +16,13 @@ from app.processing.image_processor import document_to_preprocessed_images
 from app.processing.ocr import OCRProvider
 from app.processing.pipeline import process_document_job
 from app.processing.safety import apply_safety_flags
-from app.schemas.extraction import ExtractedMedication, PrescriptionExtraction, StructuredExtraction
+from app.schemas.extraction import (
+    ExtractedBiomarker,
+    ExtractedMedication,
+    LabReportExtraction,
+    PrescriptionExtraction,
+    StructuredExtraction,
+)
 from app.storage import ObjectStorage, StoredObject, get_object_storage
 
 pytestmark = pytest.mark.asyncio
@@ -63,6 +69,85 @@ class FixedExtractor(ExtractionProvider):
         )
 
 
+class FixedLabOCR(OCRProvider):
+    async def extract_text(self, images: list[bytes]) -> str:
+        assert images
+        return "HbA1c 6.2%, fasting glucose 110 mg/dL, LDL 130 mg/dL"
+
+
+class FixedLabExtractor(ExtractionProvider):
+    async def extract(self, document_type: str, raw_text: str) -> StructuredExtraction:
+        assert document_type == "lab_report"
+        assert "HbA1c" in raw_text
+        return LabReportExtraction(
+            biomarkers=[
+                ExtractedBiomarker(
+                    name="HbA1c",
+                    value="6.2",
+                    unit="%",
+                    reference_range="4.0-5.6",
+                    confidence=0.96,
+                ),
+                ExtractedBiomarker(
+                    name="Fasting Blood Glucose",
+                    value="110",
+                    unit="mg/dL",
+                    reference_range="70-99",
+                    confidence=0.95,
+                ),
+                ExtractedBiomarker(
+                    name="LDL Cholesterol",
+                    value="130",
+                    unit="mg/dL",
+                    reference_range="<100",
+                    confidence=0.94,
+                ),
+                ExtractedBiomarker(
+                    name="HDL Cholesterol",
+                    value="55",
+                    unit="mg/dL",
+                    reference_range=">40",
+                    confidence=0.93,
+                ),
+                ExtractedBiomarker(
+                    name="Triglycerides",
+                    value="150",
+                    unit="mg/dL",
+                    reference_range="<150",
+                    confidence=0.92,
+                ),
+                ExtractedBiomarker(
+                    name="Haemoglobin",
+                    value="13.5",
+                    unit="g/dL",
+                    reference_range="12-16",
+                    confidence=0.91,
+                ),
+                ExtractedBiomarker(
+                    name="Serum Creatinine",
+                    value="1.1",
+                    unit="mg/dL",
+                    reference_range="0.7-1.3",
+                    confidence=0.9,
+                ),
+                ExtractedBiomarker(
+                    name="Ketones",
+                    value="Negative",
+                    reference_range="Negative",
+                    confidence=0.89,
+                ),
+                ExtractedBiomarker(
+                    name="Not selected",
+                    value="1",
+                    unit="unit",
+                    confidence=0.8,
+                    selected=False,
+                ),
+            ],
+            overall_confidence=0.93,
+        )
+
+
 @pytest_asyncio.fixture
 async def storage() -> MemoryStorage:
     value = MemoryStorage()
@@ -79,6 +164,7 @@ def png_bytes() -> bytes:
 async def register_and_upload(
     client: AsyncClient,
     storage: MemoryStorage,
+    document_type: str = "prescription",
 ) -> tuple[dict[str, str], str]:
     register = await client.post(
         "/api/v1/auth/register",
@@ -88,8 +174,8 @@ async def register_and_upload(
     upload = await client.post(
         "/api/v1/documents/upload",
         headers=headers,
-        data={"document_type": "prescription"},
-        files={"file": ("prescription.png", png_bytes(), "image/png")},
+        data={"document_type": document_type},
+        files={"file": (f"{document_type}.png", png_bytes(), "image/png")},
     )
     assert upload.status_code == 201
     assert storage.objects
@@ -163,6 +249,91 @@ async def test_pipeline_extracts_flags_and_allows_confirmation(
         json={"job_id": job_id},
     )
     assert [item["id"] for item in repeated.json()] == [item["id"] for item in created_body]
+
+    wrong_route = await client.post(
+        "/api/v1/vitals/confirm-extracted",
+        headers=headers,
+        json={"job_id": job_id},
+    )
+    assert wrong_route.status_code == 422
+
+
+async def test_confirmed_lab_routes_normalized_biomarkers_to_vitals(
+    client: AsyncClient,
+    db_session: AsyncSession,
+    storage: MemoryStorage,
+) -> None:
+    headers, job_id = await register_and_upload(client, storage, "lab_report")
+    await process_document_job(
+        db=db_session,
+        job_id=UUID(job_id),
+        storage=storage,
+        ocr_provider=FixedLabOCR(),
+        extraction_provider=FixedLabExtractor(),
+    )
+    job_response = await client.get(f"/api/v1/jobs/{job_id}", headers=headers)
+    job_body = job_response.json()
+    assert job_body["status"] == "needs_review"
+
+    confirmation = await client.post(
+        f"/api/v1/jobs/{job_id}/confirm",
+        headers=headers,
+        json={"result": job_body["structured_result"]},
+    )
+    assert confirmation.status_code == 200
+    before_routing = await client.get("/api/v1/vitals", headers=headers)
+    assert before_routing.json() == []
+
+    routed = await client.post(
+        "/api/v1/vitals/confirm-extracted",
+        headers=headers,
+        json={"job_id": job_id},
+    )
+    assert routed.status_code == 200
+    body = routed.json()
+    assert len(body["biomarkers"]) == 8
+    assert len(body["vital_records"]) == 7
+    by_name = {item["normalized_name"]: item for item in body["biomarkers"]}
+    assert set(by_name) == {
+        "hba1c",
+        "fasting_glucose",
+        "ldl",
+        "hdl",
+        "triglycerides",
+        "hemoglobin",
+        "creatinine",
+        "ketones",
+    }
+    assert by_name["fasting_glucose"]["status"] == "high"
+    assert by_name["fasting_glucose"]["unit"] == "mg/dL"
+    assert by_name["fasting_glucose"]["reference_range_text"] == "70-99"
+    assert by_name["fasting_glucose"]["source_document_id"] == job_body["document_id"]
+    assert by_name["fasting_glucose"]["source_job_id"] == job_id
+    assert by_name["ketones"]["value_numeric"] is None
+
+    fasting_vital = next(
+        item for item in body["vital_records"] if item["metric_name"] == "Fasting glucose"
+    )
+    assert fasting_vital["metric_type"] == "blood_glucose"
+    assert fasting_vital["source"] == "lab_report"
+    assert fasting_vital["source_document_id"] == job_body["document_id"]
+    assert fasting_vital["source_job_id"] == job_id
+    assert fasting_vital["notes"] == "Reference range: 70-99"
+
+    repeated = await client.post(
+        "/api/v1/vitals/confirm-extracted",
+        headers=headers,
+        json={"job_id": job_id},
+    )
+    assert [item["id"] for item in repeated.json()["biomarkers"]] == [
+        item["id"] for item in body["biomarkers"]
+    ]
+    filtered = await client.get(
+        "/api/v1/vitals",
+        headers=headers,
+        params={"source": "lab_report"},
+    )
+    assert len(filtered.json()) == 7
 
 
 async def test_safety_flags_missing_frequency_and_low_confidence() -> None:

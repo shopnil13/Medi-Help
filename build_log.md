@@ -1,10 +1,10 @@
 # Medi-Help Build Log
 
-Last reviewed: 2026-07-15
+Last reviewed: 2026-07-19
 
 ## Current Status
 
-Medi-Help is implemented through **Phase 7: Health Chart & Manual Vitals Tracker**. Users can record supported vitals locally, inspect time-filtered Vico charts and provenance, and synchronize health history with the owner-scoped backend.
+Medi-Help is implemented through **Phase 8: Lab Report-to-Health Chart Automation**. Users can review and edit extracted lab values, confirm selected biomarkers, and immediately inspect chartable results with lab-report provenance in the Room-backed Health Chart.
 
 ## Completed Work
 
@@ -209,19 +209,46 @@ GET    /api/v1/reminders/adherence-summary
 - Current Vico 3 artifacts require compile SDK 36, while the project uses the supported AGP 8.6/SDK 35 toolchain. Pinning Vico to compatible release `2.2.0` and using its core model API preserved Compose-native charts without a broad toolchain upgrade.
 - The first Vico 2 compile exposed moved core axis/model imports and the older `lineSeries` API. Inspecting the resolved artifacts provided the exact package and function names; compilation then passed.
 
+### Phase 8 - Lab Report-to-Health Chart Automation
+
+#### Backend completed
+
+- Added `POST /api/v1/vitals/confirm-extracted` for owner-scoped confirmed lab jobs.
+- Added idempotent conversion of selected lab entries into provenance-linked biomarker records and chart-ready vital records.
+- Normalized HbA1c, fasting glucose, glucose, LDL, HDL, triglycerides, hemoglobin, and creatinine aliases while preserving unknown marker names.
+- Preserved original values, numeric values when available, units, reference ranges, confidence scores, source documents, and source processing jobs.
+- Added low, normal, high, and unknown reference-range status calculation without making diagnostic claims.
+- Routed numeric results with units into the existing Health Chart as blood-glucose or named custom metrics; textual results remain available as biomarker records.
+- Added a Phase 8 Alembic migration linking biomarkers and vital records to their source processing jobs.
+- Added end-to-end processing/API coverage for lab extraction, confirmation, selection filtering, normalization, provenance, status calculation, chart routing, source filtering, document-type rejection, and idempotent retries.
+
+#### Android completed
+
+- Added the confirmed-lab Retrofit contract and routed lab confirmation through the existing editable extraction review flow.
+- Cached returned chart-ready lab values in Room immediately after backend confirmation.
+- Added source processing-job provenance to the vital domain, network, and Room models with a version 4-to-5 migration.
+- Preserved source document references and the existing **Lab Report** source label and icon in Health Chart history.
+- Navigated successful lab imports directly to the updated Health Chart.
+- Added ViewModel unit coverage for editing, confirming, importing, and exposing lab-derived chart records.
+
+#### Incidents
+
+- The verification shell did not expose Java through `PATH` or `JAVA_HOME`. Pointing Gradle at Android Studio's bundled JDK restored unit-test, assembly, and lint execution.
+- Device-level lab upload, Room migration, and chart-navigation verification remains part of manual QA because no emulator or physical device was attached during this phase.
+
 ## Verification Snapshot
 
-Checks run on 2026-07-15:
+Checks run on 2026-07-19:
 
 | Check | Result |
 |---|---|
-| Backend pytest suite | Passed: 33 tests |
+| Backend pytest suite | Passed: 34 tests |
 | Backend Ruff lint | Passed |
-| Backend Black format check | Passed: 74 files unchanged |
+| Backend Black format check | Passed: 76 files unchanged |
 | Android debug APK assembly | Passed |
-| Android unit-test Gradle task | Passed: 7 tests |
+| Android unit-test Gradle task | Passed: 8 tests |
 | Android lint | Passed |
-| Alembic upgrade/downgrade chain | Passed through Phase 7 |
+| Alembic upgrade/downgrade chain | Passed through Phase 8 |
 | Docker Compose configuration | Passed |
 | Backend OCR Docker image | Not verified: package mirror timed out |
 
@@ -235,14 +262,15 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 - Manual vital entry, Room migration, chart interaction, and offline synchronization still need end-to-end verification on an emulator or physical device.
 - Backend CORS currently allows all origins and must be restricted before production.
 - Production OCR/LLM providers still need credentialed end-to-end verification with representative medical documents.
-- Lab routing, Health Connect, simplification, insights, and accessibility polish remain future phases.
+- Confirmed lab import, Room v5 migration, and automatic chart navigation still need end-to-end verification on an emulator or physical device with the backend running.
+- Health Connect, simplification, insights, and accessibility polish remain future phases.
 - Production deployment, monitoring, privacy documents, signed Android release builds, and beta distribution remain outstanding.
 
 ## Next Planned Milestone
 
-**Phase 8 - Lab Report-to-Health Chart Automation**
+**Phase 9 - Health Connect Integration**
 
-The next milestone is to normalize selected confirmed lab biomarkers, retain report provenance and reference ranges, and route them into the existing Room-backed Health Chart.
+The next milestone is to request minimal Health Connect permissions, import supported wearable records into Room, deduplicate synced measurements, and expose user-controlled synchronization settings.
 
 ## Build Timeline
 
@@ -257,3 +285,4 @@ The next milestone is to normalize selected confirmed lab biomarkers, retain rep
 | 2026-07-13 | Phase 5 OCR/extraction pipeline and editable Android review completed |
 | 2026-07-13 | Phase 6 prescription automation, Room import, and reminder controls completed |
 | 2026-07-15 | Phase 7 manual vitals, local synchronization, provenance, and charts completed |
+| 2026-07-19 | Phase 8 confirmed lab normalization, provenance, Room import, and chart routing completed |

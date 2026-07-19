@@ -66,8 +66,10 @@ private class FakeVitalRepository : VitalRepository {
         return Result.Success(Unit)
     }
 
+    override suspend fun importConfirmedLab(jobId: String): Result<List<VitalRecord>> =
+        Result.Error("Not used")
+
     override suspend fun refreshFromBackend() = Unit
 
     override suspend fun syncPendingChanges() = Unit
 }
-
