@@ -1,4 +1,57 @@
 <resources>
     <string name="app_name">Medi-Help</string>
     <string name="app_tagline">Your health, explained simply.</string>
+    <string name="app_logo_description">Medi-Help logo</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_log_in">Log in</string>
+    <string name="onboarding_create_account">Create account</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_greeting_morning">Good morning,</string>
+    <string name="dashboard_greeting_afternoon">Good afternoon,</string>
+    <string name="dashboard_greeting_evening">Good evening,</string>
+    <string name="dashboard_greeting_fallback_name">there</string>
+    <string name="dashboard_notifications">Notifications</string>
+    <string name="dashboard_open_settings">Settings</string>
+    <string name="dashboard_medicines_title">Today\'s Medicines</string>
+    <string name="dashboard_medicines_due">Due today</string>
+    <string name="dashboard_upload_title">Upload a Document</string>
+    <string name="dashboard_upload_subtitle">Add reports or prescription</string>
+    <string name="dashboard_vitals_title">Vitals Summary</string>
+    <string name="dashboard_vitals_view_chart">View chart</string>
+    <string name="dashboard_vitals_empty">No readings yet</string>
+    <string name="dashboard_tip_title">Simple Health Tip</string>
+    <string name="dashboard_tip_default">Drink enough water and take short walks every day.</string>
+    <string name="dashboard_tip_disclaimer">These tips are general suggestions, not a medical diagnosis.</string>
+
+    <!-- Vitals metric labels -->
+    <string name="vital_blood_pressure_short">BP</string>
+    <string name="vital_heart_rate_short">Heart Rate</string>
+    <string name="vital_glucose_short">Glucose</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_reminders">REMINDERS</string>
+    <string name="settings_section_health_connect">HEALTH CONNECT</string>
+    <string name="settings_section_about">ABOUT</string>
+    <string name="settings_section_account">ACCOUNT</string>
+    <string name="settings_notification_settings">Notification settings</string>
+    <string name="settings_notification_settings_subtitle">Reminder sounds and alerts</string>
+    <string name="settings_health_connect">Health Connect</string>
+    <string name="settings_health_connect_subtitle">Import readings from your devices</string>
+    <string name="settings_medical_disclaimer">Medical disclaimer</string>
+    <string name="settings_log_out">Log out</string>
+    <string name="settings_log_out_confirm_title">Log out?</string>
+    <string name="settings_log_out_confirm_message">You\'ll need to log in again to see your health information.</string>
+
+    <!-- Medical disclaimer: required safety copy, must not read as diagnosis. -->
+    <string name="medical_disclaimer_body">Medi-Help explains your medicines and health readings in plain language. It does not diagnose illness and is not a replacement for your doctor.\n\nAlways check with a doctor or pharmacist before changing how you take a medicine. If a reading looks unusual or you feel unwell, this may need medical attention. Please contact a doctor.</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_medicines">Medicines</string>
+    <string name="nav_vitals">Vitals</string>
+    <string name="nav_upload">Upload</string>
+    <string name="nav_tips">Tips</string>
 </resources>

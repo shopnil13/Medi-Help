@@ -28,6 +28,7 @@ import com.medihelp.app.feature_medications.presentation.screen.AddMedicationScr
 import com.medihelp.app.feature_medications.presentation.screen.MedicationDetailScreen
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
 import com.medihelp.app.feature_healthconnect.presentation.HealthConnectScreen
+import com.medihelp.app.feature_settings.presentation.SettingsScreen
 import com.medihelp.app.feature_vitals.presentation.screen.AddVitalScreen
 import com.medihelp.app.feature_vitals.presentation.screen.BiomarkerDetailScreen
 import com.medihelp.app.feature_vitals.presentation.screen.VitalDashboardScreen
@@ -68,6 +69,10 @@ fun AppNavGraph(
                             popUpTo(0) { inclusive = true }
                         }
                     },
+                    // Both header affordances lead to Settings: it is where
+                    // reminder/notification controls and the account live.
+                    onNotificationsClick = { navController.navigate(Routes.SETTINGS) },
+                    onProfileClick = { navController.navigate(Routes.SETTINGS) },
                     onViewMedicinesClick = {
                         navController.navigate(Routes.MEDICATIONS) {
                             popUpTo(Routes.DASHBOARD)
@@ -115,6 +120,18 @@ fun AppNavGraph(
 
         composable(Routes.HEALTH_CONNECT) {
             HealthConnectScreen(onBackClick = { navController.popBackStack() })
+        }
+
+        composable(Routes.SETTINGS) {
+            SettingsScreen(
+                onBackClick = { navController.popBackStack() },
+                onHealthConnectClick = { navController.navigate(Routes.HEALTH_CONNECT) },
+                onLoggedOut = {
+                    navController.navigate(Routes.ONBOARDING) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                },
+            )
         }
 
         composable(

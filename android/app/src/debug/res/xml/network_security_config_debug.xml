@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <!-- Debug-only: allows plain HTTP to the emulator's host-loopback alias
-         and the local dev machine, since the local FastAPI server has no
-         TLS. Never merged into release builds (see AndroidManifest.xml in
-         this same debug source set). -->
-    <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="false">10.0.2.2</domain>
-        <domain includeSubdomains="false">localhost</domain>
-    </domain-config>
-    <base-config cleartextTrafficPermitted="false" />
+    <!--
+      DEBUG SOURCE SET ONLY. This file lives in src/debug and is referenced by
+      src/debug/AndroidManifest.xml, so it is never merged into a release build
+      (src/main declares no networkSecurityConfig, leaving the platform default
+      of cleartext-blocked on API 28+).
+
+      A local FastAPI dev server has no TLS, and its address differs per setup:
+      10.0.2.2 on an emulator, 127.0.0.1 for a USB device behind
+      `adb reverse tcp:8000 tcp:8000`, or a LAN IP over Wi-Fi. Enumerating those
+      hosts is what previously broke device testing — a valid dev address simply
+      was not on the list, and the failure surfaced only as a generic network
+      error. Permitting cleartext for debug builds covers every local setup
+      without weakening release traffic.
+    -->
+    <base-config cleartextTrafficPermitted="true" />
 </network-security-config>

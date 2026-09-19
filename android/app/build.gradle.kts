@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,6 +7,32 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+}
+
+// Where the debug build looks for the FastAPI backend. Resolution order lets a
+// developer point at their own host without editing tracked files:
+//   1. `medihelp.apiBaseUrl` in local.properties (gitignored, per machine)
+//   2. `-Pmedihelp.apiBaseUrl=...` or the same key in gradle.properties
+//   3. the emulator default below
+// Physical device over USB: run `adb reverse tcp:8000 tcp:8000` and set this to
+// http://127.0.0.1:8000/. Same-Wi-Fi device: use the host's LAN IP.
+val debugApiBaseUrl: String = run {
+    val fromLocalProperties = rootProject.file("local.properties")
+        .takeIf { it.exists() }
+        ?.let { file -> Properties().apply { file.inputStream().use(::load) } }
+        ?.getProperty("medihelp.apiBaseUrl")
+        ?.takeIf { it.isNotBlank() }
+
+    val resolved = fromLocalProperties
+        ?: (project.findProperty("medihelp.apiBaseUrl") as String?)?.takeIf { it.isNotBlank() }
+        ?: "http://10.0.2.2:8000/"
+
+    // Retrofit rejects a base URL without a trailing slash at runtime. Failing
+    // the build here turns a crash on first request into a clear build error.
+    require(resolved.endsWith("/")) {
+        "medihelp.apiBaseUrl must end with '/' (was: $resolved)"
+    }
+    resolved
 }
 
 android {
@@ -19,9 +47,6 @@ android {
         versionName = "0.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        // Android emulator's alias for the host machine's localhost.
-        buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8000/\"")
     }
 
     buildTypes {
@@ -31,9 +56,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+            // Release traffic is HTTPS-only; cleartext stays blocked by the
+            // platform default since no debug network config is merged here.
+            buildConfigField("String", "API_BASE_URL", "\"https://api.medi-help.app/\"")
         }
         debug {
             isMinifyEnabled = false
+            buildConfigField("String", "API_BASE_URL", "\"$debugApiBaseUrl\"")
         }
     }
 

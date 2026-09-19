@@ -28,6 +28,7 @@ class AuthRepositoryImpl @Inject constructor(
         tokenStorage.saveTokens(tokens.accessToken, tokens.refreshToken)
         val user = authApi.getCurrentUser()
         userPreferencesDataStore.setDisplayName(user.fullName)
+        userPreferencesDataStore.setEmailAddress(user.email)
         user.fullName
     }.fold(
         onSuccess = { Result.Success(it) },
@@ -39,6 +40,7 @@ class AuthRepositoryImpl @Inject constructor(
         tokenStorage.saveTokens(tokens.accessToken, tokens.refreshToken)
         val user = authApi.getCurrentUser()
         userPreferencesDataStore.setDisplayName(user.fullName)
+        userPreferencesDataStore.setEmailAddress(user.email)
         user.fullName
     }.fold(
         onSuccess = { Result.Success(it) },

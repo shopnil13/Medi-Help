@@ -294,6 +294,50 @@ GET    /api/v1/reminders/adherence-summary
 - The first safety-filter test treated “after you have not eaten” as a diagnosis claim because the `you have` pattern was too broad. Restricting the rule to named condition claims preserved safe fasting-glucose text while continuing to remove statements such as “you have diabetes.”
 - Medicine and biomarker explanation rendering, Room v6 migration, and chart-to-detail navigation still require device-level QA because no emulator or physical Android device was attached.
 
+### Design Alignment & First Device Run
+
+First run on a physical device (Huawei HW-01K, Android 9), verified against the
+mockups in `Resources/` and the tokens in `Resources/_ds/`.
+
+#### Fixed
+
+- Debug builds could not reach the backend from a physical device. The base URL
+  was hard-coded to the emulator alias `10.0.2.2`, and the debug cleartext
+  whitelist named only `10.0.2.2` and `localhost`, so `127.0.0.1` over
+  `adb reverse` was blocked by network-security policy.
+- `medihelp.apiBaseUrl` now resolves from `local.properties`, then a Gradle
+  property, then the emulator default, and the build fails fast if it lacks the
+  trailing slash Retrofit requires. Debug cleartext is permitted for the debug
+  source set as a whole rather than per host; release remains HTTPS-only.
+- Network failures surfaced only as "check your internet connection". Debug
+  builds now log the underlying exception type and message — never a response
+  body, which can carry medical data.
+- The dashboard never refreshed from the backend, so medicine counts and vitals
+  stayed empty until the user opened another tab. It now refreshes both
+  repositories on open.
+- Typography fell back to Roboto. Manrope and Public Sans now ship as variable
+  fonts under `res/font`, with their OFL licenses in `app/licenses/`.
+- Bottom-navigation labels wrapped mid-word ("Medicine/s"); vitals labels
+  collided with their values in the half-width summary card.
+
+#### Added
+
+- The brand logomark, generated into five density buckets from
+  `Resources/logo.png`.
+- The layered wave motif from the onboarding mockup, drawn on a Compose canvas
+  as flat overlapping bands so it scales without a bitmap.
+- A 2x2 dashboard grid matching the mockup: doses due today, upload entry,
+  vitals summary, and a health tip carrying the required non-diagnostic hedge.
+- A time-of-day greeting and an initial-based avatar, since the brand supplies
+  no photography.
+- A Settings screen with the profile, notification settings, Health Connect,
+  the medical disclaimer, and log out. The mockup's accessibility, app-lock and
+  biometric toggles are deliberately omitted until something backs them.
+- Pure domain helpers for dose counting, vitals summarising and greeting
+  selection, with 19 new unit tests. Blood pressure is only reported when
+  systolic and diastolic share a timestamp, so an unpaired value is never shown
+  beside an unrelated one.
+
 ## Verification Snapshot
 
 Checks run on 2026-07-19:
@@ -314,6 +358,10 @@ The backend tests required `DEBUG=false` to override the current local `.env` va
 
 ## Known Gaps
 
+- The dashboard health tip is static copy; generated tips and the "Tips"
+  destination in the mockup's bottom navigation arrive with Phase 11.
+- Settings still needs real accessibility, app-lock and biometric controls
+  before those rows can appear.
 - Android repository, Room DAO, reminder, camera, and Compose UI coverage remains to be added.
 - Camera capture and multipart upload still need end-to-end verification on an emulator or physical device with the backend running.
 - Prescription import and alarm toggling still need end-to-end verification on an emulator or physical device with the backend running.

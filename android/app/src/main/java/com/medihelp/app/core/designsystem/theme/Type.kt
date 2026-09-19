@@ -1,17 +1,40 @@
 package com.medihelp.app.core.designsystem.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontVariation
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.medihelp.app.R
 
-// The brand's own design system substitutes Manrope/Public Sans via a Google
-// Fonts CDN import since no brand font files exist yet (see Resources/_ds
-// readme.md "Font substitution notice"). Mirroring that here, this theme uses
-// the system default family until real font files can be bundled under res/font.
-private val DisplayFontFamily = FontFamily.Default
-private val BodyFontFamily = FontFamily.Default
+// Manrope (display) and Public Sans (body) are the brand's substitute pairing
+// (Resources/_ds readme.md, "Font substitution notice"). Both ship as variable
+// fonts, so each weight below is one instance of the same file with the wght
+// axis pinned — supported from API 26, which matches minSdk. Licenses are kept
+// in app/licenses/.
+@OptIn(ExperimentalTextApi::class)
+private fun brandFont(resourceId: Int, weight: Int) = Font(
+    resId = resourceId,
+    weight = FontWeight(weight),
+    variationSettings = FontVariation.Settings(FontVariation.weight(weight)),
+)
+
+private val DisplayFontFamily = FontFamily(
+    brandFont(R.font.manrope_variable, 500),
+    brandFont(R.font.manrope_variable, 600),
+    brandFont(R.font.manrope_variable, 700),
+    brandFont(R.font.manrope_variable, 800),
+)
+
+private val BodyFontFamily = FontFamily(
+    brandFont(R.font.public_sans_variable, 400),
+    brandFont(R.font.public_sans_variable, 500),
+    brandFont(R.font.public_sans_variable, 600),
+    brandFont(R.font.public_sans_variable, 700),
+)
 
 // Type scale mirrors tokens/typography.css. Never go below 16sp anywhere.
 val MediHelpTypography = Typography(
@@ -57,17 +80,29 @@ val MediHelpTypography = Typography(
         fontSize = 16.sp,
         lineHeight = 23.sp,
     ),
+    // Buttons and bottom-navigation labels read as display type in the mockups.
     labelLarge = TextStyle(
-        fontFamily = BodyFontFamily,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 16.sp,
-        lineHeight = 20.sp,
+        fontFamily = DisplayFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp,
+        lineHeight = 22.sp,
     ),
     labelMedium = TextStyle(
-        fontFamily = BodyFontFamily,
-        fontWeight = FontWeight.Medium,
+        fontFamily = DisplayFontFamily,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 15.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.9.sp,
+    ),
+    // Bottom-navigation labels only. The 16sp floor in tokens/typography.css
+    // governs readable content; a nav label is a short word paired with an
+    // icon, and at 15sp "Medicines" no longer fits a quarter of a 1080px
+    // screen and truncates to "Medicin…", which is worse for legibility than
+    // one step down.
+    labelSmall = TextStyle(
+        fontFamily = DisplayFontFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 18.sp,
     ),
 )
