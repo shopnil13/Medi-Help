@@ -12,6 +12,7 @@ object Routes {
     const val ADD_VITAL = "add_vital"
     const val HEALTH_CONNECT = "health_connect"
     const val BIOMARKER_DETAIL = "biomarker_detail/{biomarkerId}"
+    const val TIPS = "tips"
     const val SETTINGS = "settings"
     const val UPLOAD_DOCUMENT = "upload_document"
     const val DOCUMENT_CAMERA = "document_camera"

@@ -67,6 +67,15 @@ val MediHelpTypography = Typography(
         fontSize = 17.sp,
         lineHeight = 22.sp,
     ),
+    // Dashboard card headings. The reference home screen keeps each on one
+    // line; this device is 360dp wide against the mockup's ~412dp, so the
+    // heading needs a step below titleLarge to survive the narrower card.
+    titleMedium = TextStyle(
+        fontFamily = DisplayFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp,
+        lineHeight = 19.sp,
+    ),
     bodyLarge = TextStyle(
         fontFamily = BodyFontFamily,
         fontWeight = FontWeight.Normal,

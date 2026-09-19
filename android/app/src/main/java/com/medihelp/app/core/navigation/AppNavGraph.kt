@@ -29,6 +29,7 @@ import com.medihelp.app.feature_medications.presentation.screen.MedicationDetail
 import com.medihelp.app.feature_medications.presentation.screen.MedicationListScreen
 import com.medihelp.app.feature_healthconnect.presentation.HealthConnectScreen
 import com.medihelp.app.feature_settings.presentation.SettingsScreen
+import com.medihelp.app.feature_tips.presentation.TipsScreen
 import com.medihelp.app.feature_vitals.presentation.screen.AddVitalScreen
 import com.medihelp.app.feature_vitals.presentation.screen.BiomarkerDetailScreen
 import com.medihelp.app.feature_vitals.presentation.screen.VitalDashboardScreen
@@ -120,6 +121,12 @@ fun AppNavGraph(
 
         composable(Routes.HEALTH_CONNECT) {
             HealthConnectScreen(onBackClick = { navController.popBackStack() })
+        }
+
+        composable(Routes.TIPS) {
+            MainTabScaffold(navController = navController, selectedTab = BottomNavTab.TIPS) {
+                TipsScreen()
+            }
         }
 
         composable(Routes.SETTINGS) {
@@ -237,6 +244,7 @@ private fun MainTabScaffold(
                         BottomNavTab.MEDICINES -> Routes.MEDICATIONS
                         BottomNavTab.VITALS -> Routes.VITALS
                         BottomNavTab.DOCUMENTS -> Routes.UPLOAD_DOCUMENT
+                        BottomNavTab.TIPS -> Routes.TIPS
                     }
                     if (tab != selectedTab) {
                         navController.navigate(route) {

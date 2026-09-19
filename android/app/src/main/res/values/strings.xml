@@ -30,6 +30,17 @@
     <string name="vital_heart_rate_short">Heart Rate</string>
     <string name="vital_glucose_short">Glucose</string>
 
+    <!-- Tips -->
+    <string name="tips_title">Health Tips</string>
+    <string name="tips_intro">Small habits that help most people stay well.</string>
+    <string name="tips_water">Drink enough water and take short walks every day.</string>
+    <string name="tips_routine">Take your medicines at the same time each day. A routine is easier to remember.</string>
+    <string name="tips_records">Keep your prescriptions and lab reports in one place so nothing gets lost.</string>
+    <string name="tips_movement">If you sit for a long time, stand up and stretch once an hour.</string>
+    <string name="tips_food">Try to eat vegetables or fruit with most meals.</string>
+    <string name="tips_sleep">Go to bed and wake up at around the same time each day.</string>
+    <string name="tips_questions">Write down questions before a doctor visit so you remember to ask them.</string>
+
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_section_reminders">REMINDERS</string>

@@ -1,5 +1,6 @@
 package com.medihelp.app.feature_dashboard.presentation.screen
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,7 @@ import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.Medication
 import androidx.compose.material.icons.outlined.MonitorHeart
 import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.material.icons.outlined.Spa
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -46,6 +48,7 @@ import com.medihelp.app.core.designsystem.theme.MediHelpRadius
 import com.medihelp.app.core.designsystem.theme.MediHelpSpacing
 import com.medihelp.app.core.designsystem.theme.Red600
 import com.medihelp.app.core.designsystem.theme.Red800
+import com.medihelp.app.core.designsystem.theme.StatusSuccess
 import com.medihelp.app.feature_dashboard.domain.DayGreeting
 import com.medihelp.app.feature_dashboard.presentation.viewmodel.DashboardViewModel
 import com.medihelp.app.feature_vitals.domain.model.VitalReading
@@ -53,6 +56,7 @@ import com.medihelp.app.feature_vitals.domain.model.VitalsSummary
 
 private val AvatarSize = 44.dp
 private val CardIconSize = 28.dp
+private val CardPadding = 12.dp
 
 @Composable
 fun DashboardScreen(
@@ -209,14 +213,24 @@ private fun DashboardCard(
 ) {
     val colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     val shape = RoundedCornerShape(MediHelpRadius.lg)
+    // The reference outlines each card with a single soft warm border instead
+    // of resting it on a shadow.
+    val border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    val innerPadding = Modifier.padding(CardPadding)
 
     if (onClick == null) {
-        Card(modifier = modifier, shape = shape, colors = colors) {
-            Column(modifier = Modifier.padding(MediHelpSpacing.space4), content = content)
+        Card(modifier = modifier, shape = shape, colors = colors, border = border) {
+            Column(modifier = innerPadding, content = content)
         }
     } else {
-        Card(onClick = onClick, modifier = modifier, shape = shape, colors = colors) {
-            Column(modifier = Modifier.padding(MediHelpSpacing.space4), content = content)
+        Card(
+            onClick = onClick,
+            modifier = modifier,
+            shape = shape,
+            colors = colors,
+            border = border,
+        ) {
+            Column(modifier = innerPadding, content = content)
         }
     }
 }
@@ -231,16 +245,12 @@ private fun CardIcon(icon: ImageVector) {
     )
 }
 
-/**
- * Card heading. These sit in half-width columns where the large accessible type
- * size leaves little room, so breaking is constrained to whole words.
- */
+/** Card heading, sized to stay on one line in a half-width card. */
 @Composable
 private fun CardTitle(text: String) {
     Text(
         text = text,
-        style = MaterialTheme.typography.titleLarge,
-        softWrap = true,
+        style = MaterialTheme.typography.titleMedium,
         overflow = TextOverflow.Ellipsis,
         maxLines = 2,
     )
@@ -252,7 +262,12 @@ private fun CardTitle(text: String) {
  * target, and it already carries the label screen readers announce.
  */
 @Composable
-private fun CardAction(label: String? = null) {
+private fun CardAction(
+    label: String? = null,
+    // The reference styles a caption that names its destination ("View chart")
+    // as a link, while a plain status caption ("Due today") stays muted.
+    isLink: Boolean = false,
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -260,7 +275,9 @@ private fun CardAction(label: String? = null) {
         Text(
             text = label.orEmpty(),
             style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontWeight = if (isLink) FontWeight.Bold else FontWeight.Normal,
+            color = if (isLink) Red800 else MaterialTheme.colorScheme.onSurfaceVariant,
+            maxLines = 1,
             modifier = Modifier.weight(1f),
         )
         Icon(
@@ -319,11 +336,13 @@ private fun VitalsSummaryCard(
     modifier: Modifier = Modifier,
 ) {
     DashboardCard(onClick = onClick, modifier = modifier) {
-        // Icon above the title, like the other cards: sharing the row with the
-        // icon left too little width and broke "Summary" across two lines.
-        CardIcon(Icons.Outlined.MonitorHeart)
-        Spacer(Modifier.height(MediHelpSpacing.space3))
-        CardTitle(stringResource(R.string.dashboard_vitals_title))
+        // The reference sets this card's icon beside its heading rather than
+        // above it, letting the heading wrap to two lines next to the icon.
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            CardIcon(Icons.Outlined.MonitorHeart)
+            Spacer(Modifier.size(MediHelpSpacing.space2))
+            CardTitle(stringResource(R.string.dashboard_vitals_title))
+        }
         Spacer(Modifier.height(MediHelpSpacing.space3))
 
         if (summary.hasAnyReading) {
@@ -338,16 +357,16 @@ private fun VitalsSummaryCard(
             )
         }
 
-        Spacer(Modifier.height(MediHelpSpacing.space3))
-        CardAction(stringResource(R.string.dashboard_vitals_view_chart))
+        CardAction(
+            label = stringResource(R.string.dashboard_vitals_view_chart),
+            isLink = true,
+        )
     }
 }
 
 /**
- * Label above value rather than beside it. In a half-width card the accessible
- * type size leaves roughly 124dp of content width, which is not enough for
- * "Heart Rate" and "72 bpm" on one line — side by side, the label wrapped and
- * collided with the number.
+ * One metric: name on the left, value and unit pushed to the right, as the
+ * reference lays them out.
  */
 @Composable
 private fun VitalRow(
@@ -355,10 +374,11 @@ private fun VitalRow(
     reading: VitalReading?,
 ) {
     if (reading == null) return
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = MediHelpSpacing.space3),
+        verticalAlignment = Alignment.Bottom,
     ) {
         Text(
             text = label,
@@ -366,21 +386,23 @@ private fun VitalRow(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(1f, fill = true),
         )
-        Row(verticalAlignment = Alignment.Bottom) {
-            Text(
-                text = reading.displayValue,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-            Spacer(Modifier.size(MediHelpSpacing.space1))
-            Text(
-                text = reading.unit,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
+        Spacer(Modifier.size(MediHelpSpacing.space1))
+        Text(
+            text = reading.displayValue,
+            style = MaterialTheme.typography.bodyLarge,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurface,
+            maxLines = 1,
+        )
+        Spacer(Modifier.size(MediHelpSpacing.space1))
+        Text(
+            text = reading.unit,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            maxLines = 1,
+        )
     }
 }
 
@@ -388,7 +410,15 @@ private fun VitalRow(
 private fun HealthTipCard(modifier: Modifier = Modifier) {
     DashboardCard(onClick = null, modifier = modifier) {
         CardTitle(stringResource(R.string.dashboard_tip_title))
-        Spacer(Modifier.height(MediHelpSpacing.space3))
+        Spacer(Modifier.height(MediHelpSpacing.space2))
+        // Green sprig under the heading, as in the reference.
+        Icon(
+            imageVector = Icons.Outlined.Spa,
+            contentDescription = null,
+            tint = StatusSuccess,
+            modifier = Modifier.size(MediHelpSpacing.space5),
+        )
+        Spacer(Modifier.height(MediHelpSpacing.space2))
         Text(
             text = stringResource(R.string.dashboard_tip_default),
             style = MaterialTheme.typography.bodyMedium,
