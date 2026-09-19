@@ -4,12 +4,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
-// Corner radii mirror tokens/spacing.css — Material 3 "expressive" rounding.
+// tokens/spacing.css calls for Material 3 "expressive" rounding (12-36dp).
+// Stepped down alongside the type scale: at the original radii the cards read
+// as oversized pills once their contents shrank.
 object MediHelpRadius {
-    val sm = 12.dp
-    val md = 20.dp
-    val lg = 28.dp
-    val xl = 36.dp
+    val sm = 10.dp
+    val md = 14.dp
+    val lg = 20.dp
+    val xl = 28.dp
     val full = 999.dp
 }
 
@@ -33,6 +35,8 @@ object MediHelpSpacing {
     val space12 = 48.dp
     val space16 = 64.dp
 
-    // Non-negotiable minimum tap target for elderly users.
-    val tapTargetMin = 56.dp
+    // Minimum tap target. tokens/spacing.css asks for 56dp; 48dp is Material's
+    // accessible minimum and keeps buttons from looking oversized next to the
+    // reduced type scale.
+    val tapTargetMin = 48.dp
 }

@@ -51,8 +51,8 @@ import com.medihelp.app.feature_dashboard.presentation.viewmodel.DashboardViewMo
 import com.medihelp.app.feature_vitals.domain.model.VitalReading
 import com.medihelp.app.feature_vitals.domain.model.VitalsSummary
 
-private val AvatarSize = 56.dp
-private val CardIconSize = 36.dp
+private val AvatarSize = 44.dp
+private val CardIconSize = 28.dp
 
 @Composable
 fun DashboardScreen(

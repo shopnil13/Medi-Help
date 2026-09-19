@@ -30,7 +30,7 @@ import com.medihelp.app.core.designsystem.components.MediHelpSecondaryButton
 import com.medihelp.app.core.designsystem.theme.MediHelpSpacing
 import com.medihelp.app.core.designsystem.theme.Red900
 
-private val LogoSize = 140.dp
+private val LogoSize = 112.dp
 private val WaveFooterHeight = 190.dp
 
 @Composable

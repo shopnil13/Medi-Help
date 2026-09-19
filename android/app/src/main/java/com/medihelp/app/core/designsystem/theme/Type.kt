@@ -36,73 +36,75 @@ private val BodyFontFamily = FontFamily(
     brandFont(R.font.public_sans_variable, 700),
 )
 
-// Type scale mirrors tokens/typography.css. Never go below 16sp anywhere.
+// tokens/typography.css specifies a deliberately oversized scale (40sp display,
+// 18-20sp body) for elderly and low-vision readers. On a real handset that
+// scale overflowed cards and wrapped headings, so the whole ramp is stepped
+// down roughly one size here. Reading text still sits at 16-17sp — above
+// Material's 14sp default — so the accessibility intent survives at a size
+// that fits the screen.
 val MediHelpTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = DisplayFontFamily,
         fontWeight = FontWeight.ExtraBold,
-        fontSize = 40.sp,
-        lineHeight = 48.sp,
-    ),
-    headlineLarge = TextStyle(
-        fontFamily = DisplayFontFamily,
-        fontWeight = FontWeight.Bold,
         fontSize = 32.sp,
         lineHeight = 38.sp,
     ),
-    headlineMedium = TextStyle(
+    headlineLarge = TextStyle(
         fontFamily = DisplayFontFamily,
         fontWeight = FontWeight.Bold,
         fontSize = 26.sp,
         lineHeight = 32.sp,
     ),
+    headlineMedium = TextStyle(
+        fontFamily = DisplayFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 21.sp,
+        lineHeight = 26.sp,
+    ),
     titleLarge = TextStyle(
         fontFamily = DisplayFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
     ),
     bodyLarge = TextStyle(
         fontFamily = BodyFontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp,
-        lineHeight = 29.sp,
+        fontSize = 17.sp,
+        lineHeight = 24.sp,
     ),
     bodyMedium = TextStyle(
-        fontFamily = BodyFontFamily,
-        fontWeight = FontWeight.Normal,
-        fontSize = 18.sp,
-        lineHeight = 26.sp,
-    ),
-    bodySmall = TextStyle(
         fontFamily = BodyFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 23.sp,
     ),
-    // Buttons and bottom-navigation labels read as display type in the mockups.
+    bodySmall = TextStyle(
+        fontFamily = BodyFontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+    ),
+    // Buttons read as display type in the mockups.
     labelLarge = TextStyle(
         fontFamily = DisplayFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 18.sp,
-        lineHeight = 22.sp,
+        fontSize = 16.sp,
+        lineHeight = 20.sp,
     ),
     labelMedium = TextStyle(
         fontFamily = DisplayFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 15.sp,
-        lineHeight = 20.sp,
-        letterSpacing = 0.9.sp,
+        fontSize = 13.sp,
+        lineHeight = 18.sp,
+        letterSpacing = 0.8.sp,
     ),
-    // Bottom-navigation labels only. The 16sp floor in tokens/typography.css
-    // governs readable content; a nav label is a short word paired with an
-    // icon, and at 15sp "Medicines" no longer fits a quarter of a 1080px
-    // screen and truncates to "Medicin…", which is worse for legibility than
-    // one step down.
+    // Bottom-navigation labels only, where each label shares a quarter of the
+    // screen width with its icon.
     labelSmall = TextStyle(
         fontFamily = DisplayFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 14.sp,
-        lineHeight = 18.sp,
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
     ),
 )

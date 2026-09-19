@@ -56,7 +56,7 @@ import com.medihelp.app.core.designsystem.theme.MediHelpSpacing
 import com.medihelp.app.core.designsystem.theme.Red600
 import com.medihelp.app.core.designsystem.theme.Red800
 
-private val AvatarSize = 56.dp
+private val AvatarSize = 44.dp
 
 /**
  * Settings intentionally lists only actions that are actually wired up. The
